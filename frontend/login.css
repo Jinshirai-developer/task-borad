@@ -17,7 +17,7 @@ button:disabled { cursor:wait; opacity:.6; }
 .login-project-label { display:flex; align-items:center; gap:7px; color:var(--login-muted); font-size:11px; letter-spacing:.03em; }
 .login-project-label > span { width:6px; height:6px; background:#749477; border-radius:50%; }
 .login-layout { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(350px,.88fr); overflow:hidden; background:#fff; border:1px solid #fff; border-radius:26px; box-shadow:0 18px 70px #2c48350a,0 2px 8px #2c483505; }
-.login-welcome { display:flex; flex-direction:column; justify-content:space-between; min-width:0; padding:40px 40px 32px; background:radial-gradient(ellipse at 80% 65%,#dfebd8,transparent 65%),#eef2e8; position:relative; }
+.login-welcome { display:flex; flex-direction:column; justify-content:flex-start; min-width:0; padding:40px 40px 32px; background:radial-gradient(ellipse at 80% 65%,#dfebd8,transparent 65%),#eef2e8; position:relative; }
 .welcome-eyebrow { display:inline-flex; align-items:center; gap:8px; margin:0 0 17px; color:#536c58; font-size:11px; font-weight:600; letter-spacing:.1em; }
 .welcome-eyebrow::before { content:""; width:18px; height:1px; background:currentColor; }
 .welcome-copy h1 { font-size:clamp(32px,3.4vw,43px); line-height:1.5; font-weight:750; letter-spacing:-.04em; margin:0 0 16px; }
@@ -67,7 +67,7 @@ button:disabled { cursor:wait; opacity:.6; }
 .pet-nameplate { position:absolute; bottom:-8px; right:8px; display:flex; align-items:center; gap:6px; padding:5px 12px; border:1px solid #edeada; border-radius:20px; background:#fffdf5; font-size:9px; color:#7c7b58; transform:rotate(3deg); }
 .pet-nameplate i { width:5px; height:5px; border-radius:50%; background:#a2af77; }
 .welcome-preview figcaption { position:absolute; top:-17px; right:1px; color:#849080; font-size:9px; letter-spacing:.08em; }
-.welcome-features { display:grid; grid-template-columns:1fr 1fr; gap:18px; padding-top:21px; border-top:1px solid #d9e2d3; }
+.welcome-features { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:auto; padding-top:21px; border-top:1px solid #d9e2d3; }
 .welcome-features > div { display:flex; align-items:center; gap:10px; }
 .feature-icon { width:32px; height:32px; flex:0 0 auto; display:grid; place-items:center; border:1px solid #d7e1d0; border-radius:9px; background:#f5f7ef; color:#6f8a68; }
 .feature-icon svg { width:19px; height:19px; }
