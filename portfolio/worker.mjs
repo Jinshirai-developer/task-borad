@@ -33,7 +33,7 @@ export function createWorker(config, textFiles, objects) {
         return values.length === 1 && values[0] === reviewCookieName + '=' + reviewToken;
     }
     function appCookie(cookie) {
-        return /^(?:__Host-TaskBoard\.(?:Auth|Csrf|External)|\.AspNetCore\.Correlation\.[A-Za-z0-9_.-]+)=/.test(cookie.trim());
+        return /^(?:__Host-TaskBoard\.(?:Auth|Csrf|External)(?:C[1-9]\d*)?|\.AspNetCore\.Correlation\.[A-Za-z0-9_.-]+)=/.test(cookie.trim());
     }
     function appPath(pathname) {
         return ['/', '/signin-google', '/health', '/health/ready'].includes(pathname)

@@ -70,24 +70,27 @@ test('Mac proxy forwards only app cookies and trusted gateway headers, preservin
     globalThis.fetch=async(url,options)=>{
         seen={url,options};
         const headers=new Headers({'Content-Type':'application/json','Content-Security-Policy':"connect-src 'self'"});
-        headers.append('Set-Cookie','__Host-TaskBoard.Auth=new; Path=/; Secure; HttpOnly');
+        headers.append('Set-Cookie','__Host-TaskBoard.Auth=chunks-2; Path=/; Secure; HttpOnly');
+        headers.append('Set-Cookie','__Host-TaskBoard.AuthC1=first; Path=/; Secure; HttpOnly');
+        headers.append('Set-Cookie','__Host-TaskBoard.AuthC2=second; Path=/; Secure; HttpOnly');
         headers.append('Set-Cookie','unrelated_platform_session=private; Secure');
         return new Response('{"ok":true}',{headers});
     };
     try{
         const r=await call('/api/auth/login',{method:'POST',headers:{
-            Cookie:access+'; __Host-TaskBoard.Csrf=csrf; site_session=private',
+            Cookie:access+'; __Host-TaskBoard.Csrf=csrf; __Host-TaskBoard.ExternalC1=external; site_session=private',
             'Content-Type':'application/json','X-CSRF-TOKEN':'csrf-token','Origin':'https://site.test',
             'X-TaskBoard-Proxy-Key':'forged','X-TaskBoard-Client-IP':'forged','CF-Connecting-IP':'203.0.113.5'
         },body:'{"userKey":"reviewer"}'});
         assert.equal(r.status,200);assert.equal(seen.url,'https://upstream.example.test/api/auth/login');
-        assert.equal(seen.options.headers.get('Cookie'),'__Host-TaskBoard.Csrf=csrf');
+        assert.equal(seen.options.headers.get('Cookie'),'__Host-TaskBoard.Csrf=csrf; __Host-TaskBoard.ExternalC1=external');
         assert.equal(seen.options.headers.get('X-CSRF-TOKEN'),'csrf-token');
         assert.equal(seen.options.headers.get('X-TaskBoard-Proxy-Key'),'server-secret');
         assert.equal(seen.options.headers.get('X-TaskBoard-Client-IP'),'203.0.113.5');
         assert.equal(seen.options.redirect,'manual');
         assert.equal(await new Response(seen.options.body).text(),'{"userKey":"reviewer"}');
-        assert.equal(r.headers.getSetCookie().length,1);assert.match(r.headers.getSetCookie()[0],/^__Host-TaskBoard.Auth=/);
+        assert.equal(r.headers.getSetCookie().length,3);assert.match(r.headers.getSetCookie()[0],/^__Host-TaskBoard.Auth=/);
+        assert.match(r.headers.getSetCookie()[1],/^__Host-TaskBoard.AuthC1=/);assert.match(r.headers.getSetCookie()[2],/^__Host-TaskBoard.AuthC2=/);
         assert.equal(r.headers.get('Content-Security-Policy'),"connect-src 'self'");
         assert.equal(r.headers.get('Cache-Control'),'no-store');
         assert.equal((await call('/api/auth/login',{method:'POST',headers:{Cookie:access,Origin:'https://other.test'}})).status,403);
