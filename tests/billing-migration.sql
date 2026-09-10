@@ -6,7 +6,7 @@ END $guard$;
 INSERT INTO user_profiles (id,user_key,display_name,"UserName","NormalizedUserName","SessionVersion",created_at,updated_at)
 SELECT 8900+i,'billing-fixture-'||i,'Billing fixture '||i,'billing-fixture-'||i,'BILLING-FIXTURE-'||i,gen_random_uuid()::text,now(),now() FROM generate_series(1,4) i;
 INSERT INTO teams ("Id","Name","OwnerUserProfileId","InviteCodeHash","InviteExpiresAt","CreatedAt")
-VALUES (8901,'Keep existing four members',8901,repeat('b',64),now()+interval '7 days',now());
+VALUES (8901,'Keep existing four members',8901,md5('billing-migration:8901:a')||md5('billing-migration:8901:b'),now()+interval '7 days',now());
 INSERT INTO team_members ("TeamId","UserProfileId","JoinedAt") SELECT 8901,8900+i,now() FROM generate_series(1,4) i;
 INSERT INTO tasks (id,user_profile_id,team_id,title,is_completed,"Status",created_at,updated_at,checklist_json,companion_json)
 VALUES (8901,8901,8901,'Keep shared task',false,1,now(),now(),'[{"text":"Keep checklist","isCompleted":false}]','{"notes":[]}');
