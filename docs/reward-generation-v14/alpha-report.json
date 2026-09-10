@@ -1,0 +1,632 @@
+[
+  {
+    "key": "cat_1_hat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-1-hat.png",
+    "removed": 1273944,
+    "rgbUnchanged": true,
+    "sourceSha256": "8507ef4426b1c3927121817e1fdd479da3c58d206f6d0d188213cf942d67cde3"
+  },
+  {
+    "key": "cat_2_hat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-2-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "10b33f9b3b564f0a8415af47967e63768384f8d5263dfa183ab4f7a6cab7b09f"
+  },
+  {
+    "key": "cat_3_hat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-3-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "1fe2e8f472b8e5a75330cc6fa10145ad0e8c85a73bdf87a01df2ab71cd6b2d12"
+  },
+  {
+    "key": "cat_4_hat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-4-hat.png",
+    "removed": 1221179,
+    "rgbUnchanged": true,
+    "sourceSha256": "f30b6d41d6cf9e210b1798beeeac474e12e1346cfedea3c44cb8028f932f55ae"
+  },
+  {
+    "key": "cat_5_hat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-5-hat.png",
+    "removed": 1226060,
+    "rgbUnchanged": true,
+    "sourceSha256": "0a5ee5254aa39c344e6ea4ddc1c25c8d013860d3c1263a5d8a099153c1dce2c4"
+  },
+  {
+    "key": "cat_1_bow",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-1-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "818edb657fe5ab500f4fa818c58781d363767ef7bf15a5fe45c7fdfecba2c988"
+  },
+  {
+    "key": "cat_2_bow",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-2-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "fc2439b6ef158b31cdd23bc0af0c0242cadb958c5208747624c53018b102e8b2"
+  },
+  {
+    "key": "cat_3_bow",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-3-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "c199fd0798800bdf7352b4b4c51c359ce6701cdf53ca9779abda3f381ad1e102"
+  },
+  {
+    "key": "cat_4_bow",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-4-bow.png",
+    "removed": 1134575,
+    "rgbUnchanged": true,
+    "sourceSha256": "fd12f75d88c205e72b539c7cdadd4b82ab228e3dd9cd60b5c5c44727483e520c"
+  },
+  {
+    "key": "cat_5_bow",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-5-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "56cdef73a3e15fc6818e2e3d65e1ccb0199f3598a145cd1788f67a5564e6565b"
+  },
+  {
+    "key": "cat_1_mat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-1-mat.png",
+    "removed": 1090337,
+    "rgbUnchanged": true,
+    "sourceSha256": "64272fd0aec2599fbbf3843aaf6bb1a9c2b77c50b227b15e05bbd182e7e4837b"
+  },
+  {
+    "key": "cat_2_mat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-2-mat.png",
+    "removed": 912286,
+    "rgbUnchanged": true,
+    "sourceSha256": "00bf50aaec9bc81f59420d6197fefe5c8b9aa04ad3ab9d0ff1925425839c1dbd"
+  },
+  {
+    "key": "cat_3_mat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-3-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "3c1dfe9aeb4a506a3a388c79eb3e4e7e82ac0d78e3c7c624635d17c44d236937"
+  },
+  {
+    "key": "cat_4_mat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-4-mat.png",
+    "removed": 1077784,
+    "rgbUnchanged": true,
+    "sourceSha256": "24fe8fe6897a261452cb4093b93e2537639b6820d4823ec01d84bec1450ddfcb"
+  },
+  {
+    "key": "cat_5_mat",
+    "path": "frontend/assets/pet/rewards-v2/cat/lv-5-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "4d39c31eb7e3565e76ff8728ffca030f475962f4f9e16cd2da0ed4eef520a45b"
+  },
+  {
+    "key": "dog_1_hat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-1-hat.png",
+    "removed": 1147435,
+    "rgbUnchanged": true,
+    "sourceSha256": "2c17e0ad0ba0fffa988e8e0e3ab6bf1e2d5d9a7fdc690c6268be4c6d1baa92aa"
+  },
+  {
+    "key": "dog_2_hat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-2-hat.png",
+    "removed": 1060054,
+    "rgbUnchanged": true,
+    "sourceSha256": "05fa4e49915d3e0d7a35901cc153b793b8496d17ad8b2d5f2ba8267b5dde249f"
+  },
+  {
+    "key": "dog_3_hat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-3-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "cf177480f4c23ac90e267607b8f07667253532723f2d503f42350995597cb21b"
+  },
+  {
+    "key": "dog_4_hat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-4-hat.png",
+    "removed": 1163140,
+    "rgbUnchanged": true,
+    "sourceSha256": "7e6c9f184f1c7ad477dd9e0f649d37a9333b690086edd0d7bf62ba29bae821d7"
+  },
+  {
+    "key": "dog_5_hat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-5-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "f6a236bc1b0dfc056e97f083d14851d6fc4c6fd04b4958adca775dd8b7b547b0"
+  },
+  {
+    "key": "dog_1_bow",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-1-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "6cbc63bab440ab9dca3cb27a2d7af2b8f1a76d84d5e63966fe1e285db0f5b752"
+  },
+  {
+    "key": "dog_2_bow",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-2-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "38d9d68d6556cac36796e6281d3a69d80a9920e8d23391787bda2dfa91993ade"
+  },
+  {
+    "key": "dog_3_bow",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-3-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "57c5262d777e41827912ea46b2553f3f3f1147bb8d0144c47a468a96ff94cb4f"
+  },
+  {
+    "key": "dog_4_bow",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-4-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "71459210fb5fe9f182e795f3ce51b7e1977cdbb2546a2469e122487f9ca97c51"
+  },
+  {
+    "key": "dog_5_bow",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-5-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "821ec71e3af2ca4083b4e2ce202fa685cdb67fa095ac69d8328ed1c4ec236d4a"
+  },
+  {
+    "key": "dog_1_mat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-1-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "35db853dc4bc9140c19e05dccc224fefde88909563ef381f21b113a33719f131"
+  },
+  {
+    "key": "dog_2_mat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-2-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "9573ee6b55a029044934ec3836ae270258314bfc8aa2e576c1b40f3d6e871796"
+  },
+  {
+    "key": "dog_3_mat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-3-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "bc64369045a645ee0efa3bbb1e3083bf81e540d5ec7309912d9ee95522ac6afc"
+  },
+  {
+    "key": "dog_4_mat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-4-mat.png",
+    "removed": 1068682,
+    "rgbUnchanged": true,
+    "sourceSha256": "92c29674b697decf72ac8d8d582671cd090ed23e520222dbb6898b6030c67034"
+  },
+  {
+    "key": "dog_5_mat",
+    "path": "frontend/assets/pet/rewards-v2/dog/lv-5-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "164f6bdbc96e8db3e79defd5b3fca544a1895a7179b5927a686f7a9c8ffa4c6b"
+  },
+  {
+    "key": "rabbit_1_hat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-1-hat.png",
+    "removed": 1373920,
+    "rgbUnchanged": true,
+    "sourceSha256": "cc60f2e1fe8ba399baa1bf99b306f0692d2a82dfea31a8454a24721b4d6dd7bf"
+  },
+  {
+    "key": "rabbit_2_hat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-2-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "b702ac0ca60d4b48e55e2adf34e2af50ddfd73593220d1c342d2db462d7384e8"
+  },
+  {
+    "key": "rabbit_3_hat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-3-hat.png",
+    "removed": 1283762,
+    "rgbUnchanged": true,
+    "sourceSha256": "32ad80b51c477ab50203003633d6bc6cb00d112bfe60d42a3ac58da08eb5467c"
+  },
+  {
+    "key": "rabbit_4_hat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-4-hat.png",
+    "removed": 1430940,
+    "rgbUnchanged": true,
+    "sourceSha256": "35640cbb405103a2e8328329f3c9ccb9ab60841551f5470b757ff4430bcbdec0"
+  },
+  {
+    "key": "rabbit_5_hat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-5-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "2a52c755424d4733d6ea5df4f7ce762c83027f379e54d5195484947bd078563b"
+  },
+  {
+    "key": "rabbit_1_bow",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-1-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "ca5f6599cde178d99ff21bc53fcf37cdf03e30c121a679529ab64487ddf57b51"
+  },
+  {
+    "key": "rabbit_2_bow",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-2-bow.png",
+    "removed": 1270711,
+    "rgbUnchanged": true,
+    "sourceSha256": "6440e8b343943a363c7b6a8a4a58fe40c6ed6474148f8b2325a66dfa5ab103b2"
+  },
+  {
+    "key": "rabbit_3_bow",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-3-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "8c0628be166e137c5d212b25ee5964f7d53716d227589559f8e609c81a13f49e"
+  },
+  {
+    "key": "rabbit_4_bow",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-4-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "6ddf27a6c0552fdebf3fec0fc70bf93f6c8e57c523b9b1bba7c29ddea7afef36"
+  },
+  {
+    "key": "rabbit_5_bow",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-5-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "d3ae07c7eb3702dc670b655f4afe57a19c9a6eaf5e1a46a254f90aabacb38a91"
+  },
+  {
+    "key": "rabbit_1_mat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-1-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "f403011d44d0a41b164b2fe7cc46127cee67680201febdb85da26f2f0c0f984f"
+  },
+  {
+    "key": "rabbit_2_mat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-2-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "96e276a413d6fec295aa4e631d96c45b69ae76fecf94c3bb60c1857024f06bc2"
+  },
+  {
+    "key": "rabbit_3_mat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-3-mat.png",
+    "removed": 1028981,
+    "rgbUnchanged": true,
+    "sourceSha256": "c7eb342f669500760925a30b36b55acf83fba29649149916490cf175328e9411"
+  },
+  {
+    "key": "rabbit_4_mat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-4-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "a3ac1e77665329e0812888714efbd732a3b6d410f274fdc22497db4f7cb71d7f"
+  },
+  {
+    "key": "rabbit_5_mat",
+    "path": "frontend/assets/pet/rewards-v2/rabbit/lv-5-mat.png",
+    "removed": 1018077,
+    "rgbUnchanged": true,
+    "sourceSha256": "76057942b4fd70d0408d86f1ac068ebe6af794dc704ad5a9ad09623965e31ab9"
+  },
+  {
+    "key": "fox_2_hat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-2-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "d4d4b0504b6784aaac5d482ba4bcb543a75ca35bef56b7f7628645698e16fbb6"
+  },
+  {
+    "key": "fox_3_hat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-3-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "5f8ff9ecf65ee4e6f2965205778f7b401127a84707443cc04dacae2521989ad8"
+  },
+  {
+    "key": "fox_5_hat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-5-hat.png",
+    "removed": 1314109,
+    "rgbUnchanged": true,
+    "sourceSha256": "259ad44182c26344fab3b5f01511c12934e8d54e5c5d6426f64e4865780be6ba"
+  },
+  {
+    "key": "fox_1_bow",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-1-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "1821d340fc342f519ad68b0a22874bea5a9e0483b247e8d14280ddfa7f66f6b7"
+  },
+  {
+    "key": "fox_2_bow",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-2-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "f8fcacda206622db97fa93e69bff0a8787b715d5edc01390836e6be79c492c8d"
+  },
+  {
+    "key": "fox_3_bow",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-3-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "b11f80cb81bbff02b1bb03660f86ba743a2b8ec97e51c1913fafa67fe0268ea4"
+  },
+  {
+    "key": "fox_4_bow",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-4-bow.png",
+    "removed": 1034991,
+    "rgbUnchanged": true,
+    "sourceSha256": "fbc1f3976db1fa1aaebc15f000ada0fce48c65690521cd002d1df996fb73b433"
+  },
+  {
+    "key": "fox_5_bow",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-5-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "52386f4d7aec0abd50b2c65cc740593295be052924d46db7a54b27568b8d2146"
+  },
+  {
+    "key": "fox_1_mat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-1-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "35cfb3a5bb82a2cc35060cb8e4170f926ea4c2fbb878e23670e2f214f2d4397d"
+  },
+  {
+    "key": "fox_2_mat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-2-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "3cd8952e1cf4c720a64b7c47c6efa19e22db430010cfd2d508b4aa09e381df18"
+  },
+  {
+    "key": "fox_3_mat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-3-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "605cebc7a45c77117670c57b5518c523706319dd3b2f1caf6f586e7caab67c2f"
+  },
+  {
+    "key": "fox_4_mat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-4-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "ca51a8671dba8ce48e50b05829aa36b03423b4bb272b0f0724bef2c1dc42d897"
+  },
+  {
+    "key": "fox_5_mat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-5-mat.png",
+    "removed": 1111431,
+    "rgbUnchanged": true,
+    "sourceSha256": "8b87fe905fa28585ffcb49cc409b64154481e100e777b0ca67f9bf6e7a051f0b"
+  },
+  {
+    "key": "panda_4_hat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-4-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "a9f2e7f195048e62629bd175f13e809271ac3de637ce032aeccec9c4222df32b"
+  },
+  {
+    "key": "panda_5_hat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-5-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "aa420eac97bd5c11bf882eac01fa6f5afb782977b1e36ed6e3dd86e2540dc569"
+  },
+  {
+    "key": "panda_1_bow",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-1-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "e7079e9f026c694251a189418f41adcb2553b463b26c50055f4b0c0bd4c8537f"
+  },
+  {
+    "key": "panda_2_bow",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-2-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "48ede62a542558370ba558d6bb30ab308a87f30377eccf3b693978e7632d4b5a"
+  },
+  {
+    "key": "panda_3_bow",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-3-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "d52185de4dd641edd775aa76bd8d94f38705432d370c8f7a1b44e53a745bcfcb"
+  },
+  {
+    "key": "panda_4_bow",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-4-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "13eafebbbee9030e0df40440fe06f906d34d8743aa44fcb5117ad433b3a332fd"
+  },
+  {
+    "key": "panda_5_bow",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-5-bow.png",
+    "removed": 1192253,
+    "rgbUnchanged": true,
+    "sourceSha256": "263900eae48aaf3861cffa9a12fe7abaa90a2284d4b8531111e78e50d05e4b19"
+  },
+  {
+    "key": "panda_1_mat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-1-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "906e22019d952947f43de50f6a527cd31821868aef65de64603c25de39b499fe"
+  },
+  {
+    "key": "panda_2_mat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-2-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "56e2ff5ba47be7c50be8541ff10497969ca1993210712db2325dc278c9d60fc0"
+  },
+  {
+    "key": "panda_3_mat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-3-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "eb51cdd9338b65035d345a14f59232a475e02c4fe290c20c5472f55ae6b82fb1"
+  },
+  {
+    "key": "panda_4_mat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-4-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "7948feb68548afe1796d62419518496e3d7c7a4870a2594773f251271b517c9a"
+  },
+  {
+    "key": "panda_5_mat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-5-mat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "024d55ecb72080b6d22e9a2e7be66ef60d42332961da61636086b6536687a76c"
+  },
+  {
+    "key": "dragon_5_hat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-5-hat.png",
+    "removed": 1314905,
+    "rgbUnchanged": true,
+    "sourceSha256": "ddd4cca8c88d9a2716958f743c08c7cd9fc728d27dd78287dd2c5758ab5cce04"
+  },
+  {
+    "key": "dragon_1_bow",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-1-bow.png",
+    "removed": 1158276,
+    "rgbUnchanged": true,
+    "sourceSha256": "8a1445a3adab57c3cbf1ca54256a67ac9dfe6ca32e9b4fea07affbe7b42415dc"
+  },
+  {
+    "key": "dragon_2_bow",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-2-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "36b7f7b8a2914cdf35c0cc049b7f877b8e6444055a7fa46cf7f7260db7a1f02b"
+  },
+  {
+    "key": "dragon_3_bow",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-3-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "4529f966404e191e3764f97bb11d763be026063ebd86ff212986cd6a16cf80a1"
+  },
+  {
+    "key": "dragon_4_bow",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-4-bow.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "71a9cba8caaf2e4541760eb1961cd3afded6cc21d2a537944060527a20a2df72"
+  },
+  {
+    "key": "dragon_5_bow",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-5-bow.png",
+    "removed": 1260569,
+    "rgbUnchanged": true,
+    "sourceSha256": "29c7dd7bc4d074c5d89765990d7b2ddb06e5c97c812b9517a36a9aedebbe20bb"
+  },
+  {
+    "key": "dragon_1_mat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-1-mat.png",
+    "removed": 1128016,
+    "rgbUnchanged": true,
+    "sourceSha256": "9b9e29578343789d17eec5d2e36d156927e200bee5ff38475e70229fd0567b1b"
+  },
+  {
+    "key": "dragon_2_mat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-2-mat.png",
+    "removed": 1190371,
+    "rgbUnchanged": true,
+    "sourceSha256": "81628082e5e5e8cb59f3dd03781967cd121e1af0e878a4fad8a738dca9c2a4f8"
+  },
+  {
+    "key": "dragon_3_mat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-3-mat.png",
+    "removed": 1106958,
+    "rgbUnchanged": true,
+    "sourceSha256": "9d7d13441fadf385fc9cf397a304cc9bd9fc6e78ea3436e24043d4c602669b04"
+  },
+  {
+    "key": "dragon_4_mat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-4-mat.png",
+    "removed": 1113166,
+    "rgbUnchanged": true,
+    "sourceSha256": "dd6ec34efcbe4722e7b4d155e409b86e1f333e26e7787a62ba005d5246ac835b"
+  },
+  {
+    "key": "dragon_5_mat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-5-mat.png",
+    "removed": 980337,
+    "rgbUnchanged": true,
+    "sourceSha256": "6402e3a358462ffee4975597dd34d62addebc0027f9604facbfe2ff3c8a5dd07"
+  },
+  {
+    "key": "fox_1_hat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-1-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "4ec69e3dc7971faff7c52807b1177aa138193250d10d845994ec7e7dc85a8d77"
+  },
+  {
+    "key": "fox_4_hat",
+    "path": "frontend/assets/pet/rewards-v2/fox/lv-4-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "52c371196ac59cef5fcbe7b348f8b932b0064b8b602e9671c7f37006a428cdf3"
+  },
+  {
+    "key": "panda_1_hat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-1-hat.png",
+    "removed": 1164587,
+    "rgbUnchanged": true,
+    "sourceSha256": "9d7fc1b5a9b57cc99e30a1b1be544a41719bd91dec9a9175d0886eb9382cc34d"
+  },
+  {
+    "key": "panda_2_hat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-2-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "17fd02a1ecb3d5cff5f8d476171cc096b739890e2e221f299c4e0e6ce2009f37"
+  },
+  {
+    "key": "panda_3_hat",
+    "path": "frontend/assets/pet/rewards-v2/panda/lv-3-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "8e8c8755c939ff264d854e8351713651df77d40234b1d73db754677ffe5e6886"
+  },
+  {
+    "key": "dragon_1_hat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-1-hat.png",
+    "removed": 1216448,
+    "rgbUnchanged": true,
+    "sourceSha256": "171eb89701eddbe3fd01a758fa22194b4e604228af42faf6478c060131f6e8e6"
+  },
+  {
+    "key": "dragon_2_hat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-2-hat.png",
+    "removed": 1100961,
+    "rgbUnchanged": true,
+    "sourceSha256": "766f5ee044756982b05acd16f725d574b8d65c6e456ff6df7d0cd7464e159e53"
+  },
+  {
+    "key": "dragon_3_hat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-3-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "0afde7929da6ee70960dbf45de5a08fa9ba06abe86efbd348bb982749aa902d6"
+  },
+  {
+    "key": "dragon_4_hat",
+    "path": "frontend/assets/pet/rewards-v2/dragon/lv-4-hat.png",
+    "removed": 0,
+    "rgbUnchanged": true,
+    "sourceSha256": "c7527514f891d3315f6bf752dddbeadb5e0f5dd202f6efe025fbe55e21dc5648"
+  }
+]

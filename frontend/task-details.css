@@ -1,0 +1,20 @@
+.task-checklist-details, .weekly-review, #tag-manage-details { margin: 12px 0; padding: 12px; border: 1px solid var(--border-color, #aaa); border-radius: 8px; }
+.task-checklist-details summary, .weekly-review summary, #tag-manage-details summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
+.checklist-editor { display: grid; gap: 8px; margin: 12px 0; }
+.checklist-row { display: grid; grid-template-columns: 24px minmax(0, 1fr) 40px; align-items: center; gap: 8px; }
+.checklist-row input[type="text"] { min-width: 0; width: 100%; }
+.checklist-row input[type="checkbox"] { width: 20px; height: 20px; }
+.checklist-row button { min-height: 40px; padding: 4px; }
+.task-detail-badge { display: inline-block; padding: 3px 7px; font-size: 12px; border: 1px solid currentColor; border-radius: 6px; overflow-wrap: anywhere; }
+.task-undo-toast { position: fixed; z-index: 100; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; padding: 12px 16px; max-width: calc(100vw - 24px); width: max-content; background: #172b33; color: white; box-shadow: 0 6px 22px #0004; border-radius: 10px; }
+.task-undo-toast[hidden] { display: none; }
+.task-undo-toast button { flex-shrink: 0; min-height: 40px; background: #fff; color: #172b33; border: 1px solid #fff; }
+.weekly-counts { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+.weekly-counts span { padding: 10px; border: 1px solid currentColor; border-radius: 8px; }
+.weekly-days { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; text-align: center; font-size: 12px; }
+.weekly-days li { display: grid; gap: 5px; padding: 8px 2px; border: 1px solid currentColor; border-radius: 6px; }
+.demo-notice { margin: 0; padding: 8px 14px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; background: #fff5d9; color: #382b10; border-bottom: 1px solid #ba9a49; }
+.demo-notice a { color: #173b63; }
+.demo-notice button { min-height: 36px; padding: 5px 10px; }
+body[data-demo="true"] .layout { min-height: calc(100vh - 60px); }
+@media (max-width: 480px) { .task-undo-toast { flex-wrap: wrap; gap: 8px; bottom: 12px; } .task-undo-toast span { flex-basis: 100%; } }

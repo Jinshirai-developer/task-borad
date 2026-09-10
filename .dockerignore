@@ -1,0 +1,17 @@
+.git
+.github
+.claude
+.vs
+.vscode
+**/bin
+**/obj
+docs
+frontend/previews
+frontend/assets/pet/sources
+frontend/assets/pet/drafts
+frontend/assets/pet/archive
+*.user
+.DS_Store
+.env
+.env.*
+.local

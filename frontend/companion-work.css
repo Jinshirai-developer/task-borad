@@ -1,0 +1,62 @@
+#companion-dialog { box-sizing:border-box; width:min(720px,calc(100vw - 24px)); max-height:calc(100dvh - 24px); padding:0; overflow-y:auto; color:var(--ink); background:var(--surface,var(--silver)); border:1px solid var(--sh); border-radius:14px; box-shadow:0 24px 100px #0005; font:inherit; }
+#companion-dialog::backdrop { background:#10192399; }
+#companion-dialog[open] { display:block; }
+#companion-dialog :is(input,textarea,select,button) { font:inherit; }
+#companion-dialog button,body[data-ui=modern][data-layout] #companion-dialog button { min-height:40px; height:auto; padding:8px 12px; white-space:normal; }
+#companion-dialog :is(input,textarea,select) { min-width:0; max-width:100%; width:100%; box-sizing:border-box; color:var(--ink); background:var(--surface,var(--face)); border:1px solid var(--sh); padding:9px; border-radius:6px; }
+#companion-dialog textarea { resize:vertical; min-height:74px; }
+#companion-dialog :is(button,a,input,textarea,select,summary):focus-visible { outline:3px solid var(--navy2); outline-offset:2px; }
+.work-dialog-header { padding:16px 20px; display:flex; align-items:flex-start; justify-content:space-between; gap:12px; border-bottom:1px solid var(--sh); background:var(--face); }
+.work-dialog-header div { min-width:0; }
+.work-dialog-header { position:sticky; top:0; z-index:2; }
+#companion-tabs:empty { display:none; }
+.work-dialog-header h2 { font-size:18px; margin:0 0 6px; overflow-wrap:anywhere; }
+#companion-scope { margin:0; font-size:12px; color:var(--muted); overflow-wrap:anywhere; }
+#companion-close { flex-shrink:0; font-size:20px; min-width:40px; }
+.work-toolbar { display:flex; gap:8px; flex-wrap:wrap; padding:12px 20px 0; }
+#companion-message { min-height:1.5em; margin:10px 20px; line-height:1.7; overflow-wrap:anywhere; }
+#companion-message.error { color:var(--danger,#a00); }
+#companion-tabs { display:flex; gap:6px; overflow-x:auto; margin:0 20px; padding:4px 2px 10px; border-bottom:1px solid var(--sh); }
+#companion-tabs button { flex:0 0 auto; }
+#companion-tabs [aria-current=page] { border-color:var(--navy2); background:var(--accent-soft,var(--face)); font-weight:700; }
+#companion-content { padding:16px 20px 24px; }
+.work-entry { display:grid; gap:4px; margin:12px 0; padding:12px; border:1px solid var(--sh); border-radius:8px; }
+.work-entry button { min-height:40px; height:auto!important; }
+.work-create-hint { margin:8px 0; }
+.work-create-hint summary { cursor:pointer; padding:8px 0; }
+.work-caption { color:var(--muted); line-height:1.75; font-size:12px; margin:0 0 14px; }
+.work-form { display:grid; gap:14px; margin-top:16px; }
+.work-form label { display:grid; gap:6px; font-size:13px; font-weight:600; }
+.work-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+.work-card { padding:14px; margin:12px 0; border:1px solid var(--sh); border-radius:10px; background:var(--face); overflow-wrap:anywhere; }
+.work-card h3 { font-size:14px; margin:0 0 8px; }
+.work-card p { line-height:1.7; white-space:pre-wrap; margin:6px 0; }
+.work-card small { color:var(--muted); line-height:1.7; }
+.work-card a { display:inline-block; color:var(--navy2); padding:6px 0; text-decoration:underline; }
+.work-speech { background:var(--accent-soft,var(--face)); padding:14px; border-left:3px solid var(--navy2); border-radius:8px; white-space:pre-wrap; line-height:1.75; overflow-wrap:anywhere; }
+.work-empty { margin:14px 0; line-height:1.8; color:var(--muted); font-size:13px; }
+.work-hub-section { border-bottom:1px solid var(--sh); padding:10px 0; }
+.work-hub-section summary { cursor:pointer; padding:8px 0; font-weight:600; }
+.work-shelf { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; padding:18px 10px 12px; border-bottom:9px solid #916c4e; border-radius:4px; background:var(--face); }
+.work-object { display:flex; flex-direction:column; min-width:0; gap:8px; align-items:center; }
+#companion-dialog .work-object button { display:flex; align-items:center; justify-content:center; width:100%; min-height:104px; padding:12px; word-break:break-word; text-align:center; color:#233446; background:#f6f3eb; }
+#companion-dialog .work-object.frame button { border:7px ridge #b79167; border-radius:1px; }
+#companion-dialog .work-object.monitor button { border:7px solid #52677a; border-bottom-width:13px; border-radius:8px; background:#e9f3f7; }
+#companion-dialog .work-object.book button { border:2px solid #739a8e; border-left:12px solid #527a6e; border-radius:3px 8px 8px 3px; background:#eaf1eb; }
+.work-object small { font-size:11px; line-height:1.6; text-align:center; color:var(--muted); overflow-wrap:anywhere; }
+.work-shelf-pet { margin:14px auto 0; width:76px; height:70px; background-position:center; background-size:contain; background-repeat:no-repeat; image-rendering:pixelated; }
+body[data-ui=retro] #companion-dialog { border-radius:0; border:2px solid; border-color:var(--hi) var(--sh2) var(--sh2) var(--hi); }
+@media(max-width:480px) { .work-dialog-header { padding:12px; } .work-toolbar { padding:10px 12px 0; } #companion-message { margin:10px 12px; } #companion-tabs { margin:0 12px; } #companion-content { padding:12px; } .work-shelf { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } }
+.task-memo-button, .task-work-badge, #companion-hub-open { min-height:40px; height:auto; padding:6px 10px; white-space:normal; overflow-wrap:anywhere; }
+.task-work-badge { border:1px solid var(--sh); border-radius:6px; color:var(--navy2); background:var(--accent-soft,var(--face)); cursor:pointer; font:inherit; }
+.task-work-badge:focus-visible, .task-memo-button:focus-visible, #companion-hub-open:focus-visible { outline:3px solid var(--navy2); outline-offset:2px; }
+.work-secondary-tools { margin-bottom:16px; padding:8px 0; border-bottom:1px solid var(--sh); }
+.work-secondary-tools summary { cursor:pointer; min-height:40px; align-content:center; color:var(--muted); font-size:13px; }
+.work-secondary-tools button { margin:4px 6px 4px 0; }
+#extra-themes summary { cursor:pointer; padding:12px 0; }
+
+#companion-message:empty { display:none; }
+#companion-content > .work-secondary-tools { margin-top:24px; margin-bottom:0; border-top:1px solid var(--sh); border-bottom:0; }
+#companion-content > .work-card:first-child { margin-top:0; }
+#companion-save, #work-help-offer, #work-help-resolve, #work-handoff-accept { background:var(--navy2); color:#fff; border-color:var(--navy2); }
+#companion-content .work-card h3 { font-size:16px; }

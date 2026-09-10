@@ -1,0 +1,13 @@
+{
+  "key": "fox_4_hat",
+  "species": "fox",
+  "level": 4,
+  "kind": "hat",
+  "name": "夜空の耳あき帽",
+  "reference": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-cd5706c9-2822-4501-b274-44731490e28c.png",
+  "prompt": "ONE isolated inventory hat sprite, standalone product illustration. Image 1 is a reference for pixel-art technique and warm brown stepped outline ONLY; do NOT copy its wizard shape. Draw a low midnight teal travelling cap with a silver star embroidered on its front, silver fabric band, plain fabric brim. Match chunky crisp square pixels, upper-left lighting, warm very dark-brown outline, three stepped shades, about 56 logical pixels across. Entire object consists ONLY of crafted material. Absolutely NO animal, NO ears, NO horns, NO fur, NO head, NO face, NO skin or flesh, NO ear-like protrusions, NO horn-like protrusions, NO creature features or animal decorations. Single hat centered, three-quarter front view, generous margin, no shadow, no scene, no text. Genuine transparent alpha background; no white background or painted checkerboard.",
+  "rawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-5d51763e-e17a-4c78-880d-cdb4610e2caf.png",
+  "asset": "frontend/assets/pet/rewards-v2/fox/lv-4-hat.png",
+  "previousRawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-2be1aa79-c7e9-4c4f-85a9-5ee01c9979db.png",
+  "revision": 2
+}

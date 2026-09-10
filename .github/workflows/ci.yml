@@ -1,0 +1,244 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      mailpit:
+        image: axllent/mailpit:v1.31.1
+        ports:
+          - 1025:1025
+          - 8025:8025
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: taskdb
+          POSTGRES_USER: taskuser
+          POSTGRES_PASSWORD: taskpass
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U taskuser -d taskdb"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check frontend JavaScript syntax
+        run: |
+          for script in frontend/*.js; do node --check "$script"; done
+          node --test tests/*.test.cjs
+
+      - name: Verify generated asset transparency and proportions
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Restore
+        run: |
+          dotnet tool restore
+          dotnet restore TaskApi.sln
+
+      - name: Build
+        run: dotnet build TaskApi.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test TaskApi.sln --configuration Release --no-build
+
+      - name: Verify PostgreSQL migrations
+        env:
+          ASPNETCORE_ENVIRONMENT: Development
+          ConnectionStrings__DefaultConnection: Host=localhost;Port=5432;Database=identitycheck;Username=taskuser;Password=taskpass
+        run: |
+          docker exec "${{ job.services.postgres.id }}" psql -U taskuser -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE identitycheck;'
+          dotnet ef database update 20260907101639_AddTaskConsistencyAndConcurrency --no-build --configuration Release
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -v seed_legacy=1 -f - < tests/identity-migration.sql
+          dotnet ef database update 20260907150513_AddTeamsAndPreferences --no-build --configuration Release
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -v seed_progression=1 -f - < tests/progression-migration.sql
+          dotnet ef database update 20260907160508_AddReversibleRewardsAndUnlocks --no-build --configuration Release
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -v seed_task_tags=1 -f - < tests/task-tags-migration.sql
+          dotnet ef database update 20260907195957_AddPetCollections --no-build --configuration Release
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -f - < tests/identity-migration.sql
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -f - < tests/progression-migration.sql
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -f - < tests/task-tags-migration.sql
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -v seed_usability=1 -f - < tests/usability-migration.sql
+          dotnet ef database update 20260908100945_AddTaskUsability --no-build --configuration Release
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -f - < tests/usability-migration.sql
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -v seed_companion=1 -f - < tests/companion-migration.sql
+          dotnet ef database update 20260908124231_AddCompanionWork --no-build --configuration Release
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -f - < tests/companion-migration.sql
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -v seed_billing=1 -f - < tests/billing-migration.sql
+          dotnet ef database update 20260908140702_AddTeamTestBilling --no-build --configuration Release
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -f - < tests/billing-migration.sql
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -v seed_account_billing=1 -f - < tests/account-billing-migration.sql
+          dotnet ef database update --no-build --configuration Release
+          docker exec -i "${{ job.services.postgres.id }}" psql -U taskuser -d identitycheck -v ON_ERROR_STOP=1 -f - < tests/account-billing-migration.sql
+          dotnet ef migrations has-pending-model-changes --no-build --configuration Release
+
+      - name: Publish
+        run: dotnet publish TaskApi.csproj --configuration Release --no-restore --output artifacts/publish
+
+      - name: Verify frontend artifact
+        run: |
+          for page in index login auth terms privacy; do test -f "artifacts/publish/frontend/$page.html"; done
+          for asset in options.js options.css assets/pet/portfolio-cat-idle-v1-web.png assets/pet/portfolio-rabbit-idle-v1-web.png; do test -f "artifacts/publish/frontend/$asset"; done
+          for asset in unlocks.css assets/pet/portfolio-fox-idle-v1-web.png assets/pet/portfolio-panda-idle-v1-web.png assets/pet/portfolio-dragon-idle-v1-web.png; do test -f "artifacts/publish/frontend/$asset"; done
+          for asset in task-tags.js task-tags.css; do test -f "artifacts/publish/frontend/$asset"; done
+          for asset in demo.js task-details.js task-details.css; do test -f "artifacts/publish/frontend/$asset"; done
+          for asset in companion-demo.js companion-work.js companion-work.css; do test -f "artifacts/publish/frontend/$asset"; done
+          for asset in task-workflow.js task-workflow.css task-inbox.js; do test -s "artifacts/publish/frontend/$asset"; done
+          for asset in team-billing.js team-billing.css; do test -f "artifacts/publish/frontend/$asset"; done
+          for asset in pet-play.js pet-play.css; do test -f "artifacts/publish/frontend/$asset"; done
+          for pose in idle pet hat bow; do test -f "artifacts/publish/frontend/assets/pet/portfolio-cat-$pose-v3.png"; done
+          for asset in pet-reward-art.js pet-reward-metrics.js; do test -s "artifacts/publish/frontend/$asset"; done
+          for folder in sources drafts archive; do test ! -d "artifacts/publish/frontend/assets/pet/$folder"; done
+          for species in dog cat rabbit fox panda dragon; do
+            test -s "artifacts/publish/frontend/assets/pet/portfolio-$species-atlas-v2-alpha.png"
+            for level in 1 2 3 4 5; do
+              for kind in hat bow mat; do test -s "artifacts/publish/frontend/assets/pet/rewards-v2/$species/lv-$level-$kind.png"; done
+            done
+          done
+
+      - name: Verify real SMTP and account lifecycle
+        working-directory: artifacts/publish
+        env:
+          ASPNETCORE_ENVIRONMENT: Development
+          ConnectionStrings__DefaultConnection: Host=localhost;Port=5432;Database=identitycheck;Username=taskuser;Password=taskpass
+          Authentication__PublicBaseUrl: http://localhost:5097
+          Authentication__KeyRingPath: ${{ runner.temp }}/taskboard-identity-keys
+          Email__Host: localhost
+          Email__Port: 1025
+          Email__Security: None
+          Email__FromAddress: noreply@taskboard.test
+          APP_URL: http://localhost:5097
+          MAILPIT_URL: http://localhost:8025
+        run: |
+          dotnet TaskApi.dll --urls http://localhost:5097 &
+          taskboard_pid=$!
+          trap 'kill "$taskboard_pid" 2>/dev/null || true; wait "$taskboard_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://localhost:5097/health/ready > /dev/null; then break; fi
+            sleep 1
+          done
+          node ../../tests/identity-smoke.mjs
+
+      - name: Verify real team sharing and concurrent completion
+        working-directory: artifacts/publish
+        env:
+          ASPNETCORE_ENVIRONMENT: Development
+          ConnectionStrings__DefaultConnection: Host=localhost;Port=5432;Database=identitycheck;Username=taskuser;Password=taskpass
+          Authentication__PublicBaseUrl: http://localhost:5097
+          Authentication__KeyRingPath: ${{ runner.temp }}/taskboard-identity-keys
+          Email__Host: localhost
+          Email__Port: 1025
+          Email__Security: None
+          Email__FromAddress: noreply@taskboard.test
+          APP_URL: http://localhost:5097
+          MAILPIT_URL: http://localhost:8025
+          PUBLIC_APP_URL: http://localhost:5097
+        run: |
+          dotnet TaskApi.dll --urls http://localhost:5097 &
+          taskboard_pid=$!
+          trap 'kill "$taskboard_pid" 2>/dev/null || true; wait "$taskboard_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://localhost:5097/health/ready > /dev/null; then break; fi
+            sleep 1
+          done
+          node ../../tests/team-smoke.mjs
+
+      - name: Verify reversible rewards and level unlocks
+        working-directory: artifacts/publish
+        env:
+          ASPNETCORE_ENVIRONMENT: Development
+          ConnectionStrings__DefaultConnection: Host=localhost;Port=5432;Database=identitycheck;Username=taskuser;Password=taskpass
+          Authentication__PublicBaseUrl: http://localhost:5097
+          Authentication__KeyRingPath: ${{ runner.temp }}/taskboard-identity-keys
+          Email__Host: localhost
+          Email__Port: 1025
+          Email__Security: None
+          Email__FromAddress: noreply@taskboard.test
+          APP_URL: http://localhost:5097
+          MAILPIT_URL: http://localhost:8025
+          PUBLIC_APP_URL: http://localhost:5097
+        run: |
+          dotnet TaskApi.dll --urls http://localhost:5097 &
+          taskboard_pid=$!
+          trap 'kill "$taskboard_pid" 2>/dev/null || true; wait "$taskboard_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://localhost:5097/health/ready > /dev/null; then break; fi
+            sleep 1
+          done
+          node ../../tests/progression-smoke.mjs
+
+      - name: Verify classification tags and retro preferences
+        working-directory: artifacts/publish
+        env:
+          ASPNETCORE_ENVIRONMENT: Development
+          ConnectionStrings__DefaultConnection: Host=localhost;Port=5432;Database=identitycheck;Username=taskuser;Password=taskpass
+          Authentication__PublicBaseUrl: http://localhost:5097
+          Authentication__KeyRingPath: ${{ runner.temp }}/taskboard-identity-keys
+          Email__Host: localhost
+          Email__Port: 1025
+          Email__Security: None
+          Email__FromAddress: noreply@taskboard.test
+          APP_URL: http://localhost:5097
+          MAILPIT_URL: http://localhost:8025
+          PUBLIC_APP_URL: http://localhost:5097
+        run: |
+          dotnet TaskApi.dll --urls http://localhost:5097 &
+          taskboard_pid=$!
+          trap 'kill "$taskboard_pid" 2>/dev/null || true; wait "$taskboard_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://localhost:5097/health/ready > /dev/null; then break; fi
+            sleep 1
+          done
+          node ../../tests/task-tags-smoke.mjs
+
+      - name: Verify pet collection and irreversible gift choices
+        working-directory: artifacts/publish
+        env:
+          ASPNETCORE_ENVIRONMENT: Development
+          ConnectionStrings__DefaultConnection: Host=localhost;Port=5432;Database=identitycheck;Username=taskuser;Password=taskpass
+          Authentication__PublicBaseUrl: http://localhost:5097
+          Authentication__KeyRingPath: ${{ runner.temp }}/taskboard-identity-keys
+          Email__Host: localhost
+          Email__Port: 1025
+          Email__Security: None
+          Email__FromAddress: noreply@taskboard.test
+          APP_URL: http://localhost:5097
+          MAILPIT_URL: http://localhost:8025
+          PUBLIC_APP_URL: http://localhost:5097
+        run: |
+          dotnet TaskApi.dll --urls http://localhost:5097 &
+          taskboard_pid=$!
+          trap 'kill "$taskboard_pid" 2>/dev/null || true; wait "$taskboard_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://localhost:5097/health/ready > /dev/null; then break; fi
+            sleep 1
+          done
+          node ../../tests/pet-collection-smoke.mjs
+
+      - name: Build runtime container
+        run: docker build --tag task-board:ci .

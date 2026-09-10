@@ -1,0 +1,11 @@
+{
+  "key": "fox_5_hat",
+  "species": "fox",
+  "level": 5,
+  "kind": "hat",
+  "name": "金葉の小さな冠",
+  "reference": "/Applications/task-app/frontend/assets/pet/sources/portraits/portfolio-fox-idle-v1.png",
+  "prompt": "Use case: stylized-concept.\nAsset type: ONE separate pixel-art game reward sprite for the pet in image 1.\nImage 1 is a STYLE and anatomical fit REFERENCE ONLY. Draw ONLY the requested accessory. DO NOT draw the animal, a face, fur, head, ears, horns, paws, body, mannequin or scene.\nMatch the reference's chunky square pixels, warm very dark-brown stepped outline, restrained palette, upper-left highlights and stepped fabric shading. Aim for about 48-64 logical pixels across the actual object, enlarged as crisp square blocks. No smooth vector curves, no photorealism, no blurry painterly texture.\nA single coherent centered object with empty margin all around, about 75 percent canvas width. No detached sparkles, no text, numbers, labels, watermark, border, floor or cast shadow.\nGenuinely transparent RGBA PNG: alpha zero in all empty space. No painted white, ivory, checkerboard or other background.\nView: three-quarter FRONT view in the angle of the pet's head, hat brim/base naturally follows the skull, no rear view.\nRequested accessory: a low woodland fox crown of five small antique-gold leaf-shaped points, one green inset stone and warm brown inner band, open sides.",
+  "rawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-5bed4ac5-69c8-46a7-9c04-ea81abd59fa4.png",
+  "asset": "frontend/assets/pet/rewards-v2/fox/lv-5-hat.png"
+}

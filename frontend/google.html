@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Googleで始める | Task Board</title>
+    <link rel="stylesheet" href="login.css?v=20260909-28">
+</head>
+<body class="auth-page">
+    <main class="auth-shell auth-support-shell">
+        <section class="auth-window" aria-labelledby="google-heading">
+            <div class="modal-titlebar"><span>Task Board</span></div>
+            <div id="google-content" class="auth-support-body" aria-busy="true">
+                <h1 id="google-heading">Googleアカウントを確認しています</h1>
+                <p id="google-description">しばらくお待ちください。</p>
+                <div id="google-account" class="google-account" hidden><strong>使用するGoogleアカウント</strong><span id="google-email"></span></div>
+                <p id="google-message" class="auth-message" role="status" aria-live="polite" aria-atomic="true"></p>
+                <form id="google-form" class="auth-form" hidden>
+                    <label class="modal-field">ユーザーID
+                        <input id="google-user-key" type="text" minlength="3" maxlength="100" pattern="[a-zA-Z0-9_-]+" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+                        <span id="google-user-hint" class="field-hint">半角英数字・ハイフン・アンダースコアで3〜100文字。チーム内にも表示されます。</span>
+                    </label>
+                    <label id="google-name-field" class="modal-field">表示名
+                        <input id="google-name" type="text" maxlength="100" autocomplete="nickname">
+                        <span class="field-hint">ニックネームで登録できます。</span>
+                    </label>
+                    <label id="google-password-field" class="modal-field" hidden>現在のパスワード
+                        <input id="google-password" type="password" minlength="8" maxlength="100" autocomplete="current-password" disabled>
+                    </label>
+                    <label id="google-consent-field" class="auth-consent">
+                        <input id="google-terms" type="checkbox" required>
+                        <span><a href="terms.html" target="_blank" rel="noopener noreferrer">利用規約</a>に同意し、<a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>を確認しました。</span>
+                    </label>
+                    <div class="auth-actions"><button id="google-submit" type="submit">アカウントを作成</button></div>
+                </form>
+                <button id="google-switch" class="google-mode-switch" type="button" hidden>登録済みのアカウントに連携する</button>
+                <p id="google-recovery" class="field-hint" hidden>パスワードを忘れた場合は、<a href="auth.html?mode=forgot">パスワードを再設定</a>してから、Googleログインをやり直してください。</p>
+                <div class="auth-links"><button id="google-cancel" type="button">ログイン画面に戻る</button></div>
+            </div>
+            <noscript><p class="auth-safety-note">このアプリの利用にはJavaScriptを有効にしてください。</p></noscript>
+        </section>
+    </main>
+    <script src="auth-client.js?v=20260908-15"></script>
+    <script src="google.js?v=20260909-28"></script>
+</body>
+</html>

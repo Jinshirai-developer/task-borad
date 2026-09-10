@@ -1,0 +1,31 @@
+services:
+  mailpit:
+    image: axllent/mailpit:v1.31.1
+    environment:
+      MP_UI_BIND_ADDR: "0.0.0.0:8025"
+      MP_ALLOWED_HOSTS: "localhost,127.0.0.1"
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:1025:1025"
+      - "127.0.0.1:8025:8025"
+
+  postgres:
+    image: postgres:16
+    container_name: taskapi-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${TASKAPI_DB_NAME:-taskdb}
+      POSTGRES_USER: ${TASKAPI_DB_USER:-taskuser}
+      POSTGRES_PASSWORD: ${TASKAPI_DB_PASSWORD:-taskpass}
+    ports:
+      - "127.0.0.1:${TASKAPI_DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:

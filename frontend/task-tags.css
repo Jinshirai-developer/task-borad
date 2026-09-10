@@ -1,0 +1,46 @@
+/* Classification controls inherit every theme's palette, including the Windows-style shell. */
+.task-classifications { min-width:0; padding:12px; color:var(--ink); background:var(--silver); border:2px solid; border-color:var(--hi) var(--sh2) var(--sh2) var(--hi); }
+.classification-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
+.classification-heading h2 { margin:0; font-size:13px; color:var(--ink); }
+body[data-theme][data-layout] #open-tag-create-button { height:auto; min-height:40px; padding:8px 12px; font-weight:700; white-space:normal; background:var(--accent-soft,var(--face)); border-color:var(--navy2); }
+.tag-scope-label { margin:10px 0; font-size:12px; font-weight:700; line-height:1.6; overflow-wrap:anywhere; }
+body[data-theme][data-layout] .tag-create-controls button { min-height:40px; height:auto; padding:8px 10px; }
+.classification-chips { display:flex; flex-wrap:wrap; align-items:flex-start; gap:6px; min-width:0; max-height:160px; overflow-y:auto; padding:3px; }
+body[data-theme][data-layout] .classification-chip { display:inline-flex; align-items:center; justify-content:center; gap:6px; max-width:100%; height:auto; min-height:32px; padding:6px 9px; white-space:normal; text-align:left; overflow-wrap:anywhere; line-height:1.5; }
+.classification-chip>span:first-child { min-width:0; }
+body[data-theme][data-layout] .classification-chip[aria-pressed=true] { background:var(--accent-soft,var(--face)); border-color:var(--navy2); outline:1px solid var(--navy2); font-weight:700; }
+.classification-count { min-width:19px; flex-shrink:0; padding:0 5px; border-radius:4px; background:var(--face); color:var(--muted); font-size:10px; text-align:center; }
+.classification-summary { margin:10px 0 0; font-size:12px; line-height:1.7; overflow-wrap:anywhere; }
+.classification-hint { margin:8px 0 0; color:var(--muted); font-size:11px; line-height:1.7; overflow-wrap:anywhere; }
+.classification-message { margin:6px 0 0; color:var(--success,var(--ink)); font-size:12px; line-height:1.7; overflow-wrap:anywhere; }
+.classification-message:empty { display:none; }
+.classification-message.error,#create-tag-message,#edit-tag-message { color:var(--danger,#a00); }
+.tag-create-form { margin:8px 0 12px; padding:10px; background:var(--face); border:1px solid var(--sh); }
+.tag-create-form[hidden] { display:none; }
+.tag-create-form label { display:block; margin-bottom:6px; font-size:12px; font-weight:600; }
+.tag-create-controls { display:flex; flex-wrap:wrap; gap:6px; min-width:0; }
+.tag-create-controls input { flex:1 1 200px; width:100%; min-width:0; }
+.tag-create-controls button { flex:0 0 auto; }
+.tag-picker { min-width:0; }
+.tag-picker-label { display:block; font-weight:700; margin-bottom:6px; }
+.task-metadata-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+body[data-theme][data-layout] .tag-picker-toggle { display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; height:auto; min-height:40px; padding:8px 10px; text-align:left; }
+.tag-picker-toggle>span:first-child { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.tag-picker-toggle>span:last-child { flex-shrink:0; }
+.tag-picker-toggle[aria-expanded=true]>span:last-child { transform:rotate(180deg); }
+.tag-picker-panel { margin-top:4px; padding:4px; background:var(--face); border:1px solid var(--sh); }
+.tag-picker-choices { max-height:180px; overflow-y:auto; overscroll-behavior:contain; }
+.tag-picker-option { display:flex; align-items:center; gap:10px; min-height:40px; padding:6px 8px; cursor:pointer; overflow-wrap:anywhere; }
+.tag-picker-option>span { min-width:0; }
+body[data-theme][data-layout] .tag-picker-option input { width:18px; height:18px; margin:0; flex-shrink:0; accent-color:var(--navy2); }
+.tag-picker-option:has(input:checked) { background:var(--accent-soft,var(--silver)); font-weight:700; }
+.tag-picker-option:focus-within { outline:2px solid var(--navy2); outline-offset:-2px; }
+body[data-ui=modern] .tag-picker-panel { border-radius:8px; }
+body[data-ui=modern] .task-classifications { border:1px solid var(--sh); border-radius:12px; padding:14px 16px; }
+body[data-ui=modern] .tag-create-form { border-radius:8px; }
+@media(max-width:760px) {
+    .task-classifications { padding:12px; }
+    body[data-ui=modern] .task-classifications { padding:12px; }
+    body[data-theme][data-layout] .classification-chip { min-height:40px; }
+    .classification-chips,.tag-picker-choices { max-height:180px; }
+}

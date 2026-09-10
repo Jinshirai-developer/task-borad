@@ -1,0 +1,11 @@
+{
+  "key": "dog_4_bow",
+  "species": "dog",
+  "level": 4,
+  "kind": "bow",
+  "name": "空旅のスカーフリボン",
+  "reference": "/Applications/task-app/frontend/assets/pet/sources/portraits/portfolio-dog-idle-v2.png",
+  "prompt": "Use case: stylized-concept.\nAsset type: ONE separate pixel-art game reward sprite for the pet in image 1.\nImage 1 is a STYLE and anatomical fit REFERENCE ONLY. Draw ONLY the requested accessory. DO NOT draw the animal, a face, fur, head, ears, horns, paws, body, mannequin or scene.\nMatch the reference's chunky square pixels, warm very dark-brown stepped outline, restrained palette, upper-left highlights and stepped fabric shading. Aim for about 48-64 logical pixels across the actual object, enlarged as crisp square blocks. No smooth vector curves, no photorealism, no blurry painterly texture.\nA single coherent centered object with empty margin all around, about 75 percent canvas width. No detached sparkles, no text, numbers, labels, watermark, border, floor or cast shadow.\nGenuinely transparent RGBA PNG: alpha zero in all empty space. No painted white, ivory, checkerboard or other background.\nView: near-frontal slight three-quarter view of a tied fabric bow, central knot facing the viewer, no complete collar loop.\nRequested accessory: a teal flight scarf tied into a compact bow, leather-brown central wrap and two folded short tails for a dog.",
+  "rawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-8af69a20-e37a-4c09-b139-f3169a4932da.png",
+  "asset": "frontend/assets/pet/rewards-v2/dog/lv-4-bow.png"
+}

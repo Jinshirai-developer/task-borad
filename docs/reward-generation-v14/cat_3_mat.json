@@ -1,0 +1,11 @@
+{
+  "key": "cat_3_mat",
+  "species": "cat",
+  "level": 3,
+  "kind": "mat",
+  "name": "木の葉のクッション",
+  "reference": "/Applications/task-app/frontend/assets/pet/portfolio-cat-idle-v3.png",
+  "prompt": "Use case: stylized-concept.\nAsset type: ONE separate pixel-art game reward sprite for the pet in image 1.\nImage 1 is a STYLE and anatomical fit REFERENCE ONLY. Draw ONLY the requested accessory. DO NOT draw the animal, a face, fur, head, ears, horns, paws, body, mannequin or scene.\nMatch the reference's chunky square pixels, warm very dark-brown stepped outline, restrained palette, upper-left highlights and stepped fabric shading. Aim for about 48-64 logical pixels across the actual object, enlarged as crisp square blocks. No smooth vector curves, no photorealism, no blurry painterly texture.\nA single coherent centered object with empty margin all around, about 75 percent canvas width. No detached sparkles, no text, numbers, labels, watermark, border, floor or cast shadow.\nGenuinely transparent RGBA PNG: alpha zero in all empty space. No painted white, ivory, checkerboard or other background.\nView: low three-quarter FRONT view of a cushion on the same ground plane as the pet, visible upper surface and soft front thickness; use a wide low silhouette, not overhead flat icon.\nRequested accessory: a broad sage-green leaf-shaped cat cushion, shallow fabric lobes, stitched leaf veins and a soft tan underside.",
+  "rawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-7d185adc-8212-437b-b439-0c56453fd160.png",
+  "asset": "frontend/assets/pet/rewards-v2/cat/lv-3-mat.png"
+}

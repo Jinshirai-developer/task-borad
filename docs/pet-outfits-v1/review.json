@@ -1,0 +1,20 @@
+{
+  "generationMode": "built-in image_gen via imagegen skill; one call per variant",
+  "generatedAndSaved": 90,
+  "expected": 90,
+  "scope": "six species; reward levels 1-5; hat/bow/mat individually; base stage; idle pose",
+  "excludes": ["growth stages", "other expressions", "multiple reward combinations", "runtime integration"],
+  "uniqueOriginalMatches": 90,
+  "imageSize": [1254, 1254],
+  "realTransparentImages": 0,
+  "backgroundStatus": "RGB checkerboard remains; background-only Python processing requested, no response received",
+  "visualReview": ["cat", "dog", "rabbit", "fox", "panda", "dragon"],
+  "browserChecksPassed": 20,
+  "browserImagesLoaded": 90,
+  "browserArtifacts": "/private/tmp/task-outfit-browser-z8p7w0z8",
+  "browserUsesRealAccountsOrApi": false,
+  "appIntegrated": false,
+  "existingImagesOverwritten": false,
+  "pythonImageEditingPerformed": false,
+  "promptSet": "manifest.json and results/*.json"
+}

@@ -1,0 +1,17 @@
+{
+  "key": "fox_4_hat",
+  "species": "fox",
+  "level": 4,
+  "kind": "hat",
+  "name": "夜空のちいさな帽子",
+  "stage": "base",
+  "pose": "idle",
+  "references": [
+    "/Applications/task-app/frontend/assets/pet/sources/portraits/portfolio-fox-idle-v1.png",
+    "/Applications/task-app/docs/screenshots/pets/rewards-v14/fox.png"
+  ],
+  "prompt": "Use case: identity-preserve.\nAsset type: ONE finished integrated pixel-art game pet illustration, not an accessory icon, not a sheet.\nInput images: Image 1 is the character edit target. Image 2 is an ACCESSORY DESIGN REFERENCE gallery ONLY: use the hat in column Lv.4, ignoring all other rewards and all UI. The character identity/proportions MUST follow Image 1, not the smaller gallery animals.\nPrimary request: show this exact fox with ONLY its Lv.4 hat: a low midnight-teal hood-like fox cap with two open ear notches, a small silver star stitch and short brow band, no cloak or animal.\nAnatomical integration: hat resting naturally on the skull between/around the real ears or horns. Preserve both real ears/horns, let them correctly occlude the hat where appropriate. Do not draw extra ears or horns as parts of the hat. No reward bow or cushion.\nInvariants: preserve orange and cream fox, dark paws, pointed ears, amber eyes, forest-green bandana, seated paws and large white-tipped tail on viewer right; same face, neutral friendly expression, body proportions, pose, perspective, warm dark stepped outlines, chunky square pixel size, limited warm palette and shading as Image 1. Integrate reward fabric through correct perspective, scale and natural occlusion. Do not redesign the pet. No other reward or outfit change.\nComposition: exactly one complete full-body pet centered in a square canvas, generous clear margin, fit the entire ears/horns/hat/paws/tail/wings/cushion without clipping. Maintain seated baseline near 88 percent canvas height. No floating isolated accessory.\nBackground: genuine transparent RGBA PNG, alpha zero outside the complete silhouette, preserve alpha. NEVER depict transparency with a checkerboard. No backdrop, floor, cast shadow, UI, writing, watermark, labels, sparkle or extra character. If alpha export is impossible, use absolutely uniform pure white #ffffff, with no texture, grid or gradient, never a checkerboard.",
+  "asset": "frontend/assets/pet/drafts/outfits-v1/fox/lv-4-hat.png",
+  "rawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-1d873cf6-f735-48a6-8587-c9bfe9ba45a3.png",
+  "status": "generated; alpha/visual acceptance pending"
+}

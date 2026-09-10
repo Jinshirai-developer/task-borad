@@ -1,0 +1,11 @@
+{
+  "key": "rabbit_5_hat",
+  "species": "rabbit",
+  "level": 5,
+  "kind": "hat",
+  "name": "春のお祝い花冠",
+  "reference": "/Applications/task-app/frontend/assets/pet/sources/portraits/portfolio-rabbit-idle-v1.png",
+  "prompt": "Use case: stylized-concept.\nAsset type: ONE separate pixel-art game reward sprite for the pet in image 1.\nImage 1 is a STYLE and anatomical fit REFERENCE ONLY. Draw ONLY the requested accessory. DO NOT draw the animal, a face, fur, head, ears, horns, paws, body, mannequin or scene.\nMatch the reference's chunky square pixels, warm very dark-brown stepped outline, restrained palette, upper-left highlights and stepped fabric shading. Aim for about 48-64 logical pixels across the actual object, enlarged as crisp square blocks. No smooth vector curves, no photorealism, no blurry painterly texture.\nA single coherent centered object with empty margin all around, about 75 percent canvas width. No detached sparkles, no text, numbers, labels, watermark, border, floor or cast shadow.\nGenuinely transparent RGBA PNG: alpha zero in all empty space. No painted white, ivory, checkerboard or other background.\nView: three-quarter FRONT view in the angle of the pet's head, hat brim/base naturally follows the skull, no rear view.\nRequested accessory: a delicate low rabbit flower crown of blush pink and cream fabric blossoms with warm gold centers and small mint leaves, open ear spacing.",
+  "rawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-27697f5b-af4e-4d41-8cb2-955685e89783.png",
+  "asset": "frontend/assets/pet/rewards-v2/rabbit/lv-5-hat.png"
+}

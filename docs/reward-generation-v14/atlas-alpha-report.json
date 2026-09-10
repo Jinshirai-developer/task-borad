@@ -1,0 +1,38 @@
+[
+  {
+    "species": "dog",
+    "backgroundPixels": 1149873,
+    "rgbUnchanged": true,
+    "sourceSha256": "2155f8385ae5a2fd8196e99bce38ca1c7655d05ac4a3023c30241d2cca8915d3"
+  },
+  {
+    "species": "cat",
+    "backgroundPixels": 1153362,
+    "rgbUnchanged": true,
+    "sourceSha256": "a465cad016f663c2cb5835da927e66eedfb3c6390014ead93d25f9ececac3a8e"
+  },
+  {
+    "species": "rabbit",
+    "backgroundPixels": 1199284,
+    "rgbUnchanged": true,
+    "sourceSha256": "79c391f37de7ef92bf19367ba3411a6a8ed55f2847b442e3ce2f778fd8057f29"
+  },
+  {
+    "species": "fox",
+    "backgroundPixels": 1018378,
+    "rgbUnchanged": true,
+    "sourceSha256": "50f46097eb829c8f25a3bd65dfc3abb4a08165660d9080e308809dc75fd8870a"
+  },
+  {
+    "species": "panda",
+    "backgroundPixels": 1012552,
+    "rgbUnchanged": true,
+    "sourceSha256": "3b1fcd7fb5c2c8923e59c2c9d35593baf06f32c1246f5335fb90e3ff5f0a6ac5"
+  },
+  {
+    "species": "dragon",
+    "backgroundPixels": 1017395,
+    "rgbUnchanged": true,
+    "sourceSha256": "60656c8bc28dd8817f9a1ebcc08ff0268c952599cde2c0118ffc7df9c4568395"
+  }
+]

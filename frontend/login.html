@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="個人とチームのタスクを整理して、完了とともに相棒を育てるTask Board。登録不要のデモでもお試しいただけます。">
+    <meta name="theme-color" content="#f4f5f0">
+    <title>ログイン | Task Board</title>
+    <link rel="stylesheet" href="login.css?v=20260909-28">
+</head>
+<body class="login-page">
+    <header class="login-header">
+        <a class="login-brand" href="login.html" aria-label="Task Board ログイン画面">
+            <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="5" height="16" rx="1.5" fill="currentColor"/><rect x="10" y="4" width="5" height="10" rx="1.5" fill="currentColor"/><rect x="17" y="4" width="4" height="13" rx="1.5" fill="currentColor"/></svg></span>
+            <span>Task Board</span>
+        </a>
+        <span class="login-project-label"><span aria-hidden="true"></span>ポートフォリオデモ</span>
+    </header>
+
+    <main class="login-layout">
+        <section class="login-welcome" aria-labelledby="welcome-title">
+            <div class="welcome-copy">
+                <p class="welcome-eyebrow">タスク管理 × 相棒育成</p>
+                <h1 id="welcome-title">タスクが片づく。<br><span>相棒が育つ。</span></h1>
+                <p class="welcome-description">ひとりの作業も、チームの仕事も。<br>やることと進み具合を、ひとつのボードに。</p>
+            </div>
+            <figure class="welcome-preview" aria-label="タスクの完了に合わせて、相棒が経験値を獲得する画面イメージ">
+                <div class="preview-board" aria-hidden="true">
+                    <div class="preview-toolbar"><span class="preview-window-dots"><i></i><i></i><i></i></span><span>マイワークスペース</span><span class="preview-avatar">Y</span></div>
+                    <div class="preview-board-heading"><strong>今日のタスク</strong><span>個人 · 非公開</span></div>
+                    <div class="preview-columns">
+                        <div class="preview-column"><div class="preview-column-title"><i></i>TODO <span>2</span></div><div class="preview-task"><span class="preview-tag">準備</span><strong>今週の予定を整理</strong><small>今日まで</small></div><div class="preview-task preview-task-quiet"><span></span><span></span></div></div>
+                        <div class="preview-column"><div class="preview-column-title"><i></i>DOING <span>1</span></div><div class="preview-task"><span class="preview-tag preview-tag-blue">制作</span><strong>画面のデザイン</strong><small><i class="preview-progress"></i> 作業中</small></div></div>
+                        <div class="preview-column"><div class="preview-column-title"><i></i>DONE <span>1</span></div><div class="preview-task preview-task-done"><span class="preview-check">✓</span><strong>メモをまとめる</strong><small>完了しました</small></div></div>
+                    </div>
+                </div>
+                <div class="preview-reward" aria-hidden="true"><span class="reward-check">✓</span><span><strong>ひとつ、できた！</strong><small>相棒も一歩成長</small></span><b>+25 <small>EXP</small></b></div>
+                <div class="preview-pet" aria-hidden="true"><span class="pet-orbit"></span><span class="pet-spark pet-spark-one">✦</span><span class="pet-spark pet-spark-two">✧</span><img src="assets/pet/portfolio-cat-idle-v3.png" alt="" width="210" height="210" fetchpriority="high"><span class="pet-nameplate"><i></i>あなたの相棒</span></div>
+                <figcaption>画面イメージ</figcaption>
+            </figure>
+            <div class="welcome-features">
+                <div><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 3 3 5-6"/></svg></span><span><strong>やることを整理</strong><small>個人もチームも、ひと目で。</small></span></div>
+                <div><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20V9m0 6c-5 0-8-3-8-8 5 0 8 3 8 8Zm0-4c0-4 3-7 8-7 0 4-3 7-8 7Z"/></svg></span><span><strong>達成を楽しむ</strong><small>完了するたび、相棒が成長。</small></span></div>
+            </div>
+        </section>
+
+        <section class="login-panel" aria-labelledby="auth-heading">
+            <div class="login-panel-heading">
+                <p class="login-panel-eyebrow">YOUR WORKSPACE</p>
+                <h2 id="auth-heading">ログイン</h2>
+                <p id="auth-description">あなたのタスクボードを開きましょう。</p>
+            </div>
+            <div id="google-login" class="google-login" hidden>
+                <button id="google-start" class="google-button" type="button"><img src="assets/brand/google-g.png" width="20" height="20" alt=""><span>Google でログイン</span></button>
+                <div class="login-divider"><span>または、ユーザーIDで</span></div>
+            </div>
+            <form id="auth-form" class="auth-form">
+                <label class="modal-field">
+                    ユーザーID
+                    <input id="auth-user-key" name="username" type="text" minlength="3" maxlength="100" pattern="[A-Za-z0-9_-]+" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="ユーザーIDを入力" aria-describedby="auth-user-key-hint" required>
+                    <span id="auth-user-key-hint" class="field-hint" data-register-only hidden>半角英数字・ハイフン・アンダースコアで3文字以上</span>
+                </label>
+                <label class="modal-field" data-register-only hidden>
+                    <span>表示名 <small class="optional-label">任意</small></span>
+                    <input id="auth-display-name" name="nickname" type="text" maxlength="100" autocomplete="nickname" placeholder="ニックネーム" disabled>
+                </label>
+                <label class="modal-field" data-register-only hidden>
+                    メールアドレス
+                    <input id="auth-email" name="email" type="email" maxlength="254" autocomplete="email" placeholder="you@example.com" disabled>
+                    <span class="field-hint">本人確認とパスワード再設定に使用します。</span>
+                </label>
+                <div class="modal-field">
+                    <label for="auth-password">パスワード</label>
+                    <div class="password-field"><input id="auth-password" name="password" type="password" minlength="8" maxlength="100" autocomplete="current-password" placeholder="パスワードを入力" aria-describedby="auth-password-hint" required><button id="auth-password-toggle" class="password-toggle" type="button" aria-label="パスワードを表示" aria-controls="auth-password" aria-pressed="false">表示</button></div>
+                    <span id="auth-password-hint" class="field-hint" data-register-only hidden>登録時のパスワードを入力してください。</span>
+                </div>
+                <label class="auth-consent" data-register-only hidden>
+                    <input id="auth-terms" type="checkbox" disabled>
+                    <span><a href="terms.html" target="_blank" rel="noopener noreferrer">利用規約（別タブ）</a>に同意し、<a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー（別タブ）</a>を確認しました。</span>
+                </label>
+                <p id="registration-closed" class="registration-notice" hidden>現在、新規登録を受け付けていません。既存のアカウントではログインできます。</p>
+                <p id="auth-message" class="auth-message" role="status" aria-live="polite" aria-atomic="true"></p>
+                <div class="auth-actions"><button id="auth-submit-button" class="primary-button" type="submit">ログインする</button><button id="auth-switch-button" class="switch-button" type="button" hidden>はじめての方はこちら · 新規登録</button></div>
+                <nav class="auth-links" aria-label="アカウントのサポート"><a href="auth.html?mode=forgot">パスワードを忘れた方</a><span aria-hidden="true">·</span><a href="auth.html?mode=resend">確認メールを再送</a></nav>
+            </form>
+            <div class="login-demo"><a id="demo-start-link" href="index.html?demo=1"><span><strong>まずは、使ってみる</strong><small>アカウント登録なしでお試し</small></span><span class="demo-arrow" aria-hidden="true">↗</span></a><p>サンプルデータで体験できます。<br>お試し中の変更は再読み込みでリセットされます。</p></div>
+            <noscript><p class="auth-safety-note">このアプリの利用にはJavaScriptを有効にしてください。</p></noscript>
+        </section>
+    </main>
+
+    <footer class="login-footer"><p class="auth-safety-note">学習・ポートフォリオ用のアプリです。個人情報・機密情報の入力や、パスワードの使い回しはお控えください。</p><nav aria-label="利用に関する情報"><a href="terms.html">利用規約</a><a href="privacy.html">プライバシーポリシー</a></nav></footer>
+    <script src="auth-client.js?v=20260908-15"></script>
+    <script src="login.js?v=20260909-28"></script>
+</body>
+</html>

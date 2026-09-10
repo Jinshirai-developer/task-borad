@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>アカウントの手続き | Task Board</title>
+    <link rel="stylesheet" href="login.css?v=20260909-28">
+</head>
+<body class="auth-page">
+    <main class="auth-shell auth-support-shell">
+        <section class="auth-window" aria-labelledby="support-title">
+            <div class="modal-titlebar"><h1 id="support-title">Task Board - アカウントの手続き</h1></div>
+            <div id="support-content" class="auth-support-body" aria-busy="true">
+                <h2 id="support-heading" tabindex="-1">アカウントを確認しています</h2>
+                <p id="support-description">しばらくお待ちください。</p>
+                <p id="support-message" class="auth-message" role="status" aria-live="polite" aria-atomic="true"></p>
+
+                <form id="setup-form" class="auth-form" hidden>
+                    <label class="modal-field">メールアドレス
+                        <input id="setup-email" type="email" maxlength="254" autocomplete="email" required>
+                        <span class="field-hint">本人確認とパスワード再設定に使用します。タスクには表示されません。</span>
+                    </label>
+                    <label id="setup-password-field" class="modal-field">現在のパスワード
+                        <input id="setup-password" type="password" minlength="8" maxlength="100" autocomplete="current-password" required>
+                        <span class="field-hint">安全のため、ログインに使用したパスワードをもう一度入力してください。</span>
+                    </label>
+                    <label class="auth-consent">
+                        <input id="setup-terms" type="checkbox" required>
+                        <span><a href="terms.html" target="_blank" rel="noopener noreferrer">利用規約（別タブ）</a>に同意し、<a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー（別タブ）</a>を確認しました。</span>
+                    </label>
+                    <div class="auth-actions"><button type="submit">手続きを進める</button></div>
+                </form>
+
+                <div id="pending-panel" class="auth-form" hidden>
+                    <p class="auth-safety-note">確認メールが届かない場合は迷惑メールフォルダーも確認してください。メール内のリンクを開いた後、「メールアドレスを確認する」を押してください。</p>
+                    <div class="auth-actions">
+                        <button id="pending-resend" type="button">確認メールを再送</button>
+                        <button id="pending-edit" type="button">メールアドレスを訂正</button>
+                        <button id="pending-refresh" type="button">確認済みの方はこちら</button>
+                    </div>
+                </div>
+
+                <form id="email-form" class="auth-form" hidden>
+                    <label class="modal-field">メールアドレス
+                        <input id="recovery-email" type="email" maxlength="254" autocomplete="email" required>
+                    </label>
+                    <div class="auth-actions"><button id="email-submit" type="submit">メールを送信</button></div>
+                    <p class="field-hint">登録の有無にかかわらず同じ案内を表示します。届かない場合は入力内容と迷惑メールフォルダーをご確認ください。</p>
+                </form>
+
+                <form id="confirm-form" class="auth-form" hidden>
+                    <p class="auth-safety-note">このメールアドレスで登録した覚えがある場合のみ、確認を進めてください。</p>
+                    <div class="auth-actions"><button type="submit">メールアドレスを確認する</button></div>
+                </form>
+
+                <form id="reset-form" class="auth-form" hidden>
+                    <label class="modal-field">新しいパスワード
+                        <input id="reset-password" type="password" minlength="12" maxlength="100" autocomplete="new-password" aria-describedby="reset-password-hint" required>
+                        <span id="reset-password-hint" class="field-hint">12〜100文字。他のサービスと異なるパスワードにしてください。</span>
+                    </label>
+                    <label class="modal-field">新しいパスワード（確認）
+                        <input id="reset-password-confirm" type="password" minlength="12" maxlength="100" autocomplete="new-password" required>
+                    </label>
+                    <div class="auth-actions"><button type="submit">パスワードを再設定</button></div>
+                    <p class="field-hint">再設定後は、すべての端末でログインし直す必要があります。</p>
+                </form>
+
+                <nav id="support-recovery" class="auth-links" aria-label="メールの再送" hidden>
+                    <a href="auth.html?mode=resend">確認メールを再送</a>
+                    <a href="auth.html?mode=forgot">再設定メールを再送</a>
+                </nav>
+                <div id="support-account-actions" class="auth-account-actions" hidden>
+                    <button id="support-logout" type="button">ログアウト</button>
+                    <button id="support-delete" class="account-delete-button" type="button">アカウント削除</button>
+                </div>
+                <a id="support-login-link" href="login.html">ログイン画面へ</a>
+            </div>
+            <nav class="auth-footer" aria-label="利用に関する情報"><a href="terms.html">利用規約</a><a href="privacy.html">プライバシーポリシー</a></nav>
+            <noscript><p class="auth-safety-note">このアプリの利用にはJavaScriptを有効にしてください。</p></noscript>
+        </section>
+    </main>
+    <script src="auth-client.js?v=20260907-4"></script>
+    <script src="auth.js?v=20260909-28"></script>
+</body>
+</html>

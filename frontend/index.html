@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Board</title>
+    <link rel="stylesheet" href="style.css?v=20260908-1">
+    <link rel="stylesheet" href="options.css?v=20260909-22">
+    <link rel="stylesheet" href="unlocks.css?v=20260908-3">
+    <link rel="stylesheet" href="task-tags.css?v=20260908-3">
+    <link rel="stylesheet" href="pet-play.css?v=20260908-3">
+    <link rel="stylesheet" href="task-details.css?v=20260908-15">
+    <link rel="stylesheet" href="companion-work.css?v=20260909-25">
+    <link rel="stylesheet" href="team-billing.css?v=20260909-20">
+    <link rel="stylesheet" href="task-workflow.css?v=20260909-25">
+</head>
+<body data-theme="classic" data-layout="board" data-ui="modern">
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <p class="eyebrow">Task Board</p>
+                <h1>Task Board</h1>
+                <p class="brand-tagline">個人とチームのタスク管理</p>
+            </div>
+
+            <nav class="sidebar-tools" aria-label="タグでタスクを絞り込む">
+                <label for="sidebar-tag-filter">タグで絞り込み</label>
+                <select id="sidebar-tag-filter" aria-describedby="sidebar-tag-message"><option value="all">すべてのタグ</option><option value="untagged">未分類</option><option value="action:add-tag">＋ 新しいタグを追加…</option></select>
+                <p id="sidebar-tag-message" class="classification-message error" role="status" aria-live="polite"></p>
+            </nav>
+
+            <div class="user-panel">
+                <div class="user-session">
+                    <span class="user-session-label">ログイン中</span>
+                    <strong id="current-user-name">読み込み中</strong>
+                    <span id="current-user-key"></span>
+                </div>
+                <button id="open-settings-button" class="settings-button" type="button" aria-haspopup="dialog">⚙ 設定</button>
+                <p id="profile-message" class="user-message" role="status" aria-live="polite" aria-atomic="true"></p>
+            </div>
+
+            <div class="pet-panel">
+                <button id="pet-interact-button" class="pet-portrait-button" type="button" aria-label="相棒と触れ合う・ごほうびを見る" aria-haspopup="dialog" title="クリックして相棒と触れ合う">
+                    <span id="pet-sprite" class="pet-sprite is-idle" role="img" aria-label="育成キャラクター"></span>
+                    <span id="pet-gift-badge" class="pet-gift-badge" hidden></span>
+                </button>
+                <div class="pet-meta">
+                    <div class="pet-heading">
+                        <strong id="pet-name-display">Task Pet</strong>
+                        <span id="pet-species-display" class="field-hint">いぬ</span>
+                        <span id="pet-level" class="pet-level">Lv.1</span>
+                    </div>
+                    <p id="pet-title" class="pet-title">見習い相棒</p>
+                    <p id="pet-status" class="pet-status">待機中</p>
+                    <div class="pet-progress">
+                        <div id="pet-experience-bar" class="pet-progress-bar" role="progressbar" aria-label="経験値" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+                    </div>
+                    <div class="pet-progress pet-energy">
+                        <div id="pet-energy-bar" class="pet-energy-bar" role="progressbar" aria-label="元気度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"></div>
+                    </div>
+                    <div class="pet-stats">
+                        <span id="pet-experience">0 / 100 EXP</span>
+                        <span id="pet-completed-count">完了 0件</span>
+                        <span id="pet-streak">連続 0日</span>
+                        <span id="pet-energy">元気 80</span>
+                    </div>
+                    <div id="pet-achievements" class="pet-achievements"></div>
+                    <p id="pet-unlock-next" class="pet-unlock-next">次の解放を確認中です</p>
+                </div>
+            </div>
+
+            <div id="summary" class="summary">0 tasks</div>
+            <div id="pet-event" class="pet-event hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+            <nav class="app-legal-links" aria-label="利用に関する情報"><a href="terms.html">利用規約</a><a href="privacy.html">プライバシーポリシー</a></nav>
+            <button id="mobile-sidebar-toggle" class="mobile-sidebar-toggle" type="button" aria-expanded="false">相棒・タグの詳細</button>
+        </aside>
+
+        <main class="app">
+        <div class="task-toolbar" aria-label="タスクの主な操作">
+            <button id="quick-create-task" class="primary-task-action" type="button" aria-haspopup="dialog">＋ タスク追加</button>
+            <button id="search-all-tasks" type="button" aria-haspopup="dialog">検索・絞り込み</button>
+            <button id="work-inbox-open" type="button" aria-expanded="false" aria-controls="work-inbox-panel">お助け依頼 <span id="work-inbox-count">…</span></button>
+        </div>
+        <p id="work-inbox-status" class="work-inbox-status" role="status" aria-live="polite"></p>
+        <section id="work-inbox-panel" aria-labelledby="work-inbox-title" hidden>
+            <header class="inbox-header"><div><p class="inbox-eyebrow">全チーム</p><h2 id="work-inbox-title" tabindex="-1">お助け依頼</h2><p>届いた依頼への返答や、送った依頼の状況を確認できます。</p></div><button id="work-inbox-close" type="button">タスク一覧に戻る</button></header>
+            <div class="inbox-controls"><div class="inbox-views" role="group" aria-label="依頼の表示">
+                <button id="inbox-view-incoming" type="button" aria-pressed="true">届いた依頼 <span id="inbox-count-incoming">…</span></button>
+                <button id="inbox-view-helping" type="button" aria-pressed="false">対応中 <span id="inbox-count-helping">…</span></button>
+                <button id="inbox-view-sent" type="button" aria-pressed="false">送った依頼 <span id="inbox-count-sent">…</span></button>
+            </div><button id="work-inbox-refresh" type="button">更新</button></div>
+            <p id="work-inbox-message" role="status" aria-live="polite" tabindex="-1"></p>
+            <div id="work-inbox-items" aria-busy="false"></div>
+        </section>
+        <div class="workspace-switcher">
+            <div id="workspace-tabs" class="workspace-tabs" role="tablist" aria-label="個人・チームのタスクを切り替え">
+                <button id="workspace-tab-personal" class="workspace-tab" type="button" role="tab" aria-selected="true" aria-controls="workspace-task-panel" data-workspace-id=""><span class="workspace-tab-name">個人</span><span class="workspace-tab-kind">非公開</span></button>
+            </div>
+            <p id="workspace-tabs-message" class="workspace-tabs-message" role="status" aria-live="polite" hidden></p>
+        </div>
+        <section id="workspace-task-panel" class="workspace-task-panel" role="tabpanel" aria-labelledby="workspace-tab-personal">
+        <p id="message" class="message" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div class="board-controls">
+            <div id="filter-summary" class="filter-summary" role="status" aria-live="polite" aria-atomic="true">すべてのタスクを表示中</div>
+            <button id="companion-hub-open" type="button" aria-haspopup="dialog">作業メモ</button>
+            <label class="checkbox-label board-toggle">
+                <input id="hide-done-toggle" type="checkbox">
+                DONEを非表示
+            </label>
+            <div class="board-pager" aria-label="検索結果ページ">
+                <button id="prev-page" type="button">前へ</button>
+                <span id="page-info" aria-live="polite" aria-atomic="true">1 / 1</span>
+                <button id="next-page" type="button">次へ</button>
+            </div>
+        </div>
+        <div class="task-quick-filters" aria-label="よく使う絞り込み">
+            <button type="button" id="quick-filter-all" aria-pressed="true">すべて</button>
+            <button type="button" id="quick-filter-mine" aria-pressed="false" hidden>自分の担当</button>
+            <button type="button" id="quick-filter-today" aria-pressed="false">今日まで</button>
+            <button type="button" id="quick-filter-overdue" aria-pressed="false">期限超過</button>
+            <label class="quick-sort-label">並び順<select id="quick-sort"><option value="desc">新しい順</option><option value="asc">古い順</option><option value="due">期限が近い順</option></select></label>
+        </div>
+
+        <section id="focus-layout-notice" class="focus-layout-notice hidden" aria-label="集中表示について"><div><strong>集中モード</strong><p id="focus-layout-description"></p></div><button id="focus-show-all-button" type="button">ボード表示に戻す</button><div class="focus-dropzones" role="group" aria-label="カードをドラッグして状態を変更"><div class="focus-dropzone" data-focus-drop="0">TODOへ移動</div><div class="focus-dropzone" data-focus-drop="1">DOINGへ移動</div><div class="focus-dropzone" data-focus-drop="2">DONEへ移動</div></div></section>
+        <section class="board-section">
+            <div class="board-column">
+                <div class="board-column-header">
+                    <div class="board-heading">
+                        <h2>TODO</h2>
+                        <span id="todo-count">0</span>
+                    </div>
+                    <div class="board-header-actions">
+                        <button id="open-create-task-button" class="add-task-button" type="button" aria-label="TODOにタスクを追加" title="タスクを追加" aria-haspopup="dialog" aria-controls="create-task-modal">+</button>
+                        <button class="board-search-button" type="button" data-board-search="todo" aria-label="TODOを検索">🔍</button>
+                    </div>
+                </div>
+                <ul id="task-list" class="task-list" data-status-list="todo"></ul>
+            </div>
+
+            <div class="board-column">
+                <div class="board-column-header">
+                    <div class="board-heading">
+                        <h2>DOING</h2>
+                        <span id="doing-count">0</span>
+                    </div>
+                    <button class="board-search-button" type="button" data-board-search="doing" aria-label="DOINGを検索">🔍</button>
+                </div>
+                <ul id="doing-list" class="task-list" data-status-list="doing"></ul>
+            </div>
+
+            <div id="done-column" class="board-column">
+                <div class="board-column-header">
+                    <div class="board-heading">
+                        <h2>DONE</h2>
+                        <span id="done-count">0</span>
+                    </div>
+                    <button class="board-search-button" type="button" data-board-search="done" aria-label="DONEを検索">🔍</button>
+                </div>
+                <ul id="done-list" class="task-list" data-status-list="done"></ul>
+            </div>
+        </section>
+
+        </section>
+
+        <div id="create-task-modal" class="modal-backdrop hidden" role="presentation">
+            <section class="create-modal" role="dialog" aria-modal="true" aria-labelledby="create-modal-title">
+                <div class="modal-titlebar">
+                    <h2 id="create-modal-title">タスク追加</h2>
+                    <button id="create-modal-close-button" class="modal-close-button" type="button" aria-label="閉じる">×</button>
+                </div>
+
+                <form id="task-form" class="task-form create-task-form">
+                    <label class="modal-field">
+                        タイトル
+                        <input id="title" type="text" placeholder="タイトル" maxlength="200" required>
+                    </label>
+
+                    <label class="modal-field">
+                        説明
+                        <textarea id="description" placeholder="説明" rows="4" maxlength="2000"></textarea>
+                    </label>
+
+                    <label class="modal-field">
+                        ステータス
+                        <select id="create-status">
+                            <option value="0" selected>TODO</option>
+                            <option value="1">DOING</option>
+                            <option value="2">DONE</option>
+                        </select>
+                    </label>
+
+                    <div class="modal-filter-grid task-metadata-grid">
+                        <label class="modal-field">
+                            期限（JST）
+                            <input id="due-date" type="date">
+                        </label>
+
+                        <label class="modal-field">
+                            優先度
+                            <select id="priority">
+                                <option value="0">低</option>
+                                <option value="1" selected>中</option>
+                                <option value="2">高</option>
+                            </select>
+                        </label>
+
+                        <input id="tags" type="hidden">
+                    </div>
+
+                    <div id="create-tag-picker" class="tag-picker">
+                        <span id="create-tags-label" class="tag-picker-label">タグ</span>
+                        <button id="create-tags-toggle" class="tag-picker-toggle" type="button" aria-expanded="false" aria-controls="create-tag-panel" aria-labelledby="create-tags-label create-tags-selection" aria-describedby="create-tags-hint"><span id="create-tags-selection">タグを選択（複数可）</span><span aria-hidden="true">▾</span></button>
+                        <div id="create-tag-panel" class="tag-picker-panel" hidden>
+                            <div id="create-tag-choices" class="tag-picker-choices" role="group" aria-label="追加するタスクのタグ候補"></div>
+                        </div>
+                        <p id="create-tags-hint" class="classification-hint">複数選択できます。タグの追加は「設定 → タグ・チーム」から。</p>
+                        <p id="create-tag-message" class="classification-message" role="status" aria-live="polite"></p>
+                    </div>
+                    <p id="create-message" class="edit-message" role="status" aria-live="polite" aria-atomic="true"></p>
+                    <label id="create-assignee-field" class="modal-field" hidden>担当者<select id="create-assignee"><option value="">未割り当て</option></select><span class="field-hint">完了の経験値は担当者へ。未割り当ての場合は完了した人へ。</span><span id="create-assignee-message" class="field-hint" role="status"></span></label>
+                    <details id="create-checklist-details" class="task-checklist-details"><summary>チェックリスト <span id="create-checklist-count">0/0</span></summary><p class="field-hint">20項目まで。チェックだけではタスク完了・経験値獲得にはなりません。</p><div id="create-checklist" class="checklist-editor"></div><button id="create-checklist-add" type="button">＋ 項目を追加</button></details>
+                    <details class="work-create-hint"><summary>過去の作業メモを探す</summary><p class="field-hint">同じタグやキーワードから、選択中の個人／チームの記録だけを探します。</p><button id="create-find-work-notes" type="button">似た作業の記録を見る</button></details>
+
+                    <div class="modal-actions">
+                        <button id="create-cancel-button" class="secondary-button" type="button">キャンセル</button>
+                        <button id="submit-button" type="submit">追加</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <div id="edit-modal" class="modal-backdrop hidden" role="presentation">
+            <section class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title">
+                <div class="modal-titlebar">
+                    <h2 id="edit-modal-title">タスク編集</h2>
+                    <button id="edit-modal-close-button" class="modal-close-button" type="button" aria-label="閉じる">×</button>
+                </div>
+
+                <form id="edit-task-form" class="edit-task-form">
+                    <label class="modal-field">
+                        タイトル
+                        <input id="edit-title" type="text" maxlength="200" required>
+                    </label>
+
+                    <label class="modal-field">
+                        説明
+                        <textarea id="edit-description" rows="4" maxlength="2000"></textarea>
+                    </label>
+
+                    <label class="modal-field">
+                        ステータス
+                        <select id="edit-status">
+                            <option value="0">TODO</option>
+                            <option value="1">DOING</option>
+                            <option value="2">DONE</option>
+                        </select>
+                    </label>
+
+                    <div class="modal-filter-grid task-metadata-grid">
+                        <label class="modal-field">
+                            期限（JST）
+                            <input id="edit-due-date" type="date">
+                        </label>
+
+                        <label class="modal-field">
+                            優先度
+                            <select id="edit-priority">
+                                <option value="0">低</option>
+                                <option value="1">中</option>
+                                <option value="2">高</option>
+                            </select>
+                        </label>
+
+                        <input id="edit-tags" type="hidden">
+                    </div>
+
+                    <div id="edit-tag-picker" class="tag-picker">
+                        <span id="edit-tags-label" class="tag-picker-label">タグ</span>
+                        <button id="edit-tags-toggle" class="tag-picker-toggle" type="button" aria-expanded="false" aria-controls="edit-tag-panel" aria-labelledby="edit-tags-label edit-tags-selection" aria-describedby="edit-tags-hint"><span id="edit-tags-selection">タグを選択（複数可）</span><span aria-hidden="true">▾</span></button>
+                        <div id="edit-tag-panel" class="tag-picker-panel" hidden>
+                            <div id="edit-tag-choices" class="tag-picker-choices" role="group" aria-label="編集中のタスクのタグ候補"></div>
+                        </div>
+                        <p id="edit-tags-hint" class="classification-hint">複数選択できます。タグの追加は「設定 → タグ・チーム」から。</p>
+                        <p id="edit-tag-message" class="classification-message" role="status" aria-live="polite"></p>
+                    </div>
+                    <p id="edit-message" class="edit-message" role="status" aria-live="polite" aria-atomic="true"></p>
+                    <label id="edit-assignee-field" class="modal-field" hidden>担当者<select id="edit-assignee"><option value="">未割り当て</option></select><span class="field-hint">完了の経験値は担当者へ。未割り当ての場合は完了した人へ。</span><span id="edit-assignee-message" class="field-hint" role="status"></span></label>
+                    <details id="edit-checklist-details" class="task-checklist-details"><summary>チェックリスト <span id="edit-checklist-count">0/0</span></summary><p class="field-hint">20項目まで。チェックだけではタスク完了・経験値獲得にはなりません。</p><div id="edit-checklist" class="checklist-editor"></div><button id="edit-checklist-add" type="button">＋ 項目を追加</button></details>
+                    <div class="work-entry"><button id="edit-companion-open" type="button">メモ・依頼の詳細</button><p class="field-hint">個人では非公開、チームではメンバーと共有します。タスク編集とは別に保存します。</p></div>
+
+                    <div class="modal-actions">
+                        <button id="edit-delete-button" class="delete-button" type="button">削除</button>
+                        <button id="edit-cancel-button" class="secondary-button" type="button">キャンセル</button>
+                        <button id="edit-save-button" type="submit">保存</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <div id="board-search-modal" class="modal-backdrop hidden" role="presentation">
+            <section class="search-modal" role="dialog" aria-modal="true" aria-labelledby="board-search-title">
+                <div class="modal-titlebar">
+                    <h2 id="board-search-title">ボード検索</h2>
+                    <button id="board-search-close-button" class="modal-close-button" type="button" aria-label="閉じる">×</button>
+                </div>
+
+                <form id="filter-form" class="board-search-form">
+                    <label class="modal-field">
+                        タイトル・説明で検索
+                        <input id="search" type="search" placeholder="キーワードを入力" maxlength="200">
+                    </label>
+
+                    <div class="modal-filter-grid">
+                        <label class="modal-field">
+                            対象
+                            <span id="board-search-status-label" hidden>すべて</span>
+                            <select id="status-filter"><option value="">すべての状態</option><option value="Todo">TODO</option><option value="Doing">DOING</option><option value="Done">DONE</option></select>
+                        </label>
+
+                        <label class="modal-field">
+                            並び順
+                            <select id="sort-order">
+                                <option value="desc">新しい順</option>
+                                <option value="asc">古い順</option>
+                                <option value="due">期限が近い順</option>
+                            </select>
+                        </label>
+
+                        <label class="modal-field">
+                            件数
+                            <select id="page-size">
+                                <option value="5">5件</option>
+                                <option value="10">10件</option>
+                                <option value="20">20件</option>
+                                <option value="100" selected>100件</option>
+                            </select>
+                        </label>
+
+                        <label class="modal-field">
+                            優先度
+                            <select id="priority-filter">
+                                <option value="">すべて</option>
+                                <option value="0">低</option>
+                                <option value="1">中</option>
+                                <option value="2">高</option>
+                            </select>
+                        </label>
+
+                        <label class="modal-field">
+                            タグ
+                            <input id="tag-filter" type="search" placeholder="タグで検索" maxlength="100">
+                        </label>
+                        <label class="modal-field" id="assignee-filter-field">担当者<select id="assignee-filter"><option value="">すべての担当者</option><option value="me">自分の担当</option><option value="unassigned">未割り当て</option></select><span id="assignee-filter-message" class="field-hint" role="status"></span></label>
+                        <label class="modal-field">期限（JST）<select id="due-filter"><option value="">すべての期限</option><option value="today">今日が期限（未完了）</option><option value="through_today">今日まで（未完了）</option><option value="overdue">期限超過（未完了）</option><option value="none">期限なし</option></select></label>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button id="board-search-clear-button" class="secondary-button" type="button">クリア</button>
+                        <button id="board-search-cancel-button" class="secondary-button" type="button">キャンセル</button>
+                        <button id="board-search-submit-button" type="submit">検索</button>
+                    </div>
+
+                </form>
+            </section>
+        </div>
+        <div id="settings-modal" class="modal-backdrop hidden" role="presentation">
+            <section class="options-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+                <div class="modal-titlebar"><h2 id="settings-title">オプション</h2><button id="settings-close-button" class="modal-close-button" type="button" aria-label="設定を閉じる">×</button></div>
+                <div class="options-tabs" role="tablist" aria-label="設定の種類">
+                    <button id="settings-display-tab" type="button" role="tab" aria-selected="true" aria-controls="settings-display" data-settings-tab="display">表示</button>
+                    <button id="settings-tasks-tab" type="button" role="tab" aria-selected="false" aria-controls="settings-tasks" tabindex="-1" data-settings-tab="tasks">タグ・チーム</button>
+                    <button id="settings-pet-tab" type="button" role="tab" aria-selected="false" aria-controls="settings-pet" tabindex="-1" data-settings-tab="pet">ペット</button>
+                    <button id="settings-account-tab" type="button" role="tab" aria-selected="false" aria-controls="settings-account" tabindex="-1" data-settings-tab="account">アカウント</button>
+                </div>
+                <section id="unlock-overview" class="unlock-overview" aria-label="育成情報" hidden><div class="unlock-heading"><strong id="unlock-level-label">Lv.1</strong><span id="unlock-next-label">解放状況を確認中です</span></div><div id="unlock-progress" class="unlock-progress" role="progressbar" aria-label="次の解放までの経験値" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="unlock-progress-fill"></span></div><p id="unlock-message" class="field-hint" role="status" aria-live="polite"></p><p class="field-hint">完了を取り消すと経験値は戻ります。取得済みの装備・成長した姿と表示設定はそのまま残ります。</p></section>
+                <section id="settings-tasks" class="options-section task-settings" role="tabpanel" aria-labelledby="settings-tasks-tab" hidden>
+                    <section class="team-settings-card" aria-labelledby="team-settings-title">
+                        <h3 id="team-settings-title">チームでタスクを共有</h3>
+                        <p class="options-description">新しくチームを作るか、届いた招待コードで参加できます。</p>
+                        <div class="workspace-actions">
+                            <button id="settings-team-create-button" type="button" aria-haspopup="dialog">＋ チームを作成</button>
+                            <button id="settings-team-join-button" type="button" aria-haspopup="dialog">招待コードで参加</button>
+                        </div>
+                    </section>
+                    <section class="workspace-bar" aria-label="ワークスペース">
+                        <label class="workspace-select-label" for="workspace-select">タスク・タグの表示先
+                            <select id="workspace-select"><option value="">自分のタスク（非公開）</option></select>
+                        </label>
+                        <div class="workspace-actions">
+                            <button id="open-team-button" type="button" aria-haspopup="dialog" hidden>選択中のチームを管理</button>
+                            <button id="refresh-workspace-button" type="button">更新</button>
+                        </div>
+                        <p id="workspace-description" class="workspace-description">このタスクは、あなただけに表示されます。</p>
+                        <p id="workspace-sync-status" class="field-hint" role="status">チーム表示中は15秒ごとに自動更新します。編集中は一時停止します。</p>
+                    </section>
+                    <section id="task-classifications" class="task-classifications" aria-labelledby="task-classifications-title">
+                        <div class="classification-heading"><h2 id="task-classifications-title">タスクをまとめるタグ</h2><button id="open-tag-create-button" type="button" aria-expanded="false" aria-controls="tag-create-form">＋ 新しいタグを追加</button></div>
+                        <p class="classification-hint">「プログラマー」「アーティスト」など、役割や目的でまとめられます。追加したタグはタスクの作成・編集で選べます。</p>
+                        <p id="tag-scope-label" class="tag-scope-label">追加先：個人（非公開）</p>
+                        <form id="tag-create-form" class="tag-create-form" hidden>
+                            <label for="tag-name-input">追加するタグ名</label>
+                            <div class="tag-create-controls"><input id="tag-name-input" type="text" maxlength="50" placeholder="例：プログラマー" aria-describedby="tag-scope-label tag-create-hint" required><button id="tag-create-submit" type="submit">タグを追加</button><button id="tag-create-cancel" type="button">閉じる</button></div>
+                            <p id="tag-create-hint" class="classification-hint">タグは1つずつ追加します（1〜50文字、カンマ不可）。既存のタスクには自動で付きません。</p>
+                        </form>
+                        <p id="classification-message" class="classification-message" role="status" aria-live="polite"></p>
+                        <p id="tag-empty-hint" class="classification-hint" hidden>まだタグがありません。「＋ 新しいタグを追加」から最初のタグを作りましょう。</p>
+                        <div id="classification-chips" class="classification-chips" role="group" aria-label="分類タグで絞り込む"></div>
+                        <p id="classification-summary" class="classification-summary" role="status" aria-live="polite">分類タグを読み込み中です</p>
+                        <details id="tag-manage-details"><summary>タグを整理（名前変更・削除・統合）</summary>
+                            <form id="tag-manage-form" class="options-form">
+                                <label class="modal-field">整理するタグ<select id="tag-manage-source" required></select></label>
+                                <label class="modal-field">操作<select id="tag-manage-action"><option value="rename">名前を変更</option><option value="merge">別のタグへ統合</option><option value="delete">タグを削除</option></select></label>
+                                <label id="tag-rename-field" class="modal-field">新しい名前<input id="tag-rename-input" maxlength="50" required></label>
+                                <label id="tag-merge-field" class="modal-field" hidden>統合先<select id="tag-merge-target" disabled></select></label>
+                                <p id="tag-manage-impact" class="field-hint">この表示先のタスクに付いているタグも変更します。タスク自体は削除しません。</p>
+                                <button id="tag-manage-submit" type="submit">変更を確認</button>
+                            </form>
+                        </details>
+                        <p class="classification-hint">件数はこのワークスペース全体の集計です（検索・ページに関係しません）。複数タグのタスクは各タグで数えるため、合計は重複します。</p>
+                    </section>
+                    <section id="workspace-progress" class="workspace-progress hidden" aria-label="チーム全体の進捗">
+                        <div class="progress-heading"><strong id="workspace-progress-title">チーム全体</strong><span id="workspace-progress-label"></span></div>
+                        <div id="workspace-progress-bar" class="workspace-progress-track" role="progressbar" aria-label="チームの完了率" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="workspace-progress-fill"></span></div>
+                        <p id="workspace-progress-counts"></p>
+                    </section>
+                </section>
+                <section id="settings-display" class="options-section" role="tabpanel" aria-labelledby="settings-display-tab">
+                    <form id="preferences-form" class="options-form">
+                        <p class="options-description">背景・ウィンドウの雰囲気と、タスクの並べ方を選べます。</p>
+                        <fieldset class="choice-fieldset"><legend>テーマ</legend><div class="theme-choices">
+                            <label class="theme-choice"><input type="radio" name="theme" value="light"><span class="theme-preview preview-light" aria-hidden="true"></span><strong>ライト</strong><small>すっきり明るく</small></label>
+                            <label class="theme-choice"><input type="radio" name="theme" value="dark"><span class="theme-preview preview-dark" aria-hidden="true"></span><strong>ダーク</strong><small>落ち着いた夜の配色</small></label>
+                            <label class="theme-choice"><input type="radio" name="theme" value="retro"><span class="theme-preview preview-retro" aria-hidden="true"></span><strong>Windows風</strong><small>タイトルバーと立体的な枠</small></label>
+                        </div><details id="extra-themes"><summary>その他のテーマ</summary><div class="theme-choices">
+                            <label class="theme-choice"><input type="radio" name="theme" value="classic" checked><span class="theme-preview preview-classic" aria-hidden="true"></span><strong>クラシック</strong><small>青空とグレーの配色</small></label>
+                            <label class="theme-choice"><input type="radio" name="theme" value="forest"><span class="theme-preview preview-forest" aria-hidden="true"></span><strong>フォレスト</strong><small>木漏れ日の緑</small></label>
+                            <label class="theme-choice"><input type="radio" name="theme" value="sunset"><span class="theme-preview preview-sunset" aria-hidden="true"></span><strong>サンセット</strong><small>夕暮れのあたたかさ</small></label>
+                        </div></details></fieldset>
+                        <label class="modal-field" for="layout-select">レイアウト<select id="layout-select"><option value="board">ボード — 状態ごとに横並び</option><option value="list">リスト — 縦に並べて一覧</option><optgroup label="その他の表示"><option value="compact">コンパクト</option><option value="gallery">ギャラリー</option><option value="focus">集中</option></optgroup></select></label>
+                        <p id="layout-unlock-hint" class="field-hint"></p>
+                        <p class="field-hint">設定はアカウントに保存されます。保存すると表示に反映されます。</p>
+                        <p id="preferences-message" class="edit-message" role="status" aria-live="polite"></p>
+                        <div class="modal-actions"><button id="preferences-save-button" type="submit">表示設定を保存</button></div>
+                    </form>
+                </section>
+                <section id="settings-pet" class="options-section" role="tabpanel" aria-labelledby="settings-pet-tab" hidden>
+                    <div id="pet-play-root"></div>
+                    <details id="weekly-review-details" class="weekly-review"><summary>相棒と今週を振り返る</summary><p class="field-hint">日本時間・月曜始まり。あなたが獲得した有効な完了記録を集計します。</p><button id="weekly-review-refresh" type="button">振り返りを更新</button><p id="weekly-review-message" role="status" aria-live="polite"></p><div id="weekly-review-content"></div><p class="field-hint">今週の途中経過と先週7日間の比較です。完了取消は除外、削除済みの完了は含みます。追加の経験値は付きません。</p></details>
+                    <details class="pet-identity-settings"><summary>名前・種類を変更</summary>
+                    <form id="pet-name-form" class="options-form">
+                        <p class="options-description">相棒の名前と種類を変えられます。レベルや経験値はそのまま引き継ぎます。</p>
+                        <label class="modal-field" for="pet-name-input">ペット名<input id="pet-name-input" type="text" value="Task Pet" maxlength="100" required></label>
+                        <fieldset class="choice-fieldset"><legend>相棒の種類</legend><div class="pet-choices">
+                            <label class="pet-choice"><input type="radio" name="species" value="dog" checked><span class="pet-preview pet-preview-dog" aria-hidden="true"></span><strong>いぬ</strong></label>
+                            <label class="pet-choice"><input type="radio" name="species" value="cat"><span class="pet-preview pet-preview-cat" aria-hidden="true"></span><strong>ねこ</strong></label>
+                            <label class="pet-choice"><input type="radio" name="species" value="rabbit"><span class="pet-preview pet-preview-rabbit" aria-hidden="true"></span><strong>うさぎ</strong></label>
+                            <label class="pet-choice"><input type="radio" name="species" value="fox"><span class="pet-preview pet-preview-fox" aria-hidden="true"></span><strong>きつね</strong></label>
+                            <label class="pet-choice"><input type="radio" name="species" value="panda"><span class="pet-preview pet-preview-panda" aria-hidden="true"></span><strong>パンダ</strong></label>
+                            <label class="pet-choice"><input type="radio" name="species" value="dragon"><span class="pet-preview pet-preview-dragon" aria-hidden="true"></span><strong>ドラゴン</strong></label>
+                        </div></fieldset>
+                        <p id="pet-settings-message" class="edit-message" role="status" aria-live="polite"></p>
+                        <div class="modal-actions"><button id="pet-name-button" type="submit">ペット設定を保存</button></div>
+                    </form>
+                    </details>
+                </section>
+                <section id="settings-account" class="options-section" role="tabpanel" aria-labelledby="settings-account-tab" hidden>
+                    <p class="options-description">ログイン情報とアカウントの管理</p>
+                    <p id="settings-current-user" class="account-identity"></p>
+                    <section class="team-settings-card" aria-label="アカウントのプラン">
+                        <h3>決済テスト・契約管理</h3>
+                        <p class="options-description">Stripe Sandboxの技術デモです。実際の課金は行いません。テスト契約は所有するすべてのチームに適用されます。</p>
+                        <button id="settings-billing-button" type="button" aria-haspopup="dialog">プラン・契約管理</button>
+                    </section>
+                    <div class="account-session-actions"><button id="user-logout-button" type="button">ログアウト</button><a href="auth.html?mode=forgot">パスワードの再設定</a></div>
+                    <div class="account-danger-zone"><h3>アカウントの削除</h3><p>個人のタスク・ペットの育成データを削除してチームから退出します。共有タスクはチームに残ります。元に戻せません。所有するチームがある場合は、先に所有権を譲るかチームを削除してください。</p><button id="user-delete-button" class="account-delete-button" type="button">アカウント削除</button></div>
+                    <p id="user-message" class="user-message" role="status" aria-live="polite" aria-atomic="true"></p>
+                </section>
+            </section>
+        </div>
+        <div id="team-modal" class="modal-backdrop hidden" role="presentation">
+            <section class="options-modal" role="dialog" aria-modal="true" aria-labelledby="team-title">
+                <div class="modal-titlebar"><h2 id="team-title">チームでタスクを共有</h2><button id="team-close-button" class="modal-close-button" type="button" aria-label="チーム画面を閉じる">×</button></div>
+                <section id="billing-flow" class="billing-flow" aria-label="アカウントProのプランと購入確認" hidden></section>
+                <section id="account-billing-panel" class="team-billing-panel" aria-label="アカウントのプラン・契約管理" aria-live="polite" hidden></section>
+                <div id="team-mode-tabs" class="options-tabs team-mode-tabs" role="tablist" aria-label="チームで行うこと">
+                    <button id="team-create-tab" type="button" role="tab" aria-selected="true" aria-controls="team-create-panel" data-team-mode="create">新しく作成</button>
+                    <button id="team-join-tab" type="button" role="tab" aria-selected="false" aria-controls="team-join-panel" tabindex="-1" data-team-mode="join">コードで参加</button>
+                    <button id="team-manage-tab" type="button" role="tab" aria-selected="false" aria-controls="team-manage-panel" tabindex="-1" data-team-mode="manage" hidden>管理</button>
+                </div>
+                <div class="options-section team-content">
+                    <p class="options-description">チームは、メンバーとタスクを共有する場所です。個人のタスクは自動で共有されません。</p>
+                    <section id="team-complete-panel" class="team-complete-panel" tabindex="-1" hidden>
+                        <h3 id="team-complete-title"></h3><p id="team-complete-description" class="options-description"></p>
+                    </section>
+                    <section id="team-invite-result" class="team-invite-card" aria-label="メンバーを招待" hidden>
+                        <h3>招待コードをメンバーに送る</h3>
+                        <label class="modal-field" for="team-invite-code">招待コード<input id="team-invite-code" type="text" readonly autocomplete="off" spellcheck="false"></label>
+                        <button id="team-copy-invite-button" type="button">招待コードをコピー</button>
+                        <p id="team-copy-message" class="field-hint" role="status" aria-live="polite"></p>
+                        <p class="field-hint">相手はログイン後、「設定 → タグ・チーム → 招待コードで参加」に入力してください。</p>
+                        <p id="team-invite-expiry" class="field-hint"></p>
+                        <p class="field-hint">コードはこの画面を閉じると非表示になります。信頼できる相手だけに送ってください。再発行は「設定 → タグ・チーム → 選択中のチームを管理」からできます。</p>
+                    </section>
+                    <div id="team-complete-actions" class="modal-actions" hidden><button id="team-open-board-button" type="button">OK</button></div>
+                    <section id="team-create-panel" role="tabpanel" aria-labelledby="team-create-tab">
+                        <form id="team-create-form" class="options-form team-form">
+                            <h3>まずはチーム名を決めましょう</h3>
+                            <p class="options-description">名前を入力するだけで作成できます。次の画面で招待コードをコピーして、メンバーを招待しましょう。</p>
+                            <label class="modal-field" for="team-name-input">チーム名<input id="team-name-input" type="text" maxlength="100" required placeholder="例：ゲーム制作チーム"></label>
+                            <button id="team-create-button" type="submit">チームを作成</button>
+                        </form>
+                    </section>
+                    <section id="team-join-panel" role="tabpanel" aria-labelledby="team-join-tab" hidden>
+                        <form id="team-join-form" class="options-form team-form">
+                            <h3>招待コードをお持ちの方</h3>
+                            <p class="options-description">チームを作った人から届いたコードを入力してください。参加すると、そのチームのタスクを閲覧・編集できます。</p>
+                            <label class="modal-field" for="team-join-input">招待コード<input id="team-join-input" type="text" maxlength="200" required autocomplete="off" spellcheck="false" placeholder="招待コードを貼り付け"></label>
+                            <button id="team-join-button" type="submit">このチームに参加</button>
+                        </form>
+                    </section>
+                    <section id="team-manage-panel" role="tabpanel" aria-labelledby="team-manage-tab" hidden>
+                    <section id="current-team-panel" hidden><h3 id="current-team-title"></h3><p id="team-member-count"></p><section id="team-billing-panel" class="team-billing-panel" aria-label="チームプラン" aria-live="polite" hidden></section><ul id="team-members" class="team-members"></ul>
+                        <div id="team-owner-actions" hidden><button id="team-invite-button" type="button">招待コードを再発行</button><p class="field-hint">コードを知っている人が参加できます。信頼できる相手だけに渡してください。再発行すると前のコードは無効になります。</p>
+                            <form id="team-transfer-form" class="options-form team-form"><label class="modal-field" for="team-owner-select">所有者を変更<select id="team-owner-select"></select></label><button id="team-transfer-button" type="submit">所有権を譲る</button></form>
+                            <div class="account-danger-zone"><h3>チームの削除</h3><p>全メンバーのチーム参加情報と、このチームのすべてのタスクを削除します。個人のタスクは削除されません。元に戻せません。</p><button id="team-delete-button" class="account-delete-button" type="button">チームを削除</button></div>
+                        </div>
+                        <button id="team-leave-button" type="button">チームから退出</button>
+                    </section>
+                    </section>
+                </div>
+                <p id="team-message" class="edit-message" role="status" aria-live="polite"></p>
+            </section>
+        </div>
+        </main>
+    </div>
+
+    <div id="task-undo-toast" class="task-undo-toast" hidden><span id="task-undo-message" role="status" aria-live="polite"></span><button id="task-undo-button" type="button">元に戻す</button><button id="task-undo-close" type="button" aria-label="元に戻す通知を閉じる">×</button></div>
+    <dialog id="companion-dialog" aria-labelledby="companion-title" aria-describedby="companion-scope">
+        <header class="work-dialog-header"><div><h2 id="companion-title">メモ・依頼の詳細</h2><p id="companion-scope"></p></div><button id="companion-close" type="button" aria-label="詳細を閉じる">×</button></header>
+        <div class="work-toolbar"><button id="companion-back" type="button">一覧に戻る</button><button id="companion-reload" type="button">更新</button></div>
+        <p id="companion-message" role="status" aria-live="polite" tabindex="-1"></p>
+        <nav id="companion-tabs" aria-label="タスクの詳細"></nav>
+        <div id="companion-content"></div>
+    </dialog>
+    <script src="companion-demo.js?v=20260909-25"></script>
+    <script src="demo.js?v=20260909-25"></script>
+    <script src="auth-client.js?v=20260908-15"></script>
+    <script src="app.js?v=20260909-26"></script>
+    <script src="options.js?v=20260909-26.1"></script>
+    <script src="task-tags.js?v=20260908-15"></script>
+    <script src="pet-reward-metrics.js?v=20260908-1"></script>
+    <script src="pet-reward-art.js?v=20260908-1"></script>
+    <script src="pet-play.js?v=20260909-22"></script>
+    <script src="task-details.js?v=20260909-25"></script>
+    <script src="companion-work.js?v=20260909-25"></script>
+    <script src="team-billing.js?v=20260909-20"></script>
+    <script src="task-inbox.js?v=20260909-25"></script>
+    <script src="task-workflow.js?v=20260909-25"></script>
+</body>
+</html>

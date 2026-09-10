@@ -1,0 +1,17 @@
+{
+  "key": "rabbit_2_hat",
+  "species": "rabbit",
+  "level": 2,
+  "kind": "hat",
+  "name": "クローバーの花冠",
+  "stage": "base",
+  "pose": "idle",
+  "references": [
+    "/Applications/task-app/frontend/assets/pet/sources/portraits/portfolio-rabbit-idle-v1.png",
+    "/Applications/task-app/docs/screenshots/pets/rewards-v14/rabbit.png"
+  ],
+  "prompt": "Use case: identity-preserve.\nAsset type: ONE finished integrated pixel-art game pet illustration, not an accessory icon, not a sheet.\nInput images: Image 1 is the character edit target. Image 2 is an ACCESSORY DESIGN REFERENCE gallery ONLY: use the hat in column Lv.2, ignoring all other rewards and all UI. The character identity/proportions MUST follow Image 1, not the smaller gallery animals.\nPrimary request: show this exact rabbit with ONLY its Lv.2 hat: a low circlet of four soft green clover leaves and two tiny cream flowers, made as a rabbit head wreath with open space for the tall ears, no stems dangling.\nAnatomical integration: hat resting naturally on the skull between/around the real ears or horns. Preserve both real ears/horns, let them correctly occlude the hat where appropriate. Do not draw extra ears or horns as parts of the hat. No reward bow or cushion.\nInvariants: preserve cream-white rabbit, two long upright pink-lined ears, brown eyes, teal bandana, seated paws and round side tail; same face, neutral friendly expression, body proportions, pose, perspective, warm dark stepped outlines, chunky square pixel size, limited warm palette and shading as Image 1. Integrate reward fabric through correct perspective, scale and natural occlusion. Do not redesign the pet. No other reward or outfit change.\nComposition: exactly one complete full-body pet centered in a square canvas, generous clear margin, fit the entire ears/horns/hat/paws/tail/wings/cushion without clipping. Maintain seated baseline near 88 percent canvas height. No floating isolated accessory.\nBackground: genuine transparent RGBA PNG, alpha zero outside the complete silhouette, preserve alpha. NEVER depict transparency with a checkerboard. No backdrop, floor, cast shadow, UI, writing, watermark, labels, sparkle or extra character. If alpha export is impossible, use absolutely uniform pure white #ffffff, with no texture, grid or gradient, never a checkerboard.",
+  "asset": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-2-hat.png",
+  "rawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-30c675d6-3eea-40c6-b14d-5edd0fd4c566.png",
+  "status": "generated; alpha/visual acceptance pending"
+}

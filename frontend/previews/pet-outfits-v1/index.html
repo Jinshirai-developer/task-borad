@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ペット＋ごほうび｜90差分の確認</title>
+  <link rel="stylesheet" href="review.css">
+</head>
+<body data-background="dark">
+  <header>
+    <p class="eyebrow">TASK PET · OUTFIT COLLECTION</p>
+    <h1>ペット＋ごほうびの一枚絵</h1>
+    <p>6種類 × Lv.1〜5 × 帽子・リボン・クッション＝90差分。各画像は通常姿・通常表情・装備1点です。</p>
+    <p class="note" id="scope-note">確認用の新規生成素材です。成長姿・表情差分・複数装備の同時着用は含みません。本アプリにはまだ反映していません。</p>
+    <p class="note" id="alpha-note">生成原本の確認ページです。画像に残る格子模様は透過ではありません。背景だけを透明化する処理は確認待ちです。</p>
+    <div class="controls">
+      <label>ペット <select id="species"><option value="cat">猫</option><option value="dog">犬</option><option value="rabbit">ウサギ</option><option value="fox">キツネ</option><option value="panda">パンダ</option><option value="dragon">ドラゴン</option></select></label>
+      <label>検査用の背景 <select id="background"><option value="dark">濃色</option><option value="light">白</option><option value="check">チェック</option></select></label>
+      <p id="status" role="status" aria-live="polite"></p>
+    </div>
+  </header>
+  <main id="cards" aria-label="装備付きペットの画像一覧"></main>
+  <footer>画像を押すとPNG原寸を開きます。受取・保存・アカウント操作は行いません。</footer>
+  <script src="catalog.js"></script>
+  <script src="review.js"></script>
+</body>
+</html>

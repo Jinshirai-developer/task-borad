@@ -1,0 +1,68 @@
+/* Level rewards share the same account catalog as the API; disabled choices are not selectable. */
+.unlock-overview { display:grid; gap:8px; margin:14px 16px 0; padding:12px; border:1px solid var(--sh); background:var(--face); }
+.unlock-heading { display:flex; flex-wrap:wrap; gap:6px 10px; align-items:baseline; }
+.unlock-heading strong { white-space:nowrap; }
+#unlock-next-label { color:var(--muted); font-size:12px; line-height:1.65; }
+.unlock-overview p { margin:0; line-height:1.65; }
+.unlock-progress { height:7px; overflow:hidden; background:var(--sh); }
+.unlock-progress span { display:block; height:100%; width:0; background:var(--teal); transition:width .2s; }
+.pet-unlock-next { margin:10px 0 0; padding-top:8px; border-top:1px solid var(--sh); font-size:11px; line-height:1.7; color:var(--muted); }
+.theme-choice,.pet-choice { min-height:136px; }
+.choice-lock-label { font-size:10px; line-height:1.6; color:var(--muted); }
+.theme-choice.is-locked,.pet-choice.is-locked { cursor:not-allowed; }
+.is-locked :is(.theme-preview,.pet-preview) { opacity:.48; filter:grayscale(.55); }
+.is-locked strong { color:var(--muted); }
+.options-modal > .modal-titlebar { position:sticky; top:0; z-index:3; }
+.pet-preview-fox,.pet-sprite[data-species=fox] { background-image:url("assets/pet/portfolio-fox-idle-v1-web.png"); }
+.pet-preview-panda,.pet-sprite[data-species=panda] { background-image:url("assets/pet/portfolio-panda-idle-v1-web.png"); }
+.pet-preview-dragon,.pet-sprite[data-species=dragon] { background-image:url("assets/pet/portfolio-dragon-idle-v1-web.png"); }
+.preview-forest { background:#dce9d8; }
+.preview-forest::after { background:#f8fbf5; border-top-color:#6c9569; border-radius:4px; }
+.preview-sunset { background:linear-gradient(145deg,#f6ddc7,#ead4dc); }
+.preview-sunset::after { background:#fff8f2; border-top-color:#c6816b; border-radius:4px; }
+body[data-theme=forest] { --silver:#fbfdf8; --silver-d:#d4e0cb; --face:#edf3e7; --hi:#fff; --sh:#cbdac2; --sh2:#b1c3a4; --muted:#4e654a; --navy:#365d3b; --navy2:#477a4e; --ink:#253c2b; --teal:#4a8163; --page:#e5eddf; --surface:#fbfdf8; --accent-soft:#dcebd3; --danger:#a52c35; --success:#276341; color-scheme:light; }
+body[data-theme=sunset] { --silver:#fffaf6; --silver-d:#ecd3c9; --face:#f7e9e1; --hi:#fff; --sh:#e4c9be; --sh2:#cfac9e; --muted:#79594f; --navy:#884c43; --navy2:#a65945; --ink:#462f2c; --teal:#a26668; --page:#f2e2d9; --surface:#fffaf6; --accent-soft:#f3d9c9; --danger:#b22d40; --success:#4d7658; color-scheme:light; }
+body[data-theme=forest],body[data-theme=sunset] { color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI","Noto Sans JP",sans-serif; font-size:14px; }
+body[data-theme=forest] { background:radial-gradient(ellipse at 0% 0%,#f4f7e8,transparent 65%),var(--page); }
+body[data-theme=sunset] { background:linear-gradient(140deg,#f9ebd6 0%,#f0dbd4 58%,#e9dbe5 100%); background-attachment:fixed; }
+body[data-ui=modern][data-layout] .unlock-overview { border-radius:10px; }
+body[data-ui=modern][data-layout] .unlock-progress { border-radius:6px; }
+.is-focus-hidden { display:none !important; }
+.focus-layout-notice { display:flex; flex-wrap:wrap; align-items:flex-start; gap:12px; padding:14px; border:2px solid var(--sh); background:var(--silver); }
+.focus-layout-notice.hidden { display:none; }
+.focus-layout-notice > div:first-child { flex:1; min-width:180px; }
+.focus-layout-notice p { margin:6px 0 0; font-size:12px; line-height:1.8; color:var(--muted); }
+.focus-dropzones { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; flex-basis:100%; }
+.focus-dropzone { padding:12px 8px; text-align:center; color:var(--muted); border:1px dashed var(--sh2); font-size:11px; background:var(--face); }
+.focus-dropzone.is-drag-over { background:var(--navy2); color:#fff; border-color:var(--navy2); }
+body[data-ui=modern][data-layout] .focus-layout-notice { border:1px solid var(--sh); border-radius:12px; }
+body[data-ui=modern][data-layout] .focus-dropzone { border-radius:6px; }
+body[data-layout=compact] .board-section,body[data-layout=gallery] .board-section,body[data-layout=focus] .board-section { grid-template-columns:1fr; }
+body[data-layout=compact] .board-column,body[data-layout=gallery] .board-column,body[data-layout=focus] .board-column,
+body[data-ui=modern][data-layout=compact] .board-column,body[data-ui=modern][data-layout=gallery] .board-column,body[data-ui=modern][data-layout=focus] .board-column { min-height:0; }
+body[data-layout=compact] .board-column .task-list,body[data-ui=modern][data-layout=compact] .board-column .task-list { grid-auto-rows:auto; min-height:48px; max-height:none; gap:4px; padding:6px 10px 10px; }
+body[data-layout=compact] .board-column .task-item,body[data-ui=modern][data-layout=compact] .board-column .task-item { height:auto; min-height:58px; padding:8px 62px 8px 10px; }
+body[data-ui=modern][data-layout=compact] .board-column .task-item { border-radius:4px; }
+body[data-layout=compact] .task-content { display:grid; grid-template-columns:minmax(140px,1.2fr) minmax(100px,1fr); gap:6px 12px; align-items:center; }
+body[data-layout=compact] .task-description { display:none; }
+body[data-layout=compact] .task-title { font-size:12px; margin:0; -webkit-line-clamp:1; }
+body[data-layout=compact] .task-meta { margin:0; font-size:10px; }
+body[data-layout=compact] .task-assignee { grid-column:1/-1; margin:0; font-size:10px; }
+body[data-layout=compact] .task-actions,body[data-ui=modern][data-layout=compact] .task-actions { top:8px; bottom:auto; }
+body[data-layout=gallery] .board-column .task-list,body[data-ui=modern][data-layout=gallery] .board-column .task-list { grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr)); grid-auto-rows:auto; min-height:64px; max-height:none; gap:14px; padding:8px 14px 14px; }
+body[data-layout=gallery] .board-column .task-item,body[data-ui=modern][data-layout=gallery] .board-column .task-item { height:215px; padding:18px 16px 40px; }
+body[data-layout=gallery] .task-title { font-size:15px; line-height:1.7; }
+body[data-layout=gallery] .task-description { -webkit-line-clamp:3; margin-top:8px; line-height:1.8; }
+body[data-layout=gallery] .task-actions,body[data-ui=modern][data-layout=gallery] .task-actions { top:auto; bottom:10px; right:12px; }
+body[data-layout=gallery] .empty { grid-column:1/-1; }
+body[data-layout=focus] .board-column .task-list,body[data-ui=modern][data-layout=focus] .board-column .task-list { grid-auto-rows:auto; min-height:0; max-height:none; gap:16px; padding:8px 16px 16px; }
+body[data-layout=focus] .board-column .task-item,body[data-ui=modern][data-layout=focus] .board-column .task-item { height:auto; min-height:160px; padding:22px 80px 22px 22px; }
+body[data-layout=focus] .task-title { font-size:18px; line-height:1.65; }
+body[data-layout=focus] .task-description { margin-top:8px; -webkit-line-clamp:3; line-height:1.8; }
+body[data-layout=focus] .task-actions,body[data-ui=modern][data-layout=focus] .task-actions { top:20px; bottom:auto; right:16px; }
+body[data-ui=modern][data-layout=compact] .task-title { font-size:12px; line-height:1.5; }
+body[data-ui=modern][data-layout=gallery] .task-title { font-size:15px; line-height:1.7; }
+body[data-ui=modern][data-layout=gallery] .task-description { line-height:1.8; }
+body[data-ui=modern][data-layout=focus] .task-title { font-size:18px; line-height:1.65; }
+@media(max-width:760px) { .unlock-overview { margin:12px 14px 0; padding:10px; } .unlock-heading { display:grid; gap:4px; } .theme-choice,.pet-choice { min-height:134px; } .choice-lock-label { font-size:9px; } .pet-unlock-next { font-size:10px; } body[data-layout=compact] .task-content { grid-template-columns:1fr; gap:5px; } body[data-layout=compact] .task-title { -webkit-line-clamp:2; } body[data-layout=compact] .board-column .task-item,body[data-ui=modern][data-layout=compact] .board-column .task-item { min-height:75px; } body[data-layout=gallery] .board-column .task-item,body[data-ui=modern][data-layout=gallery] .board-column .task-item { height:200px; } body[data-layout=focus] .board-column .task-item,body[data-ui=modern][data-layout=focus] .board-column .task-item { padding:16px 16px 48px; } body[data-layout=focus] .task-title { font-size:16px; } body[data-layout=focus] .task-actions,body[data-ui=modern][data-layout=focus] .task-actions { top:auto; bottom:12px; right:12px; } .focus-layout-notice > button { min-height:40px; height:auto; } }
+@media(prefers-reduced-motion:reduce) { .unlock-progress span { transition:none; } }

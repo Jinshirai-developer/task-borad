@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>猫の見た目確認 — Task Board</title>
+  <link rel="stylesheet" href="preview.css">
+</head>
+<body data-background="light">
+  <main>
+    <header>
+      <p class="eyebrow">TASK BOARD · CAT STYLE REVIEW</p>
+      <h1>猫の絵柄を、まず4つで確認。</h1>
+      <p>背景を固定した動きと、猫の4案を確認できます。帽子・リボンは猫と同じ絵に描き込んでいます。</p>
+      <p class="scope-note">確認用ページです。本アプリ・他のペット・経験値・ごほうび・保存データは変更していません。</p>
+    </header>
+    <section class="toolbar" aria-label="背景の確認">
+      <label for="background">確認用の背景
+        <select id="background"><option value="light">明るい背景</option><option value="dark">暗い背景</option><option value="checker">透過チェック柄</option></select>
+      </label>
+      <label class="motion-choice"><input id="motion" type="checkbox" checked>猫の動きを再生する</label>
+    </section>
+    <section class="samples" aria-label="猫の4つの見た目">
+      <article class="sample"><div class="stage"><img id="sample-idle" src="cat-idle.png" alt="いつもの赤いバンダナを付けた灰色とクリーム色の猫" width="1254" height="1254"></div><div class="caption"><span>01</span><h2>通常</h2><p>元の猫の透過素材。比べる基準です。</p></div></article>
+      <article class="sample"><div class="stage"><img id="sample-pet" src="cat-pet-transparent.png" alt="撫でられて目を閉じ、うれしそうにする同じ猫" width="1254" height="1254"></div><div class="caption"><span>02</span><h2>撫でる</h2><p>目と表情が変わり、ほんの少しだけ反応。</p></div></article>
+      <article class="sample"><div class="stage"><img id="sample-hat" src="cat-hat-transparent.png" alt="耳に沿って自然に青い布の帽子をかぶった猫" width="1254" height="1254"></div><div class="caption"><span>03</span><h2>帽子あり</h2><p>輪郭・陰影・耳との重なりを揃えた帽子。</p></div></article>
+      <article class="sample"><div class="stage"><img id="sample-ribbon" src="cat-ribbon.png" alt="首元に青い布のリボンを結んだ猫" width="1254" height="1254"></div><div class="caption"><span>04</span><h2>リボンあり</h2><p>首元に馴染む結び目と布の折り目。</p></div></article>
+    </section>
+    <p id="alpha-report" class="alpha-report" role="status" aria-live="polite">素材の透明度を確認中…</p>
+    <section class="interaction-demo" aria-labelledby="demo-title">
+      <div id="demo-stage" class="stage demo-stage"><img id="demo-cat" src="cat-idle.png" alt="動きを確認する猫" width="1254" height="1254"></div>
+      <div class="demo-controls">
+        <h2 id="demo-title">背景を固定した動き</h2>
+        <p>動くのは透過した猫の層だけです。背景を暗くしても、白い四角は付いてきません。</p>
+        <div class="actions"><button type="button" data-action="pet" disabled>撫でる</button><button type="button" data-action="treat">おやつの動き</button><button type="button" data-action="rest">休憩の動き</button></div>
+        <p id="demo-message" role="status" aria-live="polite">ボタンを押して確認できます。</p>
+        <p class="scope-note">おやつ・休憩は背景固定の仕組みを見るための仮モーションです。専用の食事・寝姿、装備付きの表情、成長段階ごとの差分は見た目の承認後に制作します。</p>
+      </div>
+    </section>
+    <footer>「猫の絵柄」「帽子の大きさ」「リボンの位置」「動きの強さ」を確認してください。<a href="NOTES.md">素材と生成記録</a></footer>
+  </main>
+  <script src="preview.js"></script>
+</body>
+</html>

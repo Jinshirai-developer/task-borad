@@ -1,0 +1,1516 @@
+{
+  "action": "move only; no pixel edits or deletions",
+  "scope": "frontend pet images, bundled reviews, documentation screenshots",
+  "images": [
+    {
+      "before": "docs/screenshots/cat-integrated-both-v13.png",
+      "after": "docs/screenshots/pets/cat-v13/cat-integrated-both-v13.png",
+      "sha256": "3a8acd4626a48d9a0c35001e4ebda304d46aa25e665c5c51868b24de540a069c"
+    },
+    {
+      "before": "docs/screenshots/cat-integrated-both-v14.png",
+      "after": "docs/screenshots/pets/cat-v14/cat-integrated-both-v14.png",
+      "sha256": "62c7d721adcd96df7a0247f3fd704986918b4adfb9afd34297baf096ad2b5e39"
+    },
+    {
+      "before": "docs/screenshots/cat-integrated-gifts-v13.png",
+      "after": "docs/screenshots/pets/cat-v13/cat-integrated-gifts-v13.png",
+      "sha256": "73fb814271ed35f9817a4379515ef3eb38066ca944c17390204d3b1205a2a42a"
+    },
+    {
+      "before": "docs/screenshots/cat-integrated-gifts-v14.png",
+      "after": "docs/screenshots/pets/cat-v14/cat-integrated-gifts-v14.png",
+      "sha256": "c4fe1cb03c6f03cca2e83da15a8ea2ced637e773b6cb99b6eea085b43016125f"
+    },
+    {
+      "before": "docs/screenshots/cat-integrated-pet-v13.png",
+      "after": "docs/screenshots/pets/cat-v13/cat-integrated-pet-v13.png",
+      "sha256": "09bc5786760e5a50c2cfb93f2794b5593f12505d370ea0b4b0bd93838f48d491"
+    },
+    {
+      "before": "docs/screenshots/classic-simple-desktop-v5.png",
+      "after": "docs/screenshots/app/v5/classic-simple-desktop-v5.png",
+      "sha256": "a553d6520095858501b0c826a00685bc2a259554e868c6c2e0a5c0cd39258ce6"
+    },
+    {
+      "before": "docs/screenshots/classic-simple-mobile-v5.png",
+      "after": "docs/screenshots/app/v5/classic-simple-mobile-v5.png",
+      "sha256": "dd4594219ebaf08ec81b3d0a1ea81a292ff3e4c9c9230ea59c4cf7765febbb95"
+    },
+    {
+      "before": "docs/screenshots/classic-simple-options-v5.png",
+      "after": "docs/screenshots/app/v5/classic-simple-options-v5.png",
+      "sha256": "43a8b1a36553db75cf6b7776b1e3d4f706b85973898108761d12087166a3de7e"
+    },
+    {
+      "before": "docs/screenshots/clean-board-desktop-v7.png",
+      "after": "docs/screenshots/app/v7/clean-board-desktop-v7.png",
+      "sha256": "d02a6f03eb3ade53eaf04256852f23e2671b57686b3fa820cacf3cd72a285c5b"
+    },
+    {
+      "before": "docs/screenshots/clean-retro-desktop-v7.png",
+      "after": "docs/screenshots/app/v7/clean-retro-desktop-v7.png",
+      "sha256": "c0f3169e73b900c50c67c91a23358278c2c92ad96a011ab1bb54379f9ceb44a7"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-cat.png",
+      "after": "docs/screenshots/pets/outfits-v1/drafts/cat.png",
+      "sha256": "909260751160097babfe8cd05b35c31728037d3c0541c9df387bff38d46f7cd0"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-dog.png",
+      "after": "docs/screenshots/pets/outfits-v1/drafts/dog.png",
+      "sha256": "4c094a716a9cd6e51549c3300b5856b08b57d20ed57a0ccf8b57ca372ab98020"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-dragon.png",
+      "after": "docs/screenshots/pets/outfits-v1/drafts/dragon.png",
+      "sha256": "785441141e75519e836ecc566bf1c76dfa2607e118ff328d68cadb1108d18cb0"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-final-cat.png",
+      "after": "docs/screenshots/pets/outfits-v1/final/cat.png",
+      "sha256": "0bdee62a239065c2a3ab4c9939f5c209814261fcc5c890be61e0115b06af3197"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-final-dog.png",
+      "after": "docs/screenshots/pets/outfits-v1/final/dog.png",
+      "sha256": "70f3081f51cf411b0308a2c52fc3de6980c4117ea3ef47dd9d9cd2333b719661"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-final-dragon.png",
+      "after": "docs/screenshots/pets/outfits-v1/final/dragon.png",
+      "sha256": "785441141e75519e836ecc566bf1c76dfa2607e118ff328d68cadb1108d18cb0"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-final-fox.png",
+      "after": "docs/screenshots/pets/outfits-v1/final/fox.png",
+      "sha256": "4d911a77c16516da13b2680d66f8a6bb931de014a06e4925f687dff2c8cf26c6"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-final-panda.png",
+      "after": "docs/screenshots/pets/outfits-v1/final/panda.png",
+      "sha256": "19574f91b6815ac87865adda59848c7ad5745da22d70a67d33bf12be40c67212"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-final-rabbit.png",
+      "after": "docs/screenshots/pets/outfits-v1/final/rabbit.png",
+      "sha256": "f1ceb4bdc97504a4c82318c0b0bb8461fc0aa71a258a73c863935d8571c4bdf6"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-fox.png",
+      "after": "docs/screenshots/pets/outfits-v1/drafts/fox.png",
+      "sha256": "0e913ef238bb61c6c4687190adea944c0490f363a3855c524943ec302b618e51"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-panda.png",
+      "after": "docs/screenshots/pets/outfits-v1/drafts/panda.png",
+      "sha256": "19574f91b6815ac87865adda59848c7ad5745da22d70a67d33bf12be40c67212"
+    },
+    {
+      "before": "docs/screenshots/outfits-v1-rabbit.png",
+      "after": "docs/screenshots/pets/outfits-v1/drafts/rabbit.png",
+      "sha256": "16d76c5f9a573cb6ee7a7196fa7f12911bf346cbef637a27d7f32cc0be550919"
+    },
+    {
+      "before": "docs/screenshots/pet-album-desktop-v12.png",
+      "after": "docs/screenshots/pets/collection-v12/pet-album-desktop-v12.png",
+      "sha256": "b2ae92d393ea9e5474eaa7b3f753c98a5dba2bad6d066873a55bc0babc247f45"
+    },
+    {
+      "before": "docs/screenshots/pet-album-mobile-v12.png",
+      "after": "docs/screenshots/pets/collection-v12/pet-album-mobile-v12.png",
+      "sha256": "4c76f2f6038bb655623ecb039d870dd6aa90df661bd5de2f7c2cc545370baa0d"
+    },
+    {
+      "before": "docs/screenshots/pet-album-mobile-v14.png",
+      "after": "docs/screenshots/pets/collection-v14/pet-album-mobile-v14.png",
+      "sha256": "75e6f80f20da34a19c75a801542ec02388903e212e3538132e836452724147ae"
+    },
+    {
+      "before": "docs/screenshots/pet-clean-board-desktop-v12.png",
+      "after": "docs/screenshots/pets/collection-v12/pet-clean-board-desktop-v12.png",
+      "sha256": "88457275b789e7ce011c5bb4a2cd7667ffc6af7c19809beb85e1eb80f9f13cc6"
+    },
+    {
+      "before": "docs/screenshots/pet-clean-board-desktop-v14.png",
+      "after": "docs/screenshots/pets/collection-v14/pet-clean-board-desktop-v14.png",
+      "sha256": "20d4f189770c72fe8ec6c9283f14f943cd68b44d9bb77471e0368025128db1ae"
+    },
+    {
+      "before": "docs/screenshots/pet-dress-desktop-v12.png",
+      "after": "docs/screenshots/pets/collection-v12/pet-dress-desktop-v12.png",
+      "sha256": "7365e82872996dc185595c1fe1a08b762febbd4dd73e1c9e55c502c69a152e0a"
+    },
+    {
+      "before": "docs/screenshots/pet-dress-desktop-v14.png",
+      "after": "docs/screenshots/pets/collection-v14/pet-dress-desktop-v14.png",
+      "sha256": "97a2b38a7a4fdc65fd6f66aa3b7a1fc2eecb787aa5216bd730fc46f4d2f912d4"
+    },
+    {
+      "before": "docs/screenshots/pet-gifts-desktop-v12.png",
+      "after": "docs/screenshots/pets/collection-v12/pet-gifts-desktop-v12.png",
+      "sha256": "e5f57e19b479636d380e659fb93927c84b2ff93bcb97368ce413d5a1e8ad3007"
+    },
+    {
+      "before": "docs/screenshots/progression-forest-compact-v4.png",
+      "after": "docs/screenshots/app/v4/progression-forest-compact-v4.png",
+      "sha256": "60c6e51bca8ddf75b2dcd76bbbc3297c8b10f6c5e1158fa46c68c1b6b60f125b"
+    },
+    {
+      "before": "docs/screenshots/progression-forest-focus-v4.png",
+      "after": "docs/screenshots/app/v4/progression-forest-focus-v4.png",
+      "sha256": "4fdc56c7ec21548c5def789d7ed647af3c9297af9b8597fb72644666eb05d9a9"
+    },
+    {
+      "before": "docs/screenshots/progression-pets-mobile-v4.png",
+      "after": "docs/screenshots/app/v4/progression-pets-mobile-v4.png",
+      "sha256": "f292fe13c5b51847dbc984d615b1b58d8a3b1ccbba427614809856e37592fff2"
+    },
+    {
+      "before": "docs/screenshots/progression-relocked-v4.png",
+      "after": "docs/screenshots/app/v4/progression-relocked-v4.png",
+      "sha256": "cfd51ccd2d9b1d7f5cb218a8bf70a7d4209d30509187b15b061a53011bef7016"
+    },
+    {
+      "before": "docs/screenshots/progression-sunset-gallery-v4.png",
+      "after": "docs/screenshots/app/v4/progression-sunset-gallery-v4.png",
+      "sha256": "34522ed8abe6bf8d0a364627b97211ba9b54961370cd4db52515a138f62afa07"
+    },
+    {
+      "before": "docs/screenshots/retro-desktop-v6.png",
+      "after": "docs/screenshots/app/v6/retro-desktop-v6.png",
+      "sha256": "eab691220620bba3dde091d6401e170ea3120d86114c6ea6162aee26e557a006"
+    },
+    {
+      "before": "docs/screenshots/retro-mobile-v6.png",
+      "after": "docs/screenshots/app/v6/retro-mobile-v6.png",
+      "sha256": "443f4fdc30ebabdcf1fbe8c5d7789664085e61643a889207ce25f7d42866fb99"
+    },
+    {
+      "before": "docs/screenshots/retro-options-v6.png",
+      "after": "docs/screenshots/app/v6/retro-options-v6.png",
+      "sha256": "0e12f695e629a040fc911bec5cd42c0d39863070847354616c2d42ad140d8aaa"
+    },
+    {
+      "before": "docs/screenshots/rewards-v14-cat-0.png",
+      "after": "docs/screenshots/pets/rewards-v14/cat.png",
+      "sha256": "3a15e68803a7c1b39efd75b4431647ef62873a6d9d20394451355b74e87e7116"
+    },
+    {
+      "before": "docs/screenshots/rewards-v14-dog-0.png",
+      "after": "docs/screenshots/pets/rewards-v14/dog.png",
+      "sha256": "a9a336a75452aca48b0cbb5f905c1d68f06a181f3ba10408c6074373645aa0a8"
+    },
+    {
+      "before": "docs/screenshots/rewards-v14-dragon-0.png",
+      "after": "docs/screenshots/pets/rewards-v14/dragon.png",
+      "sha256": "9fc3c4d0e7958024e34b79dc8599643a5924486a409f9f1c5462c84c6389906c"
+    },
+    {
+      "before": "docs/screenshots/rewards-v14-fox-0.png",
+      "after": "docs/screenshots/pets/rewards-v14/fox.png",
+      "sha256": "65cfd907b5e472b79fa7f674147bacf97589543f93eba89b5d1ea342666d05ee"
+    },
+    {
+      "before": "docs/screenshots/rewards-v14-panda-0.png",
+      "after": "docs/screenshots/pets/rewards-v14/panda.png",
+      "sha256": "ccab0b818a0ac2d6c22c3461c12fcaa5e3f2f3b0a4c13b3f1e93c88fa2a6b893"
+    },
+    {
+      "before": "docs/screenshots/rewards-v14-rabbit-0.png",
+      "after": "docs/screenshots/pets/rewards-v14/rabbit.png",
+      "sha256": "e89b1d800d135d3c77ab78b1a98ebeb03733a693e24521e46a4fe3d575ed5448"
+    },
+    {
+      "before": "docs/screenshots/settings-clean-board-v11.png",
+      "after": "docs/screenshots/app/v11/settings-clean-board-v11.png",
+      "sha256": "cdd6858592e7f124be4deb4888f3d29b9ec17462cb56768967a82b6f490ba105"
+    },
+    {
+      "before": "docs/screenshots/settings-tag-add-mobile-v11.png",
+      "after": "docs/screenshots/app/v11/settings-tag-add-mobile-v11.png",
+      "sha256": "786fe37a9a4b6b75c7cd7054cef35d52f6e398c443c6bd3ea5cedec14aed2fa5"
+    },
+    {
+      "before": "docs/screenshots/settings-team-mobile-v11.png",
+      "after": "docs/screenshots/app/v11/settings-team-mobile-v11.png",
+      "sha256": "43d6e5a78692080cae0b4243ab18a69164676f9bd3606acc85871dabb7974f44"
+    },
+    {
+      "before": "docs/screenshots/sidebar-tags-desktop-v8.png",
+      "after": "docs/screenshots/app/v8/sidebar-tags-desktop-v8.png",
+      "sha256": "3c3fa88335d9d2b79d751e1d452f5256be44684c2aa6a98e1f700c75f02e6141"
+    },
+    {
+      "before": "docs/screenshots/sidebar-tags-retro-v8.png",
+      "after": "docs/screenshots/app/v8/sidebar-tags-retro-v8.png",
+      "sha256": "9cffb8a92187215f9ed4373860fd6460bf2c9431c39b6c79c237291e60d5e5aa"
+    },
+    {
+      "before": "docs/screenshots/tag-dropdown-mobile-v7.png",
+      "after": "docs/screenshots/app/v7/tag-dropdown-mobile-v7.png",
+      "sha256": "15dbb3649eedcf7dee247f5461ac9e48400367427acb9e093db2ee26044b03ab"
+    },
+    {
+      "before": "docs/screenshots/tags-desktop-v6.png",
+      "after": "docs/screenshots/app/v6/tags-desktop-v6.png",
+      "sha256": "8de26d379401701751d374e8c96e2b532c8003ac6888517fa3638fd123cd9def"
+    },
+    {
+      "before": "docs/screenshots/tags-mobile-create-v6.png",
+      "after": "docs/screenshots/app/v6/tags-mobile-create-v6.png",
+      "sha256": "98cc3284c788ba62f97a0a60cf8a693ea37b02d31baf5fdeb553e465f0d30683"
+    },
+    {
+      "before": "docs/screenshots/tags-retro-v6.png",
+      "after": "docs/screenshots/app/v6/tags-retro-v6.png",
+      "sha256": "693769f8f396ef38a1e4c3c0077515b99043e7ffa56bc2e908842f481b57dab5"
+    },
+    {
+      "before": "docs/screenshots/task-board-desktop-v2.png",
+      "after": "docs/screenshots/app/v2/task-board-desktop-v2.png",
+      "sha256": "d3249ad441f59203dd00e89abcbf38fb5e97987bb8645fa9fcbe7b4f0e233f10"
+    },
+    {
+      "before": "docs/screenshots/task-board-mobile-v2.png",
+      "after": "docs/screenshots/app/v2/task-board-mobile-v2.png",
+      "sha256": "c3f833ac1ac7701a98730fd2e89fb7037f056b351bbab79f4cd961006c3c251d"
+    },
+    {
+      "before": "docs/screenshots/task-settings-mobile-v7.png",
+      "after": "docs/screenshots/app/v7/task-settings-mobile-v7.png",
+      "sha256": "ac3a293440ac3d046a3519dfecd22d73b20a4e6109d2fe8c8c13eb8b5bfcb355"
+    },
+    {
+      "before": "docs/screenshots/team-board-dark-list-v3.png",
+      "after": "docs/screenshots/app/v3/team-board-dark-list-v3.png",
+      "sha256": "25a41e107036e2e4aea53682fd704ec2dc75bb6706aebf21cd3f5bef32baf645"
+    },
+    {
+      "before": "docs/screenshots/team-board-light-v3.png",
+      "after": "docs/screenshots/app/v3/team-board-light-v3.png",
+      "sha256": "e466f3f4df40ea8c0a9fe1daa5aa2f780f547774b10e915b4673c1e9d7196a8c"
+    },
+    {
+      "before": "docs/screenshots/team-create-mobile-v8.png",
+      "after": "docs/screenshots/app/v8/team-create-mobile-v8.png",
+      "sha256": "df1e6553f544ce6b217c047f172d2ccabe4de50f0a9e65bae091d215715e96cd"
+    },
+    {
+      "before": "docs/screenshots/team-invite-mobile-v8.png",
+      "after": "docs/screenshots/app/v8/team-invite-mobile-v8.png",
+      "sha256": "86f4bd8611d513ecc5dcf9158b806f1abd601f1d08446be8ddcc2465791527ba"
+    },
+    {
+      "before": "docs/screenshots/team-options-mobile-v3.png",
+      "after": "docs/screenshots/app/v3/team-options-mobile-v3.png",
+      "sha256": "a3d4607bd33b1d5878aca0afa87696b6d5a903d6a2d6ced3fb3da369912c2f8a"
+    },
+    {
+      "before": "docs/screenshots/team-options-pet-v3.png",
+      "after": "docs/screenshots/app/v3/team-options-pet-v3.png",
+      "sha256": "33bd6c586d2cf9551c684d5bbb20c9ef4f3551a44e7f90e55c6a9928caef588c"
+    },
+    {
+      "before": "docs/screenshots/todo-add-desktop-v9.png",
+      "after": "docs/screenshots/app/v9/todo-add-desktop-v9.png",
+      "sha256": "55bc03444153adba8e90c15c9b7f00cdcb3a46534e9a66019a307247fbca98bb"
+    },
+    {
+      "before": "docs/screenshots/workspace-tabs-desktop-v10.png",
+      "after": "docs/screenshots/app/v10/workspace-tabs-desktop-v10.png",
+      "sha256": "d9ea7cbee4e6306ef21f7fe8a0ca69294c463794441d0cd423a47861f9479401"
+    },
+    {
+      "before": "docs/screenshots/workspace-tabs-mobile-v10.png",
+      "after": "docs/screenshots/app/v10/workspace-tabs-mobile-v10.png",
+      "sha256": "2ff47286a9e04ea1dd30f4300b65cc0f387bb6db144ada481813527f0951e0ab"
+    },
+    {
+      "before": "docs/screenshots/workspace-tabs-retro-v10.png",
+      "after": "docs/screenshots/app/v10/workspace-tabs-retro-v10.png",
+      "sha256": "78f65044f3de7c90a9f6889e828bb1b2f6146808d8b25a678642b3083a5e7c3d"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-1-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-1-bow.png",
+      "sha256": "80f0484647aa9c17abb4689145ab30ccef2c8811777cef76001e9bdb552ee783"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-1-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-1-hat.png",
+      "sha256": "f93fc6633284f175531bf0a2dd7776dc4edb2d49e1b01a86076ea4eabc9aeb77"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-1-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-1-mat.png",
+      "sha256": "f1264667ca1ca118452d3229ff218682599146c86a96382a179f5291b345c240"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-2-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-2-bow.png",
+      "sha256": "72aec1fdb54265b334cdd5c36ab07f3e573a198da85aa78940735c87fd091db0"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-2-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-2-hat.png",
+      "sha256": "06b6c9fd4ad6bb20c29b3204c2f8c2d3213b683e59137eff10ffe6193096e738"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-2-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-2-mat.png",
+      "sha256": "bac81b1163309d9bcfa642e52b259b56c06cd407ae55b3e65cecf77390fd8390"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-3-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-3-bow.png",
+      "sha256": "a01eb148ade944005271abe7103084ee5a55764689cfbfaf49b0b48f2ae38a49"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-3-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-3-hat.png",
+      "sha256": "88b16fea7f212ee09e847bb563cf61fbf3c0ce0c1f3063f457a8cf72e8cb0b70"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-3-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-3-mat.png",
+      "sha256": "9558d128a91e911f0ee1a1f72d9cbc3f0e429ef900ad6d987dd88aadd739cb83"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-4-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-4-bow.png",
+      "sha256": "cc3396294d27a93a0de4b5cc27532295b8357277eeb791755aa25b04d0575eac"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-4-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-4-hat.png",
+      "sha256": "7e158c4ee904d3ae2411720535302327686989814a1aad8e8e62506c78676e57"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-4-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-4-mat.png",
+      "sha256": "c2125a517a2fbfb8f077d9e4c1281a36211b1d4f8be69558d5ddc20838d423ce"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-5-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-5-bow.png",
+      "sha256": "8fa258e88019dbf7053c23bf1ec028536789f378666500530897696a3e0fecb2"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-5-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-5-hat.png",
+      "sha256": "19d9c323056920424fa76d7f8f40e9ae0518456e78245b306d200ec9d29068c8"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/cat/lv-5-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/cat/lv-5-mat.png",
+      "sha256": "62765e036ce3e0ab812f70c4195cfeee4b17168acc0e7b74236b4f03d24e20be"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-1-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-1-bow.png",
+      "sha256": "1364126a9aa7e700d04bdde7e85161f0f362fd8bd3e5385b454c209849f679db"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-1-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-1-hat.png",
+      "sha256": "fdb11fd836cadd582d13c00f854f30eda16abe23283fe828a0664285cf646fed"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-1-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-1-mat.png",
+      "sha256": "cc77cd69ba538b1cafe6a0f42488d1957ed444f2fcd255622510564ed0f945a0"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-2-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-2-bow.png",
+      "sha256": "2139205b7a17a8505ec95592c98619dc264f1199b4fad093add974f50b014a25"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-2-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-2-hat.png",
+      "sha256": "767109cf229966fa2c682b1933008cba5d02694d2fa57423256501d9198ee275"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-2-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-2-mat.png",
+      "sha256": "ad39ac33f527f82cf796e98f3af623d1c9ce5ba880dbd0e1f1afddef24395314"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-3-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-3-bow.png",
+      "sha256": "3c552e32ac702ae0ff7163ec689e97496dec120d685d8d30e379f02ff29b6f03"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-3-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-3-hat.png",
+      "sha256": "2eb8c2c105739764cb7f364e5d36a85a21ffe55b5cbe2615fa34593e5673400a"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-3-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-3-mat.png",
+      "sha256": "4a4b23ff8af1bc1128deaf48938d3130e18d87fc1a26a990772b5e62628a43ad"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-4-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-4-bow.png",
+      "sha256": "08a5dee7791ebee0a55f9a23c12b627fbb8fb27cb3d6d3f019e49f4d5b45d880"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-4-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-4-hat.png",
+      "sha256": "f7d4ff8e2cae0d494f886c3ec3b912b0b2a981fd22b76d69b28eee3982e575cf"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-4-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-4-mat.png",
+      "sha256": "61bc10ef3803dca9a30193f5942ec3412b5855629d1532228568167c8f699dce"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-5-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-5-bow.png",
+      "sha256": "9aa93cef013d6f7266e9e1f2653e70379b81c0922f9c4b30435366c98e6bcc07"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-5-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-5-hat.png",
+      "sha256": "9ba23fc498933fd9922e2e07d8fac5b74ee69953197e964fdb03680e4fd169a3"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dog/lv-5-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dog/lv-5-mat.png",
+      "sha256": "efd3ffeb27b9918726d33b305a48a6941f294ea9a1e22cf842219ad66c2ab76c"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-1-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-1-bow.png",
+      "sha256": "0f20550fd25bb59731e7ae54ee0a4334836374e78819a4bd829bc3d5641ac4dd"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-1-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-1-hat.png",
+      "sha256": "b81420f413f995d803bc9915fe67d5bfb5e9b08fcf101f39fc054a46ed4566dd"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-1-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-1-mat.png",
+      "sha256": "f450ac41ee6ee9f4225aa71f02f1358fe488d2b13b07515122806ff62bbb4d58"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-2-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-2-bow.png",
+      "sha256": "f7e579382d0e44fb34d78e37524557d7bfa38f3e0e7077ff2145eb6bfbf2e6e4"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-2-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-2-hat.png",
+      "sha256": "58116c8306c9c7997577c2fa54783930ba972eb6142cc1f38c7aa74a5ed6559c"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-2-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-2-mat.png",
+      "sha256": "f9dac358f1256b35bdbdda06787cff2f07a87fc40818a2ebca540c34cec05bc9"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-3-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-3-bow.png",
+      "sha256": "b3cf2a6844150ba0e687a77dc7efcc8063343747e8c5ddfec54092fd9ca422b2"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-3-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-3-hat.png",
+      "sha256": "782ea1717151c2497bd20293e0fb2219d824bc9e485e38b08733f7bdd937ac71"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-3-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-3-mat.png",
+      "sha256": "617db2b97ace83ee9dc5d015d889dd25b3277642620d6a4c86b741dccac62d5b"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-4-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-4-bow.png",
+      "sha256": "6915cdcccd3b10fb82181033f8443af3f60ec46c46bfb1821ca2d6c87d7441ca"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-4-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-4-hat.png",
+      "sha256": "9e2c6f6bf9f853336f9d227dd8571ff0d96ba31d5cd09d3b59982a2f91af29f8"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-4-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-4-mat.png",
+      "sha256": "5f44a0ddc277e4448c1d93a6236f267da4d0f28b0f6b4a1f8c6463ebc0934ed3"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-5-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-5-bow.png",
+      "sha256": "aef719f578c1d3dcbc06cd4e7637fd551929ce2843e75618545de162d028c039"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-5-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-5-hat.png",
+      "sha256": "12fa3fa206892d0ea37a9fcf03a30d05d4e40069eb767c0ead77698650650e97"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/dragon/lv-5-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/dragon/lv-5-mat.png",
+      "sha256": "d91c04f4a04650cf4a1b620b1cde7d31b52efb8020b689539e4ba1c1326efed4"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-1-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-1-bow.png",
+      "sha256": "2bf2ac5496db11073a301786c1b451d727d092ae1d9b66340af370d4cb1b86d2"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-1-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-1-hat.png",
+      "sha256": "2c4ce908dda7870aad6f09207497f9cd569ac76189cf759ff8932bdcfbac310a"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-1-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-1-mat.png",
+      "sha256": "86709f77a3cc3a35ef759f5df9fe8707eba7ac6f206a8d6e7142063354ed42ae"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-2-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-2-bow.png",
+      "sha256": "b0dcf81d01693d108595dde0045a1c19188746d89376f50682a8b140e2e4a94b"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-2-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-2-hat.png",
+      "sha256": "ce354a6ca821b1394cd518dc628a7539bf5abbc24d2d363aeeb14e2a93f0e535"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-2-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-2-mat.png",
+      "sha256": "a1e349d292554106dde34cd2ba23b287fec6f7961ef739dc7e8a2565388ad72d"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-3-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-3-bow.png",
+      "sha256": "2deec564bbac836fd511bf60ebb9590ca9a82dac94ebab9cf692274f791270d9"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-3-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-3-hat.png",
+      "sha256": "4d827e08cb1731214350e3c437ad6ab8665bee596efce39877989e76536af02c"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-3-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-3-mat.png",
+      "sha256": "596c9fe992ce791fced7d842072b7efac43963350a6ae6c65b1cef74a1a95c0f"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-4-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-4-bow.png",
+      "sha256": "555449451589f354852b23be77b558c0c7e38d1da106cdf45715cbf9536d0971"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-4-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-4-hat.png",
+      "sha256": "711e2d16f940d00adfb999e21d1caf9ac70fb266795ff60894aac01ea1c7fbb4"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-4-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-4-mat.png",
+      "sha256": "4e759b37f12c4317afa17116125fb7b94001f61c782a6c784eb5757cd43de50b"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-5-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-5-bow.png",
+      "sha256": "f1b16b1f73832688e234be7e226be30430d9ca2fa5a42e9e769060f23655b228"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-5-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-5-hat.png",
+      "sha256": "a2a10b7fc0999d5e00aed3eb30a75bc3e5b65b7a045553a811b9765ab4e68381"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/fox/lv-5-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/fox/lv-5-mat.png",
+      "sha256": "99d1c0e17768b6462da1b616f56dd580a9b2fc0510be3ae3910e28979844fc12"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-1-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-1-bow.png",
+      "sha256": "087f9b71d392cfd7441cca1e495e4399d5d718db6e11a4d19a0ac5539738e7a9"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-1-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-1-hat.png",
+      "sha256": "eca6d662b2a95cc086e6d2cccf4b2aeabccff0be2c0f8245f030303a551cc609"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-1-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-1-mat.png",
+      "sha256": "6bbc8b8e7f6d7ae0f67a0610bbcfa2f5d21977be3b614abc88e25a93613c0232"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-2-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-2-bow.png",
+      "sha256": "0d1fa6ed447223858c80bfb41d0cc77a24b4a47e20a775c34f6306258325de3c"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-2-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-2-hat.png",
+      "sha256": "b7879f8de5a8c66fc0681c601540e7dd665d820c107a8251fcc2600d3c10e4ed"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-2-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-2-mat.png",
+      "sha256": "014c4834172a87ceb60508603a28e444c450e8791205e4d2df0e036e848a0096"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-3-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-3-bow.png",
+      "sha256": "09212955896cda1654270ed4fe80ab1fc3a10a08b6ff5a312602fa2f0b55984e"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-3-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-3-hat.png",
+      "sha256": "0c6a9bc0400aacb94a101ecb3d787091a03af2ba9be620890644a335e6876f11"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-3-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-3-mat.png",
+      "sha256": "616c1cdf3cca44049aec41d360218fe73603144fa1de744542a030c7fea1f9fe"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-4-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-4-bow.png",
+      "sha256": "ebb2beb0de9ce5805332919b1467b5657e7378363cd291b73ce258194ad1503c"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-4-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-4-hat.png",
+      "sha256": "15addb65c2a162be91d657bd2391ac3f854769057d9b4c81b1397a6f61e90f3b"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-4-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-4-mat.png",
+      "sha256": "ba50a383b26d099e16566e7690945de3ae89cc09ec60360b1f42298092867701"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-5-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-5-bow.png",
+      "sha256": "34b17292dce549d588cbe0091d748a22b0a3c85e5e39aff6bf22c98b85884931"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-5-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-5-hat.png",
+      "sha256": "4ad22757d502955be48f5e8aae1e746613d92c3df386275960021a37a3ebaa64"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/panda/lv-5-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/panda/lv-5-mat.png",
+      "sha256": "0668408aa9a8d53e52dc3b31852042912edb5fa479a295bdb37e376d4adcd72f"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-1-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-1-bow.png",
+      "sha256": "4efea36695f18e31c67d9a7497ce66d7b515aa2667e7374f06fba7a658f9fbf0"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-1-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-1-hat.png",
+      "sha256": "48d88794cc404d96471e960ab3b3e491474ba0615843b0070435b52c84e69b63"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-1-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-1-mat.png",
+      "sha256": "1ef9620ff7c0d8a0c8525212bcebf9b80db380043d68a3ce4e0f7e7df9d5c7d2"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-2-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-2-bow.png",
+      "sha256": "b95f2a09faec434b8e3bdb4fd09c19de3a4c658853cdc225adbbdc367baf6a73"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-2-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-2-hat.png",
+      "sha256": "d603ce5e655e26b0d438d7b03b06992a530df41dc4454c93844f6bb7561933a9"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-2-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-2-mat.png",
+      "sha256": "1aa1a97f93b1835e69e370b6923fcc379bc4fbb488a796fc82e735cd6cec3ba3"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-3-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-3-bow.png",
+      "sha256": "08687b5b6fb9aafd9115af6bd74ce4d4ac33bc2e8283e5649c59dab40c170b19"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-3-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-3-hat.png",
+      "sha256": "9f94539c92df27ec657e6c01a3ee74e17c438a3068f2a8efe0b102dad115c517"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-3-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-3-mat.png",
+      "sha256": "cdc41bf944f7eecf04a106fe2cdb5ec4e6ff803419adc604137a1e420cda3353"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-4-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-4-bow.png",
+      "sha256": "2a6cb5447453776711e1bd7c27ae3d2dce2b29b68bbf406a5b756f131ad2f474"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-4-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-4-hat.png",
+      "sha256": "181305aa7767e431bc8851ad6dc4781a94f0024ac93459fe9c9b583a2dc11481"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-4-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-4-mat.png",
+      "sha256": "b2d949c109578d70263f67ad1c84635436076d5f6e763d587d1f7c10fce1a102"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-5-bow.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-5-bow.png",
+      "sha256": "9b00d5cae8414f7bdf47d98413a3f477bbb6297dccebe712d696982e9149e737"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-5-hat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-5-hat.png",
+      "sha256": "02ab9fc2435da050d483556f93c5b8f59a7911ea81bac02acff1537470614d94"
+    },
+    {
+      "before": "frontend/assets/pet/outfits-v1/rabbit/lv-5-mat.png",
+      "after": "frontend/assets/pet/drafts/outfits-v1/rabbit/lv-5-mat.png",
+      "sha256": "a92588c71518bb948347e035c30346524b8f8fde921e749f39b55cfd51193f64"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-cat-atlas-v1.png",
+      "after": "frontend/assets/pet/sources/atlases/portfolio-cat-atlas-v1.png",
+      "sha256": "a465cad016f663c2cb5835da927e66eedfb3c6390014ead93d25f9ececac3a8e"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-cat-atlas-v2-alpha.png",
+      "after": "frontend/assets/pet/portfolio-cat-atlas-v2-alpha.png",
+      "sha256": "f076ad20e677d732a7645279b26115d953fd92d3a7d635b87b90ef49b7107894"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-cat-bow-v3.png",
+      "after": "frontend/assets/pet/portfolio-cat-bow-v3.png",
+      "sha256": "2fc913fbd3d047260710537b320f5d865ccd2c16f0ee37cabddc1e1c665994d3"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-cat-hat-v3.png",
+      "after": "frontend/assets/pet/portfolio-cat-hat-v3.png",
+      "sha256": "24a197e7fb3a50a10e9b7bdcd6876c407c31008be6573672690aecc1e48970e7"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-cat-idle-v1-web.png",
+      "after": "frontend/assets/pet/portfolio-cat-idle-v1-web.png",
+      "sha256": "bbc17c49ee308ca6d33f08f21b12a60872abdb709222eaddbba487db03de8ab1"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-cat-idle-v1.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-cat-idle-v1.png",
+      "sha256": "03f652321496d88c2df9758772939abe30678e0ba6078d3219c1b0567482f937"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-cat-idle-v3.png",
+      "after": "frontend/assets/pet/portfolio-cat-idle-v3.png",
+      "sha256": "03f652321496d88c2df9758772939abe30678e0ba6078d3219c1b0567482f937"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-cat-pet-v3.png",
+      "after": "frontend/assets/pet/portfolio-cat-pet-v3.png",
+      "sha256": "d47bae1e3742d5858a1e35b1f10ea34cf619230caf47076f2ecec5f62f5a4867"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-atlas-v1.png",
+      "after": "frontend/assets/pet/sources/atlases/portfolio-dog-atlas-v1.png",
+      "sha256": "2155f8385ae5a2fd8196e99bce38ca1c7655d05ac4a3023c30241d2cca8915d3"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-atlas-v2-alpha.png",
+      "after": "frontend/assets/pet/portfolio-dog-atlas-v2-alpha.png",
+      "sha256": "c02b5ddefd5b41b71fafa28fe62d5a7e615816c9abe5526a4f159a4d76c6e7fa"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-happy-v2-web.png",
+      "after": "frontend/assets/pet/portfolio-dog-happy-v2-web.png",
+      "sha256": "47642a23b17802a373809ef08a675a7a3e2c7d31a3cf44d3baed2093e09ffa9d"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-happy-v2.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-dog-happy-v2.png",
+      "sha256": "814004da0e0b9de5420b40ada4804bb0a6a162cf6b888d92ec8967d38bbce7c4"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-idle-v2-web.png",
+      "after": "frontend/assets/pet/portfolio-dog-idle-v2-web.png",
+      "sha256": "863456b6a7790306bc73d78af4a86399238ad06ae846b7b2af1824699f339591"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-idle-v2.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-dog-idle-v2.png",
+      "sha256": "3f069aa6ca23fabb7ca7259f338e6e3079e8d260bd0fc96ddfd77b5e76a90af7"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-proud-v2-web.png",
+      "after": "frontend/assets/pet/portfolio-dog-proud-v2-web.png",
+      "sha256": "731f775b34dc5fee1507d3669c59c8a3db98144ed069c54b766ae422a6d8cd70"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-proud-v2.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-dog-proud-v2.png",
+      "sha256": "5dd24b0765698e6a487618bb17d709161e6c3a27eebfc22902ef82b3b45fd010"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-sad-v2-web.png",
+      "after": "frontend/assets/pet/portfolio-dog-sad-v2-web.png",
+      "sha256": "ce762a1e3ac87c30ee3c81a9464d89fcf3585b4e730a544738a94287cca69724"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-sad-v2.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-dog-sad-v2.png",
+      "sha256": "12dc554cac1b14da8b256d17dae1c1410cb4116275903a3f269bf9e87282050a"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-sleepy-v2-web.png",
+      "after": "frontend/assets/pet/portfolio-dog-sleepy-v2-web.png",
+      "sha256": "21f63737c0e9aa40310adbaff85176fcc601eab27e7152a7aacdeefcc93ccd50"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-sleepy-v2.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-dog-sleepy-v2.png",
+      "sha256": "be353166c3832fe7d37ff9108f31598dac35d028b061db9bee22e6d46563d02a"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-working-v2-web.png",
+      "after": "frontend/assets/pet/portfolio-dog-working-v2-web.png",
+      "sha256": "6942dd4051ab69004ec9d4623bc70b25a4ebf9810d2b00438b9c42dc41f5af89"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dog-working-v2.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-dog-working-v2.png",
+      "sha256": "07025303af21ec4ae797b7fc7c2d551536b8904f4baadc902e165d85f91a37d0"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dragon-atlas-v1.png",
+      "after": "frontend/assets/pet/sources/atlases/portfolio-dragon-atlas-v1.png",
+      "sha256": "60656c8bc28dd8817f9a1ebcc08ff0268c952599cde2c0118ffc7df9c4568395"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dragon-atlas-v2-alpha.png",
+      "after": "frontend/assets/pet/portfolio-dragon-atlas-v2-alpha.png",
+      "sha256": "869187a8d27494606688131358a69a5d7bea12d0cd0c59a8bdf7667c71ff6a4f"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dragon-idle-v1-web.png",
+      "after": "frontend/assets/pet/portfolio-dragon-idle-v1-web.png",
+      "sha256": "f5dcf8bedabc92d046886b0c4c52ad4425668139882eb2d0124ed902f935d090"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-dragon-idle-v1.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-dragon-idle-v1.png",
+      "sha256": "80944722af4315a6e6e085bee967cbc73b47300eb3f4eee0ade3a2a11fe90f5d"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-fox-atlas-v1.png",
+      "after": "frontend/assets/pet/sources/atlases/portfolio-fox-atlas-v1.png",
+      "sha256": "50f46097eb829c8f25a3bd65dfc3abb4a08165660d9080e308809dc75fd8870a"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-fox-atlas-v2-alpha.png",
+      "after": "frontend/assets/pet/portfolio-fox-atlas-v2-alpha.png",
+      "sha256": "4d29013104b5416650ba12a0f82a18d7769931eefb31be75e302abf8325a6c57"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-fox-idle-v1-web.png",
+      "after": "frontend/assets/pet/portfolio-fox-idle-v1-web.png",
+      "sha256": "117e0d807310512916aabb3ebf46a17cacddc07f04a6523f026224bf8473d05d"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-fox-idle-v1.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-fox-idle-v1.png",
+      "sha256": "62697b9d314e4c1396a962fb97a9e174d2bae5e21d47007dfd809149e1a79215"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-panda-atlas-v1.png",
+      "after": "frontend/assets/pet/sources/atlases/portfolio-panda-atlas-v1.png",
+      "sha256": "3b1fcd7fb5c2c8923e59c2c9d35593baf06f32c1246f5335fb90e3ff5f0a6ac5"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-panda-atlas-v2-alpha.png",
+      "after": "frontend/assets/pet/portfolio-panda-atlas-v2-alpha.png",
+      "sha256": "929a321def439529bd6edc355621d1e76509f28b959f3eaf101552c1d04e91da"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-panda-idle-v1-web.png",
+      "after": "frontend/assets/pet/portfolio-panda-idle-v1-web.png",
+      "sha256": "07d471d4851530a8e29bafe767c5504265915c01c124ff719615f2d27f97073f"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-panda-idle-v1.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-panda-idle-v1.png",
+      "sha256": "eec33144f74cc1a20beb7506eb8f69dea59a0c42e2d3a2a283a73dd9e5bbcf46"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-rabbit-atlas-v1.png",
+      "after": "frontend/assets/pet/sources/atlases/portfolio-rabbit-atlas-v1.png",
+      "sha256": "79c391f37de7ef92bf19367ba3411a6a8ed55f2847b442e3ce2f778fd8057f29"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-rabbit-atlas-v2-alpha.png",
+      "after": "frontend/assets/pet/portfolio-rabbit-atlas-v2-alpha.png",
+      "sha256": "f7c7948c51ceec9ddddbf698d0ae3cfe03e888ea3ba015aa29afbec1f34db690"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-rabbit-idle-v1-web.png",
+      "after": "frontend/assets/pet/portfolio-rabbit-idle-v1-web.png",
+      "sha256": "ae8e4b05a3177ab791a3899c1a0a2b9d7a2ecf145911be2a353be5f417ed9701"
+    },
+    {
+      "before": "frontend/assets/pet/portfolio-rabbit-idle-v1.png",
+      "after": "frontend/assets/pet/sources/portraits/portfolio-rabbit-idle-v1.png",
+      "sha256": "6c6a1f34064a0e0303a9fd150c24356815c79ad973313690911a19905b6c137d"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-1-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-1-bow.png",
+      "sha256": "ae6ef708510bc8621c70636061428d10d22c2980c86550f85f38431398d0c9ee"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-1-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-1-hat.png",
+      "sha256": "18e55a30253c8ed0f3b00c3be3bbb63e75722104d5f03ae6a84edfad3107b66b"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-1-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-1-mat.png",
+      "sha256": "d01a176ffbdc850168e333d3b4f0fe81e25577a167ad5abba726171ec76e4781"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-2-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-2-bow.png",
+      "sha256": "5b0d2cd943821dbdbf138feeed42aabe1184a11024cb573557f0af8ef23fce7e"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-2-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-2-hat.png",
+      "sha256": "827a7f923d2935a76eed8bb19b61491514d25b4bbae9e71d3e7e8ce80ff84699"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-2-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-2-mat.png",
+      "sha256": "d9d57d7c2aba201b24a2b97c980e482dee3ec83a505ce3459fc21460f96a3dc5"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-3-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-3-bow.png",
+      "sha256": "a697117896b026c515f12aa287cf976771d6ffecdf89b1c06b2180e548a002ec"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-3-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-3-hat.png",
+      "sha256": "17494dd0259368e44a0526cb0651e79d6096fe8e24425d68a2b5a393d106ea76"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-3-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-3-mat.png",
+      "sha256": "fcb7836c1a3ffba66faacc2462b2706d4a96a151fc22a7abe43e3a991a99199a"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-4-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-4-bow.png",
+      "sha256": "f21028d75efd9e28b90ee7ca8ae85a130fda4152fab9d5390a2e2c44ea815ae6"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-4-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-4-hat.png",
+      "sha256": "d25c5a942030d09d79839d4b3bb2edcfc0378aa4d39238b01fe8074d2f0fd604"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-4-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-4-mat.png",
+      "sha256": "a04e3d751b838021023842ce83cfd298de45586285465310431b0801843a646f"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-5-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-5-bow.png",
+      "sha256": "0991b22d8f234aee7cce271b2817b07c194a98380e6fab4983b7be435b7db44c"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-5-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-5-hat.png",
+      "sha256": "637e7660a8c7d8f5028d4f5c8c9bf18489026a2e83396eda4bf9f222bdd43140"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/cat/lv-5-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/cat/lv-5-mat.png",
+      "sha256": "51be95388e97bf1e82b54508449e75da13821a51adf31ba75cc3a0309a1b6e68"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-1-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-1-bow.png",
+      "sha256": "704e512d7b66230936dd22fa8d0fec0b0cd7450affd24363113bf26c3684697c"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-1-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-1-hat.png",
+      "sha256": "c377d745c719c7122857c02a245f2bfb77321801e131267fa619359ff41a210f"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-1-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-1-mat.png",
+      "sha256": "f6fb5aed302be13cf3208a650fd4217a5ef696ecf18f5cd9d3b786889f82c016"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-2-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-2-bow.png",
+      "sha256": "35df2bbb5f6f291976f0f79ad9cf7f3fcc277d43bcd9383aa8f4959ca4a4443a"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-2-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-2-hat.png",
+      "sha256": "4fbf0397b0d2d6c2e96f6521663607f93cf3ca1e9813eecf4ea2a9c728246828"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-2-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-2-mat.png",
+      "sha256": "896505b9760af5b255e01937219c64d0d3c5354d3f06bb30957de1e54f367794"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-3-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-3-bow.png",
+      "sha256": "d6c46cf68aad75d2fbf79d6b64aea2b213dc40c03d57db7ef1a4ae285d718bbd"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-3-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-3-hat.png",
+      "sha256": "ce3d7094b38d850eafe95da1d03f63d09d03915e482da0e29f09312eed0fa295"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-3-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-3-mat.png",
+      "sha256": "17fffd0a382d8fb318653d72130b8f95375a482fad89168cb666e9447b239db1"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-4-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-4-bow.png",
+      "sha256": "84e39d57ad6f33ba0ab433bb924229e43e99df39c984c1d499ef29e7e1cd57cf"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-4-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-4-hat.png",
+      "sha256": "621b5e7933a9d8bfecb41a7fb07927bca0a07f843916a6ff3f8420b28efcdc10"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-4-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-4-mat.png",
+      "sha256": "89f9d3dc3ccfd67620e91f59770f90049fd425edce4985e82ffd6817b89a2a27"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-5-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-5-bow.png",
+      "sha256": "65c34b5c7c4c495c4260d7380e150a0a932ead02845968e22669556a0dfe34bf"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-5-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-5-hat.png",
+      "sha256": "e82dcd9579e0afbce480cbe4c7fc6715aec2371771945794728197876335324f"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dog/lv-5-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dog/lv-5-mat.png",
+      "sha256": "5a6120c579a501bb24204311f2efceb2dd5110b842f3eaeefaa18117684b75f6"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-1-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-1-bow.png",
+      "sha256": "5823488d8a37b3e900cbd1a0bcbd4190df15c5a678451bb96b52adb78e00ea89"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-1-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-1-hat.png",
+      "sha256": "610208749aee16bcf966ea2d976377243cd1a4b08853d0c633d31a62eb0cb1a7"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-1-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-1-mat.png",
+      "sha256": "0c349fde9929b03eae24e0de89d0032cdf3d99091c54312fb5b0c686af3b1ba1"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-2-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-2-bow.png",
+      "sha256": "97a9d836e9d50a87fd7fac876e9133af3a074e988b933642b668970be5f5e6c2"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-2-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-2-hat.png",
+      "sha256": "b0b848bffcb13947185a17c1fabe6600a0af9aef544317fc611ae41303e1b039"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-2-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-2-mat.png",
+      "sha256": "1b751ab4bbbba3c95e8ec6c940441d6922db5d4cc450c8a31a959a56b2e824fa"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-3-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-3-bow.png",
+      "sha256": "c07675805818f9205e4bca82a04bcddc98515cdeddfa9e9ca09be18d5fe961e3"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-3-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-3-hat.png",
+      "sha256": "e4b03d18e63ca5eb09c947a9a50deb498a22ade9bddccd93d0fbcc94e1227f17"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-3-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-3-mat.png",
+      "sha256": "2f2bd1647e15a5ebb9d7d170832c29b32044c13ec4244bda183c8028982a8481"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-4-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-4-bow.png",
+      "sha256": "7a9d26f51834bdc295da6bdb2e75c308bc885b6278cdc0401be6113214f8659a"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-4-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-4-hat.png",
+      "sha256": "af9e2551b938c9ddf3a87b6278f5addd887dc4d518dc9e89c9aeff854a094b0b"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-4-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-4-mat.png",
+      "sha256": "2a54878625331b318a144efe5d83293f6018eb724b38db517ae4da856c382360"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-5-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-5-bow.png",
+      "sha256": "2d484a0c37aad2a0558d7c61f30db38d1658704862637d0e299fe31c13482654"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-5-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-5-hat.png",
+      "sha256": "70dbdb316499607c5c7266ead4af077e6a12e59ef74d52e5fe2990d29fb76eef"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/dragon/lv-5-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/dragon/lv-5-mat.png",
+      "sha256": "e73adc1b3f013f517dfad9d23b688bc33569146f9277832f451022feb86813f3"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-1-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-1-bow.png",
+      "sha256": "1bfdbef47ed6598b49e8ce7a7ea404a6be1bc63d39c1c854ce27c93e603d6e17"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-1-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-1-hat.png",
+      "sha256": "cca915acb621b0dfde2ead9e337de0c3cad7d03988b745492448c6a6b2386a8b"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-1-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-1-mat.png",
+      "sha256": "b7f606881aa2af38ee602115e980b86ee7bb96a88be080e52bac3c7fbcf1727d"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-2-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-2-bow.png",
+      "sha256": "1903df368a1482d4b2ead6afc27f4e9773fbd65d8a49ef33b9d9b3195d5a2c07"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-2-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-2-hat.png",
+      "sha256": "f30795241248edc3fa450c65ca3365174875effbd0414960f80b653875a4f88d"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-2-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-2-mat.png",
+      "sha256": "c602185ef31300f744a41bee92b250b31de66cf87c79f1ae376d3455c79ac383"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-3-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-3-bow.png",
+      "sha256": "dc053ddea9f32958a2a28d439b7e4258e78012067222ae3f2141cf061ca579e2"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-3-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-3-hat.png",
+      "sha256": "9d533b9566ab8db5a3260e76dbc55d2a134aae97dd664ec673b259bc63f00546"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-3-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-3-mat.png",
+      "sha256": "fab8d2148bd162f8ee4747594d1e20231a156377d780d6784bb9d04cd4b3af22"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-4-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-4-bow.png",
+      "sha256": "7a00dc57537c2d52048b139bddc22887139e4aca866a806bb0459da4f1c24d91"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-4-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-4-hat.png",
+      "sha256": "d0ab3f6ffdb5ca0adae1acb8d1f301f9a15dab23c15919b8a688699bd3f9705f"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-4-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-4-mat.png",
+      "sha256": "d8ddb123e9b3b1ab6d58a2de4b09448f20adb712d9b712c75ba64c78ba7ad876"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-5-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-5-bow.png",
+      "sha256": "8966a8f8c8a63f2d2470b301af0692121e5e3fe3cd71a0f8c11b52d942be22f2"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-5-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-5-hat.png",
+      "sha256": "8b9f0051cb402dace4f184965870f043ab2c89587bafe5f5cbbda384ffbdbed3"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/fox/lv-5-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/fox/lv-5-mat.png",
+      "sha256": "51d03cb238852393aa20eeff2063edf333f87224b82840305bfeb816dfd32cbd"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-1-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-1-bow.png",
+      "sha256": "1ecf2a58d126c100ea49b41721d09079fd03f4c810f33f00b1d25d2cf050983c"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-1-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-1-hat.png",
+      "sha256": "9973e82fba5f6dd4ccf081edb97328d938f22ded9d2b2531d878af7590eb025e"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-1-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-1-mat.png",
+      "sha256": "d506714d264edbb360dd8c6d96b3696e93dc1100ee233e1959380faf0811b359"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-2-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-2-bow.png",
+      "sha256": "e27b9cece22b6f8bbdb7104c36685741fae09592f78cf3621a64e1fd0599e99f"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-2-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-2-hat.png",
+      "sha256": "76931b8673fcd9edd5cd4be1f4f9e1be0437f648f2722d18889fe2e1e36e3653"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-2-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-2-mat.png",
+      "sha256": "8fa594ae9da03af499edabb323f142a43bce112e281a7a06f28db48b6cc170f3"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-3-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-3-bow.png",
+      "sha256": "30d1f1d29bcb49a79724958943042f9355948daa9b7633c966bf86a0e37af1fe"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-3-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-3-hat.png",
+      "sha256": "27dd2e1dfc03212982bd3c56ac30358737ca22df2552bcb11a66abbe27334c52"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-3-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-3-mat.png",
+      "sha256": "df2aac93a27e9b0e31765e0f86c46c59a73ec70a075b329547be49980e8217d1"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-4-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-4-bow.png",
+      "sha256": "9e8d1e981a849429eeec628d179e01b2349e783abcba2f36c79cb0a716e11b70"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-4-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-4-hat.png",
+      "sha256": "ee47888e4ef7a7891903dfd5bd021ca87f944de791f728a391d2e59289fe867b"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-4-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-4-mat.png",
+      "sha256": "fb84a621b5e570b8c4c79ed449333a9067d8704acb5aa06441b26b3dd6ba405d"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-5-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-5-bow.png",
+      "sha256": "3c1796c7564443cc3c6217d34381864978f11fe1bb5992ffc1a4cfc608718cf3"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-5-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-5-hat.png",
+      "sha256": "f32d0e961eeb9546da404b951b70ebb1613aedea170848d3ee99010603ae2991"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/panda/lv-5-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/panda/lv-5-mat.png",
+      "sha256": "0a2ea7e5c7bbbdf7e2c3e55caac74b937b62fe16d8d65fdc3c5e658244d6e966"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-1-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-1-bow.png",
+      "sha256": "e7266aebcae92a01c2f40e649429a5d5bc839807fd5e6d3688b2be1874aa8b65"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-1-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-1-hat.png",
+      "sha256": "e35a77796fd46a0a92b880bb7175935c73bc3753c4a0ace593a2aa4a7a3ffaa8"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-1-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-1-mat.png",
+      "sha256": "f92c837a0c5372daa7df5269209a23c48aa591fffb8ed6ca8fb62880520aeed8"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-2-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-2-bow.png",
+      "sha256": "f625d603112be92727a39fc4950e454c0ac4b424c7de0884a6ba426bcfb35840"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-2-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-2-hat.png",
+      "sha256": "f33097b7bbf0c2bb1b0215f0ae565f768558e6bf669b74d9e21636dd82815c32"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-2-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-2-mat.png",
+      "sha256": "f51120dbb08957149089a7484459e599762d86e8276674948cd643f528084815"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-3-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-3-bow.png",
+      "sha256": "1ce3c6e0d222764bf5f39f1962b5d92274e418421800ba0b3b9472ec6c71f6f9"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-3-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-3-hat.png",
+      "sha256": "1a318f87d0588503b42ed28936c46b82250421d3cc7435c62f5c7d483ad5fdb6"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-3-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-3-mat.png",
+      "sha256": "4db2c65d46e1581756310129350517ca27137f75b33e1a667a6ac39dd077fccf"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-4-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-4-bow.png",
+      "sha256": "200633e53980bb6c84e1e7bafb47bb96468d6826bebdbe4fef5e6ab24146c78b"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-4-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-4-hat.png",
+      "sha256": "d28022220458b6648206470e06d6497e6f095f74843471f8b04da1dd38c69554"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-4-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-4-mat.png",
+      "sha256": "a21a194758a8d6f9cfd59cd8545b1d1af3b2155cfb30fd313bf8e7972bced7cb"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-5-bow.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-5-bow.png",
+      "sha256": "082ad577ae935c86ff80ca1e15008abdcc7921d322c9a937d16b378369608b8f"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-5-hat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-5-hat.png",
+      "sha256": "5e647184bb442718a7293bd23e7ec17cc94056c366e30c7f3846e82f1dc2510d"
+    },
+    {
+      "before": "frontend/assets/pet/rewards-v2/rabbit/lv-5-mat.png",
+      "after": "frontend/assets/pet/rewards-v2/rabbit/lv-5-mat.png",
+      "sha256": "69a8d2dcb6bcd9e02fb2d4f0e5301d04392a6eb97787bccf5690cbc34a008180"
+    },
+    {
+      "before": "frontend/previews/cat-style-v2/cat-hat-transparent.png",
+      "after": "frontend/previews/cat-style-v2/cat-hat-transparent.png",
+      "sha256": "24a197e7fb3a50a10e9b7bdcd6876c407c31008be6573672690aecc1e48970e7"
+    },
+    {
+      "before": "frontend/previews/cat-style-v2/cat-hat.png",
+      "after": "frontend/previews/cat-style-v2/cat-hat.png",
+      "sha256": "25bcbc59c7d94e28b024f418b01bb38868e7eb87df77a90e249a6592ef800e4c"
+    },
+    {
+      "before": "frontend/previews/cat-style-v2/cat-idle.png",
+      "after": "frontend/previews/cat-style-v2/cat-idle.png",
+      "sha256": "03f652321496d88c2df9758772939abe30678e0ba6078d3219c1b0567482f937"
+    },
+    {
+      "before": "frontend/previews/cat-style-v2/cat-pet-transparent.png",
+      "after": "frontend/previews/cat-style-v2/cat-pet-transparent.png",
+      "sha256": "d47bae1e3742d5858a1e35b1f10ea34cf619230caf47076f2ecec5f62f5a4867"
+    },
+    {
+      "before": "frontend/previews/cat-style-v2/cat-pet.png",
+      "after": "frontend/previews/cat-style-v2/cat-pet.png",
+      "sha256": "3d79c50e7bde2de2f3c0dea65083b3e0a53dd650e36ca9fac7ef8281a4e0d470"
+    },
+    {
+      "before": "frontend/previews/cat-style-v2/cat-review-four.png",
+      "after": "frontend/previews/cat-style-v2/cat-review-four.png",
+      "sha256": "7fb6d5589405c260630ce75e35f61eb2ef218a5ca196095f21d374b94732fbc8"
+    },
+    {
+      "before": "frontend/previews/cat-style-v2/cat-ribbon.png",
+      "after": "frontend/previews/cat-style-v2/cat-ribbon.png",
+      "sha256": "2fc913fbd3d047260710537b320f5d865ccd2c16f0ee37cabddc1e1c665994d3"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/cat-lv-4-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/cat-lv-4-hat-r1.png",
+      "sha256": "13518aae8beeee6adbebf892fb94bddaf0571a39ddb1374f12a34cab1c3b7a33"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/dragon-lv-1-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/dragon-lv-1-hat-r1.png",
+      "sha256": "607b0c41a6bd7b21f4c73247e10c99ace61484708ec96867cb53aaa29d1940fe"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/dragon-lv-2-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/dragon-lv-2-hat-r1.png",
+      "sha256": "0d43f79e24cf39456a0940891fdf9564784eb5895ae6169a26d0ccde6f745b2e"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/dragon-lv-3-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/dragon-lv-3-hat-r1.png",
+      "sha256": "3828800bfe54642f46ba0b438d1941bb3458ff0c33d392a9f44beb1bf485d83a"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/dragon-lv-4-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/dragon-lv-4-hat-r1.png",
+      "sha256": "1d4e06cc9e2ed707f520eb67487952f4961e610db1506e81d57d6e058df146a7"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/fox-lv-1-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/fox-lv-1-hat-r1.png",
+      "sha256": "9d9a50965dc47bcad2c5b64f9f3192be0e04aa29b272e1b20c8e478f9a5989b8"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/fox-lv-4-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/fox-lv-4-hat-r1.png",
+      "sha256": "9ceb9e6b528b3889a1d25d997ef001cf224d78bece9bcd69055a1b472f12a423"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/panda-lv-1-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/panda-lv-1-hat-r1.png",
+      "sha256": "9f0d13ee84a18bd68ae5eca9f1f41adbc6c12d48e7676e58e4e4e264e153a56d"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/panda-lv-2-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/panda-lv-2-hat-r1.png",
+      "sha256": "358c4992f89a8302126139d4002ce051c2f367032e4f3a9357ef4a27f65f042c"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/panda-lv-3-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/panda-lv-3-hat-r1.png",
+      "sha256": "7072eed98cd3c137668a107fa843e7fd3ffa3bd2eac5e1fc99c932247300aecd"
+    },
+    {
+      "before": "frontend/previews/rewards-v14/rejected/rabbit-lv-4-hat-r1.png",
+      "after": "frontend/assets/pet/archive/rewards-v14/rejected/rabbit-lv-4-hat-r1.png",
+      "sha256": "99f7c0d1497acfa1e5b6851a60aeaaaf7c42ae7ab2bb4a175ddd6b9114667fa4"
+    }
+  ]
+}

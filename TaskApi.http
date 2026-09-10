@@ -1,0 +1,214 @@
+@TaskApi_HostAddress = http://localhost:5095
+@TaskApi_Cookies =
+@TaskApi_Csrf = paste-csrf-token-here
+@TaskApi_UserId = 1
+@TaskApi_EmailToken = paste-link-fragment-token-here
+
+# 手動実行用の例。全リクエストで同じCookie jarを使います。
+# クライアントがCookieを保持しない場合は、レスポンスのSet-Cookieから
+# name=valueのみをセミコロン区切りでTaskApi_Cookiesへ設定してください。
+# 初回csrfではTaskApi_Cookiesは空で開始します。
+# Development: TaskBoard.Csrf / TaskBoard.Auth
+# 公開環境: __Host-TaskBoard.Csrf / __Host-TaskBoard.Auth（HTTPS必須）
+# Cookie・CSRF・メールリンクをコミット、ログ掲載、共有しないでください。
+#
+# 実行順: config → csrf → register → (csrf再取得) → メール確認 →
+# (Cookie/CSRF更新) → login → (csrf再取得) → タスク操作。
+# ログイン・登録・確認・再設定・追加設定・ログアウト後は認証状態が変わるので
+# Cookieを更新し、csrfを再実行して返るtokenをTaskApi_Csrfへ設定します。
+# APIはBearerヘッダーを受け付けません。CSRFなしのPOST等は400です。
+
+### 公開情報・現在の文書版
+GET {{TaskApi_HostAddress}}/api/auth/config
+Accept: application/json
+
+### CSRF tokenと対応Cookieを取得（認証状態変更後はこのリクエストを再実行）
+GET {{TaskApi_HostAddress}}/api/auth/csrf
+Accept: application/json
+Cookie: {{TaskApi_Cookies}}
+
+### ユーザー登録（Mailpitで確認メールを受信、初期状態は限定セッション）
+POST {{TaskApi_HostAddress}}/api/auth/register
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "userKey": "portfolio-user",
+  "displayName": "Portfolio User",
+  "email": "portfolio-user@example.test",
+  "password": "TestPassword!2026",
+  "acceptTerms": true,
+  "termsVersion": "2026-09-07-teams",
+  "privacyVersion": "2026-09-07-teams"
+}
+
+### ログイン（メール未登録/未確認・規約未確認ならnextActionを案内）
+POST {{TaskApi_HostAddress}}/api/auth/login
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "userKey": "portfolio-user",
+  "password": "TestPassword!2026"
+}
+
+### 現在のセッションと必要な追加設定
+GET {{TaskApi_HostAddress}}/api/auth/session
+Accept: application/json
+Cookie: {{TaskApi_Cookies}}
+
+### 旧アカウントのメール登録・規約確認（既存のパスワードで再認証）
+POST {{TaskApi_HostAddress}}/api/auth/complete-registration
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "email": "portfolio-user@example.test",
+  "password": "TestPassword!2026",
+  "acceptTerms": true,
+  "termsVersion": "2026-09-07-teams",
+  "privacyVersion": "2026-09-07-teams"
+}
+
+### 確認メール再送（存在の有無を直接返さず202。同一ユーザーは1分待つ）
+POST {{TaskApi_HostAddress}}/api/auth/resend-confirmation
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "email": "portfolio-user@example.test"
+}
+
+### メール確認（MailpitのリンクfragmentからuserId/tokenを転記。24時間有効）
+POST {{TaskApi_HostAddress}}/api/auth/confirm-email
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "userId": {{TaskApi_UserId}},
+  "token": "{{TaskApi_EmailToken}}"
+}
+
+### 再設定メール依頼（確認済みメールのみ対象。共通202）
+POST {{TaskApi_HostAddress}}/api/auth/forgot-password
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "email": "portfolio-user@example.test"
+}
+
+### パスワード再設定（この用途のメールtokenに差し替える。30分有効）
+POST {{TaskApi_HostAddress}}/api/auth/reset-password
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "userId": {{TaskApi_UserId}},
+  "token": "{{TaskApi_EmailToken}}",
+  "password": "NewDemoPassword!2026"
+}
+
+### ログアウト（現ユーザーの全Cookieを失効）
+POST {{TaskApi_HostAddress}}/api/auth/logout
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+### タスク一覧（メール・規約確認済みセッションが必要）
+GET {{TaskApi_HostAddress}}/api/tasks?page=1&pageSize=10&sortOrder=desc
+Accept: application/json
+Cookie: {{TaskApi_Cookies}}
+
+### TODOだけ取得
+GET {{TaskApi_HostAddress}}/api/tasks?status=Todo&page=1&pageSize=10
+Accept: application/json
+Cookie: {{TaskApi_Cookies}}
+
+### タイトル検索
+GET {{TaskApi_HostAddress}}/api/tasks?search=README&page=1&pageSize=10
+Accept: application/json
+Cookie: {{TaskApi_Cookies}}
+
+### 優先度とタグで検索
+GET {{TaskApi_HostAddress}}/api/tasks?priority=2&tag=portfolio&page=1&pageSize=10
+Accept: application/json
+Cookie: {{TaskApi_Cookies}}
+
+### タスク作成（以下の更新/削除のIDはレスポンスのidへ変更）
+POST {{TaskApi_HostAddress}}/api/tasks
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "title": "READMEを整える",
+  "description": "概要、起動方法、API一覧を書く",
+  "isCompleted": false,
+  "status": "Todo",
+  "dueDate": "2026-10-01T00:00:00Z",
+  "priority": 2,
+  "tags": "portfolio, docs"
+}
+
+### タスク更新
+PUT {{TaskApi_HostAddress}}/api/tasks/1
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "title": "READMEを整える",
+  "description": "スクリーンショットとチェックリストも追加する",
+  "isCompleted": false,
+  "status": "Doing",
+  "dueDate": "2026-10-03T00:00:00Z",
+  "priority": 1,
+  "tags": "portfolio, docs"
+}
+
+### タスク削除
+DELETE {{TaskApi_HostAddress}}/api/tasks/1
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+### ペット情報
+GET {{TaskApi_HostAddress}}/api/pet
+Accept: application/json
+Cookie: {{TaskApi_Cookies}}
+
+### ペット名更新
+PUT {{TaskApi_HostAddress}}/api/pet
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "name": "Task Pet"
+}
+
+### ユーザー情報
+GET {{TaskApi_HostAddress}}/api/user
+Accept: application/json
+Cookie: {{TaskApi_Cookies}}
+
+### ユーザー表示名更新
+PUT {{TaskApi_HostAddress}}/api/user
+Content-Type: application/json
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}
+
+{
+  "displayName": "Portfolio User"
+}
+
+### 現在ユーザー・関連タスク・育成・送信待ちを削除（未確認セッションでも可能）
+DELETE {{TaskApi_HostAddress}}/api/user
+Cookie: {{TaskApi_Cookies}}
+X-CSRF-TOKEN: {{TaskApi_Csrf}}

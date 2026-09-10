@@ -1,0 +1,13 @@
+{
+  "key": "rabbit_4_hat",
+  "species": "rabbit",
+  "level": 4,
+  "kind": "hat",
+  "name": "月あかりの小帽子",
+  "reference": "/Applications/task-app/frontend/assets/pet/sources/portraits/portfolio-rabbit-idle-v1.png",
+  "prompt": "Create an isolated pixel-art inventory accessory. Match image 1's warm dark-brown stepped outlines and pixel shading; image 1 is only a style reference. ONE very low lavender fabric beret, a small golden crescent embroidered on the fabric. Simple soft fabric silhouette; no protrusions, no pink shapes, no ears. The entire object is fabric, never animal anatomy. Do not depict an animal, face, skin, fur, ears, ear ornaments, hands or stand. Center the single hat with generous empty margin. Real transparent alpha background, no checkerboard, no white backdrop, no text or detached decorations.",
+  "rawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-7f5a6a78-804b-4b45-8e06-8aafaa7bb586.png",
+  "asset": "frontend/assets/pet/rewards-v2/rabbit/lv-4-hat.png",
+  "previousRawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-9ec063bf-255f-4940-a8de-a1c6a03af9d4.png",
+  "revision": 2
+}

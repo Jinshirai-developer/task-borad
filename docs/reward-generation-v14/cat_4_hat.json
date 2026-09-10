@@ -1,0 +1,13 @@
+{
+  "key": "cat_4_hat",
+  "species": "cat",
+  "level": 4,
+  "kind": "hat",
+  "name": "星読みのとんがり帽",
+  "reference": "/Applications/task-app/frontend/assets/pet/portfolio-cat-idle-v3.png",
+  "prompt": "Create an isolated pixel-art inventory accessory. Match image 1's warm dark-brown stepped outlines and pixel shading; image 1 is only a style reference. ONE midnight blue cloth wizard hat, short bent conical point, a gold embroidered star on the fabric, lavender band. Just plain cloth brim on both sides. NO ears and NO pink shapes. The entire object is fabric, never animal anatomy. Do not depict an animal, face, skin, fur, ears, ear ornaments, hands or stand. Center the single hat with generous empty margin. Real transparent alpha background, no checkerboard, no white backdrop, no text or detached decorations.",
+  "rawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-cd5706c9-2822-4501-b274-44731490e28c.png",
+  "asset": "frontend/assets/pet/rewards-v2/cat/lv-4-hat.png",
+  "previousRawPath": "/Users/sj/.codex/generated_images/01a07b00-539b-71d0-b7c0-e6fead9a9400/exec-36e42cfd-a6ad-41c5-957f-268b84c5b9c3.png",
+  "revision": 2
+}
