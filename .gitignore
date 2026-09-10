@@ -74,6 +74,7 @@ LEARNING_HANDOFF_CURRENT.md
 .env.*
 !.env.example
 .local/
+.wrangler/
 
 # Local OAuth credentials and Windows signing keys
 client_secret*.json
