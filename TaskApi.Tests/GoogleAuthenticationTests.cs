@@ -105,6 +105,31 @@ public sealed class GoogleAuthenticationTests
         Assert.Empty(scope.ServiceProvider.GetRequiredService<AppDbContext>().UserProfiles);
     }
 
+    [Theory]
+    [InlineData("https://localhost")]
+    [InlineData("https://localhost:5443")]
+    public async Task Gateway_UsesCanonicalAuthorityForGoogleStartAndCallback(string origin)
+    {
+        const string gatewaySecret = "google-gateway-test-key-32-characters";
+        var backchannel = new GoogleBackchannel();
+        using var factory = Factory(backchannel, new()
+        {
+            ["Authentication:PublicBaseUrl"] = origin,
+            ["PublicProxy:Secret"] = gatewaySecret
+        });
+        using var client = factory.CreateSecureClient();
+        client.DefaultRequestHeaders.Add("X-TaskBoard-Proxy-Key", gatewaySecret);
+        client.DefaultRequestHeaders.Add("X-Forwarded-Host", "untrusted.example");
+        client.DefaultRequestHeaders.Add("X-Forwarded-Proto", "http");
+
+        var authorization = await Start(client);
+        var query = QueryHelpers.ParseQuery(authorization.Query);
+        Assert.Equal(origin + "/signin-google", query["redirect_uri"]);
+        Assert.Equal("/google.html", (await Complete(client, authorization)).Headers.Location?.OriginalString);
+        Assert.Equal(origin + "/signin-google", backchannel.RedirectUri);
+        Assert.True((await client.GetFromJsonAsync<JsonElement>("/api/auth/google/pending")).GetProperty("canRegister").GetBoolean());
+    }
+
     [Fact]
     public async Task Registration_RequiresConsentThenSignsInAndUsesSubjectForLaterLogins()
     {

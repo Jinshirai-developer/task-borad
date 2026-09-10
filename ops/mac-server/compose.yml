@@ -22,7 +22,7 @@ services:
     network_mode: none
     restart: "no"
   app:
-    image: task-board:mac-server-20260910
+    image: task-board:mac-server-20260911
     container_name: taskboard-mac-app
     env_file: ../../.local/mac-server/runtime.env
     ports: ["127.0.0.1:5099:8080"]

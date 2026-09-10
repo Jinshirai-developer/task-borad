@@ -30,7 +30,9 @@ public static class PublicProxyMiddleware
             context.Request.Headers.Remove("X-TaskBoard-Client-IP");
             if (IPAddress.TryParse(clientIp, out var address)) context.Connection.RemoteIpAddress = address;
             context.Request.Scheme = origin.Scheme;
-            context.Request.Host = HostString.FromUriComponent(origin);
+            // The Uri overload adds the default port (for example :443).
+            // Preserve the canonical authority used by Google's registered callback.
+            context.Request.Host = HostString.FromUriComponent(origin.Authority);
             await next(context);
         });
     }
