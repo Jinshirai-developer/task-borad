@@ -1,0 +1,11 @@
+{
+  "name": "taskboard-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test worker.test.mjs",
+    "dev": "node preview.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="個人とチームのタスク管理アプリ、Task Board。登録不要のブラウザ体験版とWindows版をお試しいただけます。">
+  <title>Task Board — ブラウザ体験版・Windows版</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="header"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">T</span>Task Board</a><span class="header-note">Web / Windows</span></header>
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <div class="intro-copy">
+        <p class="eyebrow">タスク管理アプリ</p>
+        <h1 id="title">毎日のタスクを、<br>相棒と一緒に。</h1>
+        <p class="lead">個人の予定も、チームの仕事もひとつのボードに。<br class="wide">タスクを終えると、相棒が少しずつ育ちます。</p>
+        <a class="button primary" href="demo/index.html?demo=1">ブラウザで試す <span aria-hidden="true">→</span></a>
+        <p class="hint">登録不要・インストール不要</p>
+      </div>
+      <a class="preview" href="demo/index.html?demo=1" aria-label="Task Boardのブラウザ体験版を開く"><img src="board.png" width="1102" height="768" alt="タスクをTODO・DOING・DONEに整理し、相棒の成長を確認できるTask Boardの画面"><span class="preview-label">実際の画面を操作できます <span aria-hidden="true">↗</span></span></a>
+    </section>
+    <section class="try" aria-labelledby="try-title">
+      <div class="section-title"><p class="eyebrow">ブラウザ体験版</p><h2 id="try-title">まずは、ひとつ完了してみてください。</h2></div>
+      <ol class="steps">
+        <li><span class="number">01</span><div><h3>タスクを動かす</h3><p>カードをDONEに移動。完了を取り消したときの変化も確認できます。</p></div></li>
+        <li><span class="number">02</span><div><h3>チームに切り替える</h3><p>担当者・チェックリスト・お助け依頼など、チームの仕事を整理できます。</p></div></li>
+        <li><span class="number">03</span><div><h3>相棒の成長を見る</h3><p>タスクの完了で経験値が増えます。相棒との触れ合いや着せ替えも試せます。</p></div></li>
+      </ol>
+      <p class="demo-note" id="about-demo">体験版はサンプルデータで動作します。変更は再読み込みでリセットされ、実際の招待・共有・決済は行いません。</p>
+    </section>
+    <section class="download" aria-labelledby="download-title">
+      <div><p class="eyebrow">Windows版 · 0.1.0</p><h2 id="download-title">デスクトップでも、Task Board。</h2><p>ZIPをすべて展開して、<code>TaskBoard.Windows.exe</code>を起動。<br>「接続せずに試す」で同梱の体験版を利用できます。</p><p class="download-note">Windows x64向け · 約197MB · .NETランタイム同梱<br>実アカウントでの保存・チーム共有には、別途接続先サーバーが必要です。</p></div>
+      <div class="download-action"><a class="button secondary" href="download/windows">Windows版をダウンロード <span aria-hidden="true">↓</span></a><a class="checksum" href="download/sha256">ファイルのSHA-256を確認</a></div>
+    </section>
+    <details class="technical"><summary>使用技術と実装について</summary><div class="technical-body"><p><strong>Web・バックエンド</strong><br>HTML / CSS / JavaScript、ASP.NET Core 10、Entity Framework Core、PostgreSQL。認証、個人・チームの権限、更新競合の検出、タスク完了による報酬の整合性を実装しています。</p><p><strong>Windows</strong><br>C# / WPF / WebView2。Web版と画面を共通化し、起動・接続先設定・外部ブラウザでのログインに対応しています。</p><p>このページのブラウザ体験版は画面と操作の確認用です。バックエンドへの保存・実ユーザー同士の通信・Google認証は利用できません。Windows版は署名・専用インストーラー・自動更新に未対応です。</p></div></details>
+  </main>
+  <footer><span class="brand">Task Board</span><span>ブラウザ体験版 / Windows版</span></footer>
+</body>
+</html>

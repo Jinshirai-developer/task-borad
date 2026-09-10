@@ -8,7 +8,7 @@ Web版とWindows版を管理するリポジトリです。Web版はASP.NET Core�
 - `feature/windows-client`：Windows版を開発するときの作業ブランチ。動作確認後に`main`へ統合します。
 - Web画面は`frontend/`、Windowsクライアントは`desktop/`に分けます。認証・タスク・チーム・報酬のAPIとDBは共通です。
 
-WindowsとWebは変更単位のブランチで開発します。Windows版の初版は、接続先設定・同梱デモ・ブラウザー経由のログインに対応しています。一般公開のサーバー、配布サイト、署名付きインストーラーは未作成です。
+WindowsとWebは変更単位のブランチで開発します。Windows版の初版は、接続先設定・同梱デモ・ブラウザー経由のログインに対応しています。ポートフォリオ用の紹介ページ・ブラウザ体験版・Windows版の直接配布は `portfolio/` で管理します。実アカウントを保存する公開APIサーバーと、署名付きインストーラーは未提供です。
 
 個人・小規模チームのタスクを管理し、完了をペットと喜ぶポートフォリオアプリです。
 ASP.NET Core / PostgreSQL / HTML・CSS・JavaScriptで実装しています。
@@ -17,7 +17,9 @@ GitHub ActionsのCI設定は `.github/workflows/ci.yml` にあります。
 
 [ローカルのアプリ](http://localhost:5097/) · [登録不要デモ](http://localhost:5097/index.html?demo=1)
 
-公開準備中です。上記URLはこのアプリを起動したPCでのみ利用できます。デモはブラウザ内の一時データだけを使い、再読み込みでリセットします。実際の招待・保存・Stripe接続は通常ログイン後の機能です。
+上記のローカルURLはこのアプリを起動したPCでのみ利用できます。案件先に案内する入口は [ポートフォリオ用の紹介・配布ページ](https://taskboard-js-portfolio.jin-shirai-developer.chatgpt.site/p/90e0188e5bdccda266e5a1fa3562c985/) です。ブラウザ体験版とWindows版のダウンロードに進めます。推測しにくいURLと検索除外で案内範囲を絞っていますが、URLの転送先でもアクセスできます。
+
+体験版はブラウザ内の一時データだけを使い、再読み込みでリセットします。実際の招待・保存・Google認証・Stripe接続は、別途起動した通常版サーバーの機能です。[配布サイトの構成・更新方法](portfolio/README.md) を参照してください。
 
 ![v22のボード（登録不要デモの架空データ）](docs/screenshots/app/v22/board-demo.png)
 

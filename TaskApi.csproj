@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseAppHost>false</UseAppHost>
-    <DefaultItemExcludes>$(DefaultItemExcludes);artifacts/**;.local/**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);artifacts/**;.local/**;portfolio/**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>

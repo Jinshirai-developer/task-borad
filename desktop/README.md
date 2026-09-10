@@ -26,7 +26,7 @@ dotnet ef database update
 
 上記は接続先のDBにスキーマを追加する操作です。運用先の設定で実行してください。既存のローカルプレビューDBには、この開発作業で自動適用していません。GoogleのClient ID / Client Secret、SMTP、PostgreSQLはサーバー側だけに設定し、Windowsパッケージには含めません。
 
-一般公開のサーバー・配布サイトはまだありません。同梱デモ以外の保存・チーム共有には、利用者から到達できるサーバーが必要です。
+[ポートフォリオ用の紹介・配布ページ](https://taskboard-js-portfolio.jin-shirai-developer.chatgpt.site/p/90e0188e5bdccda266e5a1fa3562c985/) からZIPを直接ダウンロードできます。ブラウザ体験版も同じページから利用できます。実アカウント用のAPIサーバーは未公開です。同梱デモ以外の保存・チーム共有には、利用者から到達できるサーバーが必要です。
 
 ## ブラウザーでのログイン
 

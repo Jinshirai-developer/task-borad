@@ -52,6 +52,7 @@ jobs:
         run: |
           for script in frontend/*.js; do node --check "$script"; done
           node --test tests/*.test.cjs
+          node --test portfolio/worker.test.mjs
 
       - name: Verify generated asset transparency and proportions
         run: python3 -m unittest discover -s tests -p 'test_*.py'
