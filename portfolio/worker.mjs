@@ -41,6 +41,15 @@ export function createWorker(config, textFiles, objects) {
             || /^\/[a-z0-9][a-z0-9.-]*\.(html|css|js)$/.test(pathname)
             || /^\/assets\/[A-Za-z0-9/_.,-]+\.(png|webp|svg)$/.test(pathname);
     }
+    function canonicalRedirect(request, env, path) {
+        if (!env.CANONICAL_APP_ORIGIN) return null;
+        try {
+            const target = new URL(env.CANONICAL_APP_ORIGIN);
+            if (target.protocol !== 'https:' || target.username || target.password || target.pathname !== '/' || target.search || target.hash || target.origin === new URL(request.url).origin) throw new Error('Invalid origin');
+            if (!['GET', 'HEAD'].includes(request.method)) return json({ message: 'アプリのURLが変わりました。新しいURLを開いてログインしてください。', url: target.origin }, 409);
+            return reply(null, 302, { Location: target.origin + path });
+        } catch { return reply('Server configuration unavailable', 503); }
+    }
     async function proxy(request, env, url) {
         const origin = new URL(env.MAC_SERVER_ORIGIN);
         if (origin.protocol !== 'https:' || origin.username || origin.password || origin.pathname !== '/' || origin.search || origin.hash)
@@ -158,6 +167,8 @@ export function createWorker(config, textFiles, objects) {
             const serverEnabled = Boolean(env.MAC_SERVER_ORIGIN && env.MAC_SERVER_PROXY_KEY);
             if (serverEnabled && appPath(pathname) && !pathname.startsWith(config.base)) {
                 if (!reviewAccess(request)) return reply('Not found', 404);
+                const moved = canonicalRedirect(request, env, pathname + url.search);
+                if (moved) return moved;
                 return proxy(request, env, url);
             }
             if (!['GET', 'HEAD'].includes(request.method)) return reply('Method not allowed', 405, { Allow: 'GET, HEAD' });
@@ -167,6 +178,8 @@ export function createWorker(config, textFiles, objects) {
             const relative = pathname.slice(config.base.length);
             if (serverEnabled && (relative === '' || /^(login|auth|google|index|desktop)\.html$/.test(relative))) {
                 const entry = relative === '' ? '/login.html?mode=register' : '/' + relative + url.search;
+                const moved = canonicalRedirect(request, env, relative === '' ? '/' + url.search : entry);
+                if (moved) return moved;
                 return reply(null, 302, { Location: entry, 'Set-Cookie': reviewCookie });
             }
             if (relative === 'about/') return reply(null, 302, { Location: config.base + 'about' });

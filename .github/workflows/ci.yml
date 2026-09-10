@@ -53,6 +53,8 @@ jobs:
           for script in frontend/*.js; do node --check "$script"; done
           node --test tests/*.test.cjs
           node --test portfolio/worker.test.mjs
+          node --test ops/cloudflare-pages/worker.test.mjs
+          node ops/cloudflare-pages/build.mjs
 
       - name: Verify generated asset transparency and proportions
         run: python3 -m unittest discover -s tests -p 'test_*.py'

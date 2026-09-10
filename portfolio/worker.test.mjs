@@ -107,3 +107,18 @@ test('Mac outage leaves the independent sample and Windows download available',a
         assert.equal(await (await call(base+'download/windows')).text(),'0123456789');
     }finally{globalThis.fetch=original;}
 });
+test('canonical migration moves old app and email links but preserves distribution',async()=>{
+    const {call,env}=fixture();env.MAC_SERVER_ORIGIN='https://upstream.example.test';env.MAC_SERVER_PROXY_KEY='server-secret';
+    const access=(await call(base)).headers.get('Set-Cookie').split(';')[0];
+    env.CANONICAL_APP_ORIGIN='https://taskboard.example.test';
+    assert.equal((await call(base)).headers.get('Location'),'https://taskboard.example.test/');
+    assert.equal((await call(base+'auth.html?mode=confirm')).headers.get('Location'),'https://taskboard.example.test/auth.html?mode=confirm');
+    assert.equal((await call('/index.html',{headers:{Cookie:access}})).headers.get('Location'),'https://taskboard.example.test/index.html');
+    assert.equal((await call('/api/tasks',{method:'POST',headers:{Cookie:access},body:'private data'})).status,409);
+    assert.equal((await call('/api/tasks')).status,404);
+    assert.equal(await (await call(base+'about')).text(),'Landing');
+    assert.equal(await (await call(base+'demo/index.html?demo=1')).text(),'Demo');
+    assert.equal(await (await call(base+'download/windows')).text(),'0123456789');
+    env.CANONICAL_APP_ORIGIN='http://invalid.test';
+    assert.equal((await call(base)).status,503);
+});
