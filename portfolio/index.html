@@ -16,8 +16,8 @@
         <p class="eyebrow">タスク管理アプリ</p>
         <h1 id="title">毎日のタスクを、<br>相棒と一緒に。</h1>
         <p class="lead">個人の予定も、チームの仕事もひとつのボードに。<br class="wide">タスクを終えると、相棒が少しずつ育ちます。</p>
-        <a class="button primary" href="demo/index.html?demo=1">ブラウザで試す <span aria-hidden="true">→</span></a>
-        <p class="hint">登録不要・インストール不要</p>
+        <a class="button primary" href="./">登録画面からはじめる <span aria-hidden="true">→</span></a>
+        <p class="hint">登録して保存できます。登録不要の体験版もあります。</p>
       </div>
       <a class="preview" href="demo/index.html?demo=1" aria-label="Task Boardのブラウザ体験版を開く"><img src="board.png" width="1102" height="768" alt="タスクをTODO・DOING・DONEに整理し、相棒の成長を確認できるTask Boardの画面"><span class="preview-label">実際の画面を操作できます <span aria-hidden="true">↗</span></span></a>
     </section>
@@ -34,7 +34,7 @@
       <div><p class="eyebrow">Windows版 · 0.1.0</p><h2 id="download-title">デスクトップでも、Task Board。</h2><p>ZIPをすべて展開して、<code>TaskBoard.Windows.exe</code>を起動。<br>「接続せずに試す」で同梱の体験版を利用できます。</p><p class="download-note">Windows x64向け · 約197MB · .NETランタイム同梱<br>実アカウントでの保存・チーム共有には、別途接続先サーバーが必要です。</p></div>
       <div class="download-action"><a class="button secondary" href="download/windows">Windows版をダウンロード <span aria-hidden="true">↓</span></a><a class="checksum" href="download/sha256">ファイルのSHA-256を確認</a></div>
     </section>
-    <details class="technical"><summary>使用技術と実装について</summary><div class="technical-body"><p><strong>Web・バックエンド</strong><br>HTML / CSS / JavaScript、ASP.NET Core 10、Entity Framework Core、PostgreSQL。認証、個人・チームの権限、更新競合の検出、タスク完了による報酬の整合性を実装しています。</p><p><strong>Windows</strong><br>C# / WPF / WebView2。Web版と画面を共通化し、起動・接続先設定・外部ブラウザでのログインに対応しています。</p><p>このページのブラウザ体験版は画面と操作の確認用です。バックエンドへの保存・実ユーザー同士の通信・Google認証は利用できません。Windows版は署名・専用インストーラー・自動更新に未対応です。</p></div></details>
+    <details class="technical"><summary>使用技術と実装について</summary><div class="technical-body"><p><strong>Web・バックエンド</strong><br>HTML / CSS / JavaScript、ASP.NET Core 10、Entity Framework Core、PostgreSQL。認証、個人・チームの権限、更新競合の検出、タスク完了による報酬の整合性を実装しています。Web版のAPIとデータベースは開発者のMac上で動作し、HTTPSで中継しています。サーバーの稼働中に利用できます。</p><p><strong>Windows</strong><br>C# / WPF / WebView2。Web版と画面を共通化し、起動・接続先設定・外部ブラウザでのログインに対応しています。</p><p>登録せずに使う体験版はサンプルデータで動作し、変更を保存しません。Windows版は署名・専用インストーラー・自動更新に未対応です。</p></div></details>
   </main>
   <footer><span class="brand">Task Board</span><span>ブラウザ体験版 / Windows版</span></footer>
 </body>

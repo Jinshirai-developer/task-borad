@@ -17,7 +17,7 @@ function add(file, buffer) {
     if (['.html', '.css', '.js', '.svg'].includes(path.extname(file))) {
         let content = buffer.toString();
         if (file === 'demo/index.html') content = content.replace('</head>', '<meta name="robots" content="noindex,nofollow">\n</head>')
-            .replace(/<nav class="app-legal-links"[^>]*>.*?<\/nav>/, '<nav class="app-legal-links" aria-label="体験版のご案内"><a href="../#about-demo">体験版について</a></nav>')
+            .replace(/<nav class="app-legal-links"[^>]*>.*?<\/nav>/, '<nav class="app-legal-links" aria-label="体験版のご案内"><a href="../about#about-demo">体験版について</a></nav>')
             .replace('</body>', '<script src="../demo-entry.js"></script>\n</body>');
         textFiles[file] = { content, type };
     } else addObject(file, buffer, type);

@@ -26,7 +26,7 @@ test('demo always enters sample mode and account routes return to landing',async
     for(const page of ['demo/','demo/index.html']) { const r=await call(base+page+'?demo=0'); assert.equal(r.status,302);assert.equal(r.headers.get('Location'),base+'demo/index.html?demo=1'); }
     assert.equal(await (await call(base+'demo/index.html?demo=1')).text(),'Demo');
     for(const page of ['login','google','auth','desktop'])assert.equal((await call(base+`demo/${page}.html`)).headers.get('Location'),base);
-    for(const page of ['terms','privacy'])assert.equal((await call(base+`demo/${page}.html`)).headers.get('Location'),base+'#about-demo');
+    for(const page of ['terms','privacy'])assert.equal((await call(base+`demo/${page}.html`)).headers.get('Location'),base+'about#about-demo');
     assert.equal((await call('/api/tasks',{method:'POST',body:'private data'})).status,405);
 });
 test('download streams byte-identical data across all part boundaries',async()=>{
@@ -52,4 +52,55 @@ test('upload requires a configured, unexpired secret and a predeclared object ha
     assert.equal((await call(pathname,{method:'PUT',headers:{...headers,'Content-Length':'9'},body:'PNG'})).status,400);
     assert.equal((await call(pathname,{method:'PUT',headers,body:'PNG'})).status,200);assert.equal(writes.length,1);assert.equal(writes[0][0],'picture');assert.equal(writes[0][2].sha256,'a'.repeat(64));
     env.RELEASE_UPLOAD_EXPIRES=String(Date.now()-1);assert.equal((await call(pathname,{method:'PUT',headers,body:'PNG'})).status,404);assert.equal(writes.length,1);
+});
+test('Mac entry grants link access and anonymous root APIs remain hidden',async()=>{
+    const {call,env}=fixture();
+    env.MAC_SERVER_ORIGIN='https://upstream.example.test';env.MAC_SERVER_PROXY_KEY='server-secret';
+    for(const path of ['/','/login.html','/api/auth/config','/signin-google'])assert.equal((await call(path)).status,404);
+    const entry=await call(base);assert.equal(entry.status,302);assert.equal(entry.headers.get('Location'),'/login.html?mode=register');
+    assert.match(entry.headers.get('Set-Cookie'),/Secure; HttpOnly; SameSite=Lax/);
+    const mail=await call(base+'auth.html?mode=confirm');assert.equal(mail.headers.get('Location'),'/auth.html?mode=confirm');
+    assert.equal(await (await call(base+'about')).text(),'Landing');
+    assert.equal(await (await call(base+'download/windows')).text(),'0123456789');
+});
+test('Mac proxy forwards only app cookies and trusted gateway headers, preserving CSRF',async()=>{
+    const {call,env}=fixture();env.MAC_SERVER_ORIGIN='https://upstream.example.test';env.MAC_SERVER_PROXY_KEY='server-secret';
+    const access=(await call(base)).headers.get('Set-Cookie').split(';')[0];
+    const original=globalThis.fetch;let seen;
+    globalThis.fetch=async(url,options)=>{
+        seen={url,options};
+        const headers=new Headers({'Content-Type':'application/json','Content-Security-Policy':"connect-src 'self'"});
+        headers.append('Set-Cookie','__Host-TaskBoard.Auth=new; Path=/; Secure; HttpOnly');
+        headers.append('Set-Cookie','unrelated_platform_session=private; Secure');
+        return new Response('{"ok":true}',{headers});
+    };
+    try{
+        const r=await call('/api/auth/login',{method:'POST',headers:{
+            Cookie:access+'; __Host-TaskBoard.Csrf=csrf; site_session=private',
+            'Content-Type':'application/json','X-CSRF-TOKEN':'csrf-token','Origin':'https://site.test',
+            'X-TaskBoard-Proxy-Key':'forged','X-TaskBoard-Client-IP':'forged','CF-Connecting-IP':'203.0.113.5'
+        },body:'{"userKey":"reviewer"}'});
+        assert.equal(r.status,200);assert.equal(seen.url,'https://upstream.example.test/api/auth/login');
+        assert.equal(seen.options.headers.get('Cookie'),'__Host-TaskBoard.Csrf=csrf');
+        assert.equal(seen.options.headers.get('X-CSRF-TOKEN'),'csrf-token');
+        assert.equal(seen.options.headers.get('X-TaskBoard-Proxy-Key'),'server-secret');
+        assert.equal(seen.options.headers.get('X-TaskBoard-Client-IP'),'203.0.113.5');
+        assert.equal(seen.options.redirect,'manual');
+        assert.equal(await new Response(seen.options.body).text(),'{"userKey":"reviewer"}');
+        assert.equal(r.headers.getSetCookie().length,1);assert.match(r.headers.getSetCookie()[0],/^__Host-TaskBoard.Auth=/);
+        assert.equal(r.headers.get('Content-Security-Policy'),"connect-src 'self'");
+        assert.equal(r.headers.get('Cache-Control'),'no-store');
+        assert.equal((await call('/api/auth/login',{method:'POST',headers:{Cookie:access,Origin:'https://other.test'}})).status,403);
+    }finally{globalThis.fetch=original;}
+});
+test('Mac outage leaves the independent sample and Windows download available',async()=>{
+    const {call,env}=fixture();env.MAC_SERVER_ORIGIN='https://upstream.example.test';env.MAC_SERVER_PROXY_KEY='server-secret';
+    const access=(await call(base)).headers.get('Set-Cookie').split(';')[0];
+    const original=globalThis.fetch;globalThis.fetch=async()=>{throw new Error('offline');};
+    try{
+        assert.equal((await call('/api/auth/session',{headers:{Cookie:access}})).status,503);
+        assert.equal((await call('/login.html',{headers:{Cookie:access}})).status,503);
+        assert.equal(await (await call(base+'demo/index.html?demo=1')).text(),'Demo');
+        assert.equal(await (await call(base+'download/windows')).text(),'0123456789');
+    }finally{globalThis.fetch=original;}
 });

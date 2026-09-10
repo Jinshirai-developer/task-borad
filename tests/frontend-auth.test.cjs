@@ -134,6 +134,23 @@ function fakePage(name, href, taskAuth) {
     return { elements, getElement, handlers, navigations, replaced };
 }
 
+test("registration entry opens the real registration form without bypassing server admission", async () => {
+    for (const enabled of [true, false]) {
+        const page = fakePage("login.js", "https://task.example/login.html?mode=register", {
+            request: async (url) => url.endsWith("/config")
+                ? jsonResponse({ registrationEnabled: enabled, googleLoginEnabled: false })
+                : jsonResponse({}, 401),
+            errorMessage: async () => "error", displayError: (error) => error.message
+        });
+        await page.handlers.get("DOMContentLoaded")();
+        assert.equal(page.getElement("auth-email").required, enabled);
+        assert.equal(page.getElement("auth-email").disabled, !enabled);
+        assert.equal(page.getElement("auth-password").minLength, enabled ? 12 : 8);
+        assert.equal(page.getElement("auth-submit-button").textContent, enabled ? "確認メールを送って登録" : "ログインする");
+        assert.deepEqual(page.navigations, []);
+    }
+});
+
 test("Google login navigates only after POST and rejects unexpected destinations", async () => {
     let destination = "https://accounts.google.com/o/oauth2/v2/auth?state=protected";
     const posts = [];

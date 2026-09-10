@@ -112,8 +112,15 @@ builder.Services.AddOptions<AuthSettings>().BindConfiguration("Authentication")
         && uri.AbsolutePath == "/"
         && (uri.Scheme == "https" || (development && uri.Scheme == "http" && uri.IsLoopback)),
         "Authentication:PublicBaseUrl must be a trusted HTTPS origin (HTTP loopback is allowed only in Development).")
+    .Validate(settings => settings.PublicEntryPath.Length <= 200
+        && System.Text.RegularExpressions.Regex.IsMatch(settings.PublicEntryPath, @"^/(?:[A-Za-z0-9_-]+/)*$"),
+        "Authentication:PublicEntryPath must be an absolute local path ending in a slash.")
     .Validate(settings => !publicEnvironment || !string.IsNullOrWhiteSpace(settings.KeyRingPath),
         "Authentication:KeyRingPath must point to a persistent protected volume in production.")
+    .ValidateOnStart();
+builder.Services.AddOptions<PublicProxyOptions>().BindConfiguration("PublicProxy")
+    .Validate(settings => settings.Secret.Length == 0 || settings.Secret.Length is >= 32 and <= 128,
+        "PublicProxy:Secret must be empty or contain 32 to 128 characters.")
     .ValidateOnStart();
 builder.Services.AddOptions<EmailOptions>().BindConfiguration("Email")
     .Validate(settings => !string.IsNullOrWhiteSpace(settings.Host)
@@ -230,6 +237,7 @@ builder.Services.AddDbContext<AppDbContext>((services, options) =>
 
 var app = builder.Build();
 var frontendPath = Path.Combine(app.Environment.ContentRootPath, "frontend");
+app.UseTaskBoardPublicProxy();
 
 if (!app.Environment.IsDevelopment())
 {

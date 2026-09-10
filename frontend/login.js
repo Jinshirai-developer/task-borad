@@ -39,6 +39,7 @@ async function initialize() {
         document.getElementById("google-login").hidden = !config.googleLoginEnabled;
         switchButton.hidden = !config.registrationEnabled;
         document.getElementById("registration-closed").hidden = Boolean(config.registrationEnabled);
+        setFormMode(config.registrationEnabled && new URLSearchParams(window.location.search).get("mode") === "register");
 
         const sessionResponse = await TaskAuth.request("/api/auth/session");
         if (sessionResponse.ok) {
@@ -56,7 +57,13 @@ async function initialize() {
 
 switchButton.addEventListener("click", () => {
     if (isSaving || !config?.registrationEnabled) return;
-    isRegister = !isRegister;
+    setFormMode(!isRegister);
+    setMessage("");
+    userKeyInput.focus();
+});
+
+function setFormMode(registering) {
+    isRegister = Boolean(registering);
     for (const element of document.querySelectorAll("[data-register-only]")) element.hidden = !isRegister;
     displayNameInput.disabled = !isRegister;
     emailInput.disabled = !isRegister;
@@ -72,9 +79,7 @@ switchButton.addEventListener("click", () => {
     submitButton.textContent = isRegister ? "確認メールを送って登録" : "ログインする";
     switchButton.textContent = isRegister ? "アカウントをお持ちの方 · ログイン" : "はじめての方はこちら · 新規登録";
     setPasswordVisibility(false);
-    setMessage("");
-    userKeyInput.focus();
-});
+}
 
 authForm.addEventListener("submit", async (event) => {
     event.preventDefault();

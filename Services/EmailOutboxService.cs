@@ -17,7 +17,7 @@ public sealed class EmailOutboxService(
 
     public async Task QueueAsync(UserProfile user, string purpose, string token, TimeSpan lifetime)
     {
-        var link = $"{options.Value.PublicBaseUrl.TrimEnd('/')}/auth.html?mode={purpose}#userId={user.Id}&token={token}";
+        var link = $"{options.Value.PublicBaseUrl.TrimEnd('/')}{options.Value.PublicEntryPath}auth.html?mode={purpose}#userId={user.Id}&token={token}";
         var confirmation = purpose == "confirm";
         var message = new TransactionalEmail(user.Email!,
             confirmation ? "[Task Board] メールアドレスの確認" : "[Task Board] パスワードの再設定",
