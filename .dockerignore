@@ -15,3 +15,5 @@ frontend/assets/pet/archive
 .env
 .env.*
 .local
+desktop
+artifacts

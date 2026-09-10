@@ -1,0 +1,50 @@
+name: Windows client
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, feature/windows-client]
+    paths:
+      - 'desktop/**'
+      - 'frontend/**'
+      - 'scripts/publish-windows.ps1'
+      - '.github/workflows/windows.yml'
+      - 'global.json'
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Test and package Windows x64
+        shell: pwsh
+        run: ./scripts/publish-windows.ps1 -Runtime win-x64
+      - name: Verify native window and bundled demo
+        shell: pwsh
+        run: |
+          $application = Get-ChildItem artifacts/windows/win-x64 -Directory -Filter 'app-*' | Select-Object -First 1
+          $report = Join-Path $env:RUNNER_TEMP 'taskboard-windows-smoke.json'
+          $process = Start-Process (Join-Path $application.FullName 'TaskBoard.Windows.exe') -ArgumentList @('--smoke-output', "`"$report`"") -PassThru
+          if (-not $process.WaitForExit(90000)) { $process.Kill($true); throw 'Windows startup test timed out.' }
+          if (Test-Path $report) { Get-Content $report }
+          if ($process.ExitCode -ne 0 -or -not (Test-Path $report)) { throw 'Windows startup test failed.' }
+          if (-not (Get-Content $report | ConvertFrom-Json).passed) { throw 'The bundled demo did not render.' }
+      - name: Save Windows package and verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taskboard-windows-0.1.0-win-x64
+          path: |
+            artifacts/windows/win-x64/*.zip
+            artifacts/windows/win-x64/*.sha256
+            ${{ runner.temp }}/taskboard-windows-smoke.json
+          retention-days: 14

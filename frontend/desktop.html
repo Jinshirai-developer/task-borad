@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Windowsアプリにログイン | Task Board</title>
+  <link rel="stylesheet" href="desktop.css">
+</head>
+<body>
+  <main class="desktop-card">
+    <p class="brand">Task Board <span>for Windows</span></p>
+    <h1>Windowsアプリにログイン</h1>
+    <p>アプリに表示されているコードと一致していることを確認してください。</p>
+    <form id="desktop-form">
+      <label for="desktop-code">確認コード</label>
+      <input id="desktop-code" maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX" required aria-describedby="desktop-code-hint">
+      <p id="desktop-code-hint" class="hint">自分で開始したログインのみ承認してください。</p>
+      <p id="desktop-account"></p>
+      <button id="desktop-login" type="button" hidden>ログインして続ける</button>
+      <button id="desktop-approve" type="submit" disabled>このアカウントでアプリにログイン</button>
+      <button id="desktop-deny" class="secondary" type="button" hidden>キャンセル</button>
+    </form>
+    <p id="desktop-message" role="status" aria-live="polite">ログイン状態を確認しています…</p>
+    <a id="desktop-home" href="index.html" hidden>Web版を開く</a>
+  </main>
+  <script src="auth-client.js"></script>
+  <script src="desktop.js"></script>
+</body>
+</html>

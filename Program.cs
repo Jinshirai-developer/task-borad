@@ -95,6 +95,7 @@ builder.Services.AddScoped<PetService>();
 builder.Services.AddScoped<PetCollectionService>();
 builder.Services.AddScoped<UserProfileService>();
 builder.Services.AddScoped<AuthenticationService>();
+builder.Services.AddScoped<DesktopSignInService>();
 builder.Services.AddScoped<EmailOutboxService>();
 builder.Services.AddScoped<EmailOutboxDispatcher>();
 builder.Services.AddScoped<ITransactionalEmailSender, SmtpTransactionalEmailSender>();

@@ -1,14 +1,14 @@
 # Task Board
 
-Windows版開発に向けて、現在のWebアプリのコードを整理したリポジトリです。現時点ではASP.NET Coreとブラウザで動作し、Windows用クライアント・インストーラー・配布URLは未作成です。
+Web版とWindows版を管理するリポジトリです。Web版はASP.NET Coreとブラウザーで動作します。Windows版はC# / WPF / WebView2で既存の画面を表示し、共通のAPIとDBに接続します。Windows版の起動・ビルド方法は [desktop/README.md](desktop/README.md) を参照してください。
 
 ## Web版とWindows版の開発方針
 
 - `main`：Web版と共通APIの安定版。現在の実装をここに置きます。
 - `feature/windows-client`：Windows版を開発するときの作業ブランチ。動作確認後に`main`へ統合します。
-- Web画面は`frontend/`、Windowsクライアントの画面は将来追加する専用フォルダーで分けます。認証・タスク・チーム・報酬のAPIとDBは共通で利用する方針です。
+- Web画面は`frontend/`、Windowsクライアントは`desktop/`に分けます。認証・タスク・チーム・報酬のAPIとDBは共通です。
 
-WindowsとWebを独立した長期ブランチで保守する運用にはせず、変更単位のブランチで開発します。Windowsクライアントの実装はまだ開始していません。
+WindowsとWebは変更単位のブランチで開発します。Windows版の初版は、接続先設定・同梱デモ・ブラウザー経由のログインに対応しています。一般公開のサーバー、配布サイト、署名付きインストーラーは未作成です。
 
 個人・小規模チームのタスクを管理し、完了をペットと喜ぶポートフォリオアプリです。
 ASP.NET Core / PostgreSQL / HTML・CSS・JavaScriptで実装しています。

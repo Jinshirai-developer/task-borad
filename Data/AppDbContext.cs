@@ -7,6 +7,7 @@ namespace TaskApi.Data;
 public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityUserContext<UserProfile, int>(options)
 {
     public DbSet<TaskItem> Tasks => Set<TaskItem>();
+    public DbSet<DesktopSignInRequest> DesktopSignIns => Set<DesktopSignInRequest>();
     public DbSet<TaskUndoEntry> TaskUndoEntries => Set<TaskUndoEntry>();
 
     public DbSet<PetProfile> PetProfiles => Set<PetProfile>();
@@ -31,6 +32,17 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityUser
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<DesktopSignInRequest>(entity =>
+        {
+            entity.ToTable("desktop_sign_ins");
+            entity.HasKey(item => item.DeviceCodeHash);
+            entity.Property(item => item.DeviceCodeHash).HasMaxLength(64);
+            entity.Property(item => item.UserCodeHash).HasMaxLength(64).IsRequired();
+            entity.Property(item => item.SessionVersion).HasMaxLength(36);
+            entity.HasIndex(item => item.UserCodeHash).IsUnique();
+            entity.HasIndex(item => item.ExpiresAt);
+            entity.HasOne<UserProfile>().WithMany().HasForeignKey(item => item.UserProfileId).OnDelete(DeleteBehavior.Cascade);
+        });
         modelBuilder.Entity<TeamBilling>(entity =>
         {
             entity.ToTable("account_billing");

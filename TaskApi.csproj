@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseAppHost>false</UseAppHost>
+    <DefaultItemExcludes>$(DefaultItemExcludes);artifacts/**;.local/**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="desktop/**/*.cs" />
+    <Content Remove="desktop/**" />
+    <None Remove="desktop/**" />
     <Compile Remove="TaskApi.Tests/**/*.cs" />
     <Content Remove="TaskApi.Tests/**" />
     <None Remove="TaskApi.Tests/**" />
