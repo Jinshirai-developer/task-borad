@@ -28,23 +28,51 @@ jobs:
       - name: Test and package Windows x64
         shell: pwsh
         run: ./scripts/publish-windows.ps1 -Runtime win-x64
-      - name: Verify native window and bundled demo
+      - name: Extract the release ZIP
         shell: pwsh
         run: |
-          $application = Get-ChildItem artifacts/windows/win-x64 -Directory -Filter 'app-*' | Select-Object -First 1
+          $archive = Get-Item artifacts/windows/win-x64/taskboard-windows-0.1.1-win-x64.zip
+          $expectedHash = (Get-Content "$($archive.FullName).sha256").Trim()
+          if ((Get-FileHash $archive.FullName -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expectedHash) { throw 'ZIP checksum mismatch.' }
+          $application = Join-Path $env:RUNNER_TEMP 'taskboard-unpacked'
+          Expand-Archive -LiteralPath $archive.FullName -DestinationPath $application
+          foreach ($required in @('TaskBoard.Windows.exe', 'coreclr.dll', 'demo/index.html')) {
+            if (-not (Test-Path (Join-Path $application $required))) { throw "ZIP is missing $required" }
+          }
+          @{ passed = $true; bytes = $archive.Length; files = (Get-ChildItem $application -Recurse -File).Count; sha256 = $expectedHash } | ConvertTo-Json | Set-Content (Join-Path $env:RUNNER_TEMP 'taskboard-windows-archive.json')
+      - name: Verify extracted native window and bundled demo
+        shell: pwsh
+        run: |
+          $application = Join-Path $env:RUNNER_TEMP 'taskboard-unpacked'
           $report = Join-Path $env:RUNNER_TEMP 'taskboard-windows-smoke.json'
-          $process = Start-Process (Join-Path $application.FullName 'TaskBoard.Windows.exe') -ArgumentList @('--smoke-output', "`"$report`"") -PassThru
+          $process = Start-Process (Join-Path $application 'TaskBoard.Windows.exe') -ArgumentList @('--smoke-output', "`"$report`"") -PassThru
           if (-not $process.WaitForExit(90000)) { $process.Kill($true); throw 'Windows startup test timed out.' }
           if (Test-Path $report) { Get-Content $report }
           if ($process.ExitCode -ne 0 -or -not (Test-Path $report)) { throw 'Windows startup test failed.' }
           if (-not (Get-Content $report | ConvertFrom-Json).passed) { throw 'The bundled demo did not render.' }
+      # Public server availability must not prevent offline development builds.
+      # A distributed release must additionally have a successful online report.
+      - name: Verify automatic connection to the public registration screen
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        shell: pwsh
+        run: |
+          $application = Join-Path $env:RUNNER_TEMP 'taskboard-unpacked'
+          $report = Join-Path $env:RUNNER_TEMP 'taskboard-windows-online.json'
+          $process = Start-Process (Join-Path $application 'TaskBoard.Windows.exe') -ArgumentList @('--smoke-output', "`"$report`"", '--smoke-online') -PassThru
+          if (-not $process.WaitForExit(90000)) { $process.Kill($true); throw 'Automatic startup test timed out.' }
+          if (Test-Path $report) { Get-Content $report }
+          if ($process.ExitCode -ne 0 -or -not (Test-Path $report)) { throw 'Automatic startup test failed.' }
+          if (-not (Get-Content $report | ConvertFrom-Json).passed) { throw 'The public registration screen did not render.' }
       - name: Save Windows package and verification
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: taskboard-windows-0.1.0-win-x64
+          name: taskboard-windows-0.1.1-win-x64
           path: |
             artifacts/windows/win-x64/*.zip
             artifacts/windows/win-x64/*.sha256
             ${{ runner.temp }}/taskboard-windows-smoke.json
+            ${{ runner.temp }}/taskboard-windows-online.json
+            ${{ runner.temp }}/taskboard-windows-archive.json
           retention-days: 14

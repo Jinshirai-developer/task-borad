@@ -14,9 +14,11 @@ namespace TaskBoard.Windows;
 
 public partial class MainWindow : Window
 {
+    private static readonly Uri ServiceOrigin = new("https://taskboard-8j6.pages.dev/");
     private static readonly Uri DemoOrigin = new("https://taskboard-demo.invalid/");
     private const string RuntimeUrl = "https://developer.microsoft.com/microsoft-edge/webview2/#download-section";
     private readonly string? _smokeOutput;
+    private readonly bool _smokeOnline;
     private WebView2? _browser;
     private Uri? _server;
     private Uri? _verification;
@@ -26,34 +28,28 @@ public partial class MainWindow : Window
     private bool _closing;
     private bool _smokeCompleted;
 
-    public MainWindow(string? smokeOutput = null)
+    public MainWindow(string? smokeOutput = null, bool smokeOnline = false)
     {
         InitializeComponent();
         _smokeOutput = smokeOutput;
-        ServerInput.Text = Preferences.Load().ServerUrl ?? "";
+        _smokeOnline = smokeOutput != null && smokeOnline;
         Loaded += async (_, _) =>
         {
-            if (_smokeOutput != null) await NavigateAsync(null);
-            else if (!string.IsNullOrWhiteSpace(ServerInput.Text)) await ConnectAsync();
+            if (_smokeOutput != null && !_smokeOnline) await NavigateAsync(null);
+            else await ConnectAsync();
         };
         Closed += (_, _) => { _closing = true; _loginCancellation?.Cancel(); _browser?.Dispose(); };
     }
 
     private async void Connect_Click(object sender, RoutedEventArgs e) => await ConnectAsync();
-    private async Task ConnectAsync()
-    {
-        if (_loading) return;
-        try { await NavigateAsync(ServerAddress.Parse(ServerInput.Text)); }
-        catch (ArgumentException error) { ShowSetup(error.Message); }
-    }
+    private Task ConnectAsync() => NavigateAsync(ServiceOrigin);
 
     private async void Demo_Click(object sender, RoutedEventArgs e) => await NavigateAsync(null);
-    private void Settings_Click(object sender, RoutedEventArgs e) { if (!_loading) ShowSetup(); }
     private void Reload_Click(object sender, RoutedEventArgs e)
     {
         if (_loading || _loginCancellation != null) return;
         if (_browser?.CoreWebView2 != null && BrowserHost.Visibility == Visibility.Visible) _browser.Reload();
-        else if (_server != null) _ = NavigateAsync(_server);
+        else _ = ConnectAsync();
     }
     private void Runtime_Click(object sender, RoutedEventArgs e) => OpenBrowser(new Uri(RuntimeUrl));
 
@@ -62,11 +58,21 @@ public partial class MainWindow : Window
         if (_loading || _closing) return;
         _loading = true;
         _loginCancellation?.Cancel();
-        ConnectButton.IsEnabled = false;
+        RetryButton.IsEnabled = false;
+        DemoButton.IsEnabled = false;
+        OfflineButton.IsEnabled = false;
+        OnlineButton.IsEnabled = false;
         BrowserLoginButton.IsEnabled = false;
-        SetupError.Text = "";
+        BrowserHost.Visibility = Visibility.Collapsed;
+        SignInPanel.Visibility = Visibility.Collapsed;
+        ConnectionPanel.Visibility = Visibility.Visible;
+        ConnectionHeading.Text = server == null ? "お試しモードを開いています" : "Task Boardを開いています";
+        ConnectionMessage.Text = "まもなく画面が表示されます。";
+        ConnectionProgress.Visibility = Visibility.Visible;
+        RetryButton.Visibility = Visibility.Collapsed;
+        OfflineButton.Visibility = Visibility.Collapsed;
         RuntimeButton.Visibility = Visibility.Collapsed;
-        StatusText.Text = server == null ? "お試しモードを準備しています…" : "接続先を確認しています…";
+        StatusText.Text = ConnectionHeading.Text + "…";
         try
         {
             if (server != null)
@@ -77,7 +83,7 @@ public partial class MainWindow : Window
                 var config = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
                 using (config)
                     if (!config.RootElement.TryGetProperty("registrationEnabled", out _))
-                        throw new InvalidOperationException("Task Boardの接続先URLを入力してください。");
+                        throw new InvalidOperationException("サービスを利用できません。時間をおいて再試行してください。");
             }
             if (_closing) return;
             _server = server;
@@ -89,7 +95,7 @@ public partial class MainWindow : Window
             _browser = browser;
             BrowserHost.Children.Add(browser);
             BrowserHost.Visibility = Visibility.Visible;
-            SetupPanel.Visibility = Visibility.Collapsed;
+            ConnectionPanel.Visibility = Visibility.Collapsed;
             SignInPanel.Visibility = Visibility.Collapsed;
             var profile = Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(origin.AbsoluteUri)))[..24];
             var userData = _smokeOutput == null
@@ -116,7 +122,7 @@ public partial class MainWindow : Window
                     if (target != null && args.IsUserInitiated && ServerAddress.IsWebLink(target)) OpenBrowser(target);
                     return;
                 }
-                if (_demo && target.AbsolutePath == "/login.html") { args.Cancel = true; ShowSetup(); }
+                if (_demo && target.AbsolutePath == "/login.html") { args.Cancel = true; _ = ConnectAsync(); }
             };
             core.NewWindowRequested += (_, args) =>
             {
@@ -131,18 +137,22 @@ public partial class MainWindow : Window
                 try { if (args.TryGetWebMessageAsString() == "taskboard:sign-in") await SignInAsync(); }
                 catch (ArgumentException) { /* Ignore non-string web messages. */ }
             };
-            core.ProcessFailed += (_, _) => ShowSetup("画面を表示するプロセスが終了しました。接続し直してください。");
+            core.ProcessFailed += (_, _) => ShowConnectionError("画面を表示できなくなりました。再試行してください。");
             core.NavigationCompleted += async (_, args) =>
             {
                 if (!args.IsSuccess)
                 {
                     if (args.WebErrorStatus == CoreWebView2WebErrorStatus.OperationCanceled) return;
-                    ShowSetup("画面を読み込めませんでした。接続先と通信状況を確認して、接続し直してください。");
+                    ShowConnectionError("画面を読み込めませんでした。通信状況を確認して再試行してください。");
                     CompleteSmoke(false, "Navigation failed: " + args.WebErrorStatus);
                     return;
                 }
-                StatusText.Text = _demo ? "お試しモード · 操作内容は実際のアカウントに反映されません。" : "接続済み · " + origin.Authority;
-                if (_smokeOutput != null) await VerifyDemoAsync(core);
+                StatusText.Text = _demo ? "お試しモード · 操作内容は実際のアカウントに反映されません。" : "オンライン";
+                if (_smokeOutput != null)
+                {
+                    if (_smokeOnline) await VerifyOnlineAsync(core);
+                    else await VerifyDemoAsync(core);
+                }
             };
             if (server == null)
             {
@@ -163,31 +173,29 @@ public partial class MainWindow : Window
                 var trustedOrigin = JsonSerializer.Serialize(server.GetLeftPart(UriPartial.Authority));
                 await core.AddScriptToExecuteOnDocumentCreatedAsync("if (location.origin === " + trustedOrigin + ") { document.addEventListener('click', function(event) { if (!event.target.closest?.('#google-start')) return; event.preventDefault(); event.stopImmediatePropagation(); window.chrome.webview.postMessage('taskboard:sign-in'); }, true); }");
             }
-            ServerLabel.Text = server?.Authority ?? "お試しモード";
+            ServerLabel.Text = server == null ? "お試しモード" : "オンライン";
+            OnlineButton.Visibility = server == null ? Visibility.Visible : Visibility.Collapsed;
             BrowserLoginButton.IsEnabled = server != null;
-            core.Navigate(new Uri(origin, server == null ? "index.html?demo=1" : "index.html").AbsoluteUri);
-            if (server != null)
-            {
-                ServerInput.Text = server.AbsoluteUri.TrimEnd('/');
-                try { new Preferences(server.AbsoluteUri).Save(); }
-                catch (Exception error) when (error is IOException or UnauthorizedAccessException)
-                { StatusText.Text = "接続しました。接続先を保存できなかったため、次回起動時に再入力してください。"; }
-            }
+            core.Navigate(new Uri(origin, server == null ? "index.html?demo=1" : "login.html?mode=register").AbsoluteUri);
         }
         catch (WebView2RuntimeNotFoundException)
         {
-            ShowSetup("画面の表示に必要なMicrosoft Edge WebView2が見つかりません。インストール後にアプリを起動し直してください。");
+            ShowConnectionError("画面の表示に必要なMicrosoft Edge WebView2が見つかりません。インストール後にアプリを起動し直してください。");
             RuntimeButton.Visibility = Visibility.Visible;
             CompleteSmoke(false, "WebView2 Runtime is missing.");
         }
         catch (Exception error) when (!_closing)
         {
-            ShowSetup(error is HttpRequestException or TaskCanceledException
-                ? "接続できませんでした。サーバーが起動しているか、URLと通信状況を確認してください。"
-                : error is JsonException ? "Task BoardのサーバーURLを入力してください。" : error.Message);
+            ShowConnectionError(error is HttpRequestException or TaskCanceledException
+                ? "サーバーに接続できませんでした。通信状況を確認するか、時間をおいて再試行してください。"
+                : error is JsonException ? "サービスを利用できません。時間をおいて再試行してください。" : error.Message);
             CompleteSmoke(false, error.GetType().Name + ": " + error.Message);
         }
-        finally { _loading = false; if (!_closing) ConnectButton.IsEnabled = true; }
+        finally
+        {
+            _loading = false;
+            if (!_closing) RetryButton.IsEnabled = DemoButton.IsEnabled = OfflineButton.IsEnabled = OnlineButton.IsEnabled = true;
+        }
     }
 
     private async void BrowserLogin_Click(object sender, RoutedEventArgs e) => await SignInAsync();
@@ -208,7 +216,7 @@ public partial class MainWindow : Window
             _verification = new Uri(challenge.VerificationUri);
             SignInCode.Text = challenge.UserCode;
             BrowserHost.Visibility = Visibility.Collapsed;
-            SetupPanel.Visibility = Visibility.Collapsed;
+            ConnectionPanel.Visibility = Visibility.Collapsed;
             SignInPanel.Visibility = Visibility.Visible;
             OpenBrowser(_verification);
             StatusText.Text = "ブラウザーでの承認を待っています。コードの有効期限は10分です。";
@@ -256,22 +264,26 @@ public partial class MainWindow : Window
     {
         _loginCancellation?.Cancel(); ShowWeb(); StatusText.Text = "ログインをキャンセルしました。";
     }
-    private void ShowSetup(string message = "")
+    private void ShowConnectionError(string message)
     {
         if (_closing) return;
         _loginCancellation?.Cancel();
         BrowserHost.Visibility = Visibility.Collapsed;
         SignInPanel.Visibility = Visibility.Collapsed;
-        SetupPanel.Visibility = Visibility.Visible;
-        SetupError.Text = message;
-        StatusText.Text = "接続先を設定するか、お試しモードを開いてください。";
+        ConnectionPanel.Visibility = Visibility.Visible;
+        ConnectionHeading.Text = "Task Boardを開けませんでした";
+        ConnectionMessage.Text = message;
+        ConnectionProgress.Visibility = Visibility.Collapsed;
+        RetryButton.Visibility = Visibility.Visible;
+        OfflineButton.Visibility = Visibility.Visible;
+        StatusText.Text = "再試行するか、お試しモードをご利用ください。";
         BrowserLoginButton.IsEnabled = false;
-        ServerInput.Focus();
+        RetryButton.Focus();
     }
     private void ShowWeb()
     {
         if (_closing) return;
-        SetupPanel.Visibility = Visibility.Collapsed;
+        ConnectionPanel.Visibility = Visibility.Collapsed;
         SignInPanel.Visibility = Visibility.Collapsed;
         BrowserHost.Visibility = Visibility.Visible;
     }
@@ -294,12 +306,29 @@ public partial class MainWindow : Window
         }
         CompleteSmoke(false, "Bundled demo did not initialize within 20 seconds.");
     }
+
+    private async Task VerifyOnlineAsync(CoreWebView2 core)
+    {
+        if (_smokeCompleted) return;
+        for (var attempt = 0; attempt < 80; attempt++)
+        {
+            var result = await core.ExecuteScriptAsync("Boolean(location.pathname === '/login.html' && new URLSearchParams(location.search).get('mode') === 'register' && document.getElementById('auth-form')?.getAttribute('aria-busy') === 'false' && document.getElementById('auth-heading')?.textContent === 'アカウントを作成' && document.getElementById('auth-message')?.textContent === '' && !document.getElementById('auth-submit-button')?.disabled)");
+            if (result == "true" && ServerAddress.SameOrigin(ServiceOrigin, new Uri(core.Source))
+                && ConnectionPanel.Visibility == Visibility.Collapsed)
+            {
+                CompleteSmoke(true, "Automatic startup opened the public registration screen without a connection form.");
+                return;
+            }
+            await Task.Delay(250);
+        }
+        CompleteSmoke(false, "Public registration screen did not initialize within 20 seconds.");
+    }
     private void CompleteSmoke(bool passed, string detail)
     {
         if (_smokeOutput == null || _smokeCompleted) return;
         _smokeCompleted = true;
         Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(_smokeOutput))!);
-        File.WriteAllText(_smokeOutput, JsonSerializer.Serialize(new { passed, detail, platform = Environment.OSVersion.ToString(), verifiedAt = DateTimeOffset.UtcNow }));
+        File.WriteAllText(_smokeOutput, JsonSerializer.Serialize(new { passed, detail, mode = _smokeOnline ? "online" : "demo", platform = Environment.OSVersion.ToString(), verifiedAt = DateTimeOffset.UtcNow }));
         Application.Current.Shutdown(passed ? 0 : 1);
     }
 }

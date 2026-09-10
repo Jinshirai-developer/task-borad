@@ -1,19 +1,19 @@
 # Task Board for Windows
 
-C# / .NET 10 / WPF / Microsoft Edge WebView2によるWindowsクライアントです。Web版と同じ画面・APIを利用し、Windows固有の起動、接続先設定、ブラウザーログインを担当します。初版はZIPを展開して起動する形式です。
+C# / .NET 10 / WPF / Microsoft Edge WebView2によるWindowsクライアントです。Web版と同じ画面・APIを利用し、Windows固有の起動、自動接続、ブラウザーログインを担当します。ZIPを展開して起動する形式です。
 
 ## 起動
 
-1. `taskboard-windows-0.1.0-win-x64.zip`をWindows PCで**すべて展開**します。
+1. `taskboard-windows-0.1.1-win-x64.zip`をWindows PCで**すべて展開**します。
 2. `TaskBoard.Windows.exe`を起動します。
-3. 「接続せずに試す」で、サーバーやアカウントなしに同梱デモを操作できます。データは再読み込みでリセットされます。
-4. 実データを利用する場合は、起動中のTask BoardサーバーのHTTPS URLを入力します。
+3. 公開サーバーに自動で接続し、登録・ログイン画面を開きます。ログイン済みならタスクボードへ進みます。URLの入力画面はありません。
+4. 上部の「お試し」で、サーバーやアカウントなしに同梱デモを操作できます。「オンラインに戻る」で通常の画面へ戻ります。お試しのデータは再読み込みでリセットされます。
 
 ZIPは.NETランタイムを同梱します。WebView2 Evergreen Runtimeがない場合は、起動画面のリンクからMicrosoftの配布ページを開けます。Windows x64向けです。ARM64もビルドスクリプトの`-Runtime win-arm64`で出力できますが、初版の検証対象はx64です。
 
-接続先URLはオリジン単位です。`https://example.com`、`https://example.com/index.html`を受け付け、サブパスでのホスティングは対象外です。HTTPは同じPC上の開発サーバー（`localhost` / ループバックIP）に限ります。**Mac上のサーバーへ接続するとき、Windows側の`localhost`は使えません。** 別PCから使う場合はHTTPSのサーバーURLが必要です。
+接続先は`https://taskboard-8j6.pages.dev/`に固定しています。通信に失敗したときは「再試行」と「お試しモードを開く」を表示します。WebView2が未導入の場合はインストールへの導線を表示します。
 
-接続先とWebView2プロファイルは`%LOCALAPPDATA%\TaskBoard`に保存します。サーバーごとにプロファイルを分け、接続先変更時に認証Cookieが混ざるのを防ぎます。Windowsの管理者権限は要求しません。
+WebView2プロファイルは`%LOCALAPPDATA%\TaskBoard`に保存します。オンラインとデモのプロファイルを分け、既存の公開サーバー用プロファイルを引き継ぎます。旧版の`settings.json`にある接続先は読み込みません。Windowsの管理者権限は要求しません。
 
 ## サーバー側の準備
 
@@ -26,7 +26,7 @@ dotnet ef database update
 
 上記は接続先のDBにスキーマを追加する操作です。運用先の設定で実行してください。既存のローカルプレビューDBには、この開発作業で自動適用していません。GoogleのClient ID / Client Secret、SMTP、PostgreSQLはサーバー側だけに設定し、Windowsパッケージには含めません。
 
-[ポートフォリオ用の紹介・配布ページ](https://taskboard-js-portfolio.jin-shirai-developer.chatgpt.site/p/90e0188e5bdccda266e5a1fa3562c985/) からZIPを直接ダウンロードできます。ブラウザ体験版も同じページから利用できます。実アカウント用のAPIサーバーは未公開です。同梱デモ以外の保存・チーム共有には、利用者から到達できるサーバーが必要です。
+[ポートフォリオ用の紹介・配布ページ](https://taskboard-8j6.pages.dev/about) からZIPを直接ダウンロードできます。ブラウザ体験版も同じページから利用できます。実アカウント用APIは運営者のMac上で稼働しており、保存・共有にはMacとDockerの起動が必要です。
 
 ## ブラウザーでのログイン
 
@@ -58,7 +58,7 @@ dotnet run --project desktop/TaskBoard.Windows/TaskBoard.Windows.csproj
 
 サーバーのテストは`dotnet test TaskApi.sln`、接続先検証は`dotnet test desktop/TaskBoard.Windows.Core.Tests/TaskBoard.Windows.Core.Tests.csproj`で実行します。フロントエンドの回帰テストは`node --test tests/*.test.cjs`です。
 
-GitHub Actionsの`Windows client`は、Windows上でビルドし、WPFウィンドウとWebView2の初期化・同梱デモの表示を確認して、ZIPと結果JSONを非公開リポジトリのArtifactに保存します。Artifactは14日間保持されます。公開Releaseの作成は行いません。WebView2 RuntimeがないRunnerでは起動テストが失敗します。
+GitHub Actionsの`Windows client`は、Windows上でビルドしたZIPを展開し、そのEXEからWPF・WebView2の初期化と同梱デモの表示を確認します。mainへのpushでは公開サーバーへの自動接続と登録フォームの初期化も確認します。公開サーバー停止中でも開発ビルドは保存しますが、配布更新にはオンライン確認の成功結果も必要です。ZIPと結果JSONは非公開リポジトリのArtifactで14日間保持します。公開Releaseの作成は行いません。
 
 ## 初版の範囲
 

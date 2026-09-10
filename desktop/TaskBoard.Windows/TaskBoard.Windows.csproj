@@ -9,7 +9,7 @@
     <AssemblyName>TaskBoard.Windows</AssemblyName>
     <Product>Task Board</Product>
     <Description>Task Board Windows client</Description>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <PublishTrimmed>false</PublishTrimmed>
   </PropertyGroup>

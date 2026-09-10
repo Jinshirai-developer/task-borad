@@ -12,26 +12,22 @@
     <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
      <Button x:Name="BrowserLoginButton" Content="ブラウザーでログイン" Click="BrowserLogin_Click" IsEnabled="False"/>
      <Button Content="再読み込み" Click="Reload_Click"/>
-     <Button Content="接続先" Click="Settings_Click"/>
-     <Button Content="お試し" Click="Demo_Click"/>
+     <Button x:Name="OnlineButton" Content="オンラインに戻る" Click="Connect_Click" Visibility="Collapsed"/>
+     <Button x:Name="DemoButton" Content="お試し" Click="Demo_Click" IsEnabled="False"/>
     </StackPanel>
     <TextBlock x:Name="ServerLabel" Text="for Windows" Foreground="#6C7D70" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap"/>
    </DockPanel>
   </Border>
   <Grid Grid.Row="1">
    <Grid x:Name="BrowserHost" Visibility="Collapsed"/>
-   <Border x:Name="SetupPanel" Background="White" BorderBrush="#DCE6DF" BorderThickness="1" CornerRadius="16"
+   <Border x:Name="ConnectionPanel" Background="White" BorderBrush="#DCE6DF" BorderThickness="1" CornerRadius="16"
     MaxWidth="590" Padding="36" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="28">
     <StackPanel>
-     <TextBlock Text="Task Boardに接続" FontSize="26" FontWeight="Bold" Foreground="#263E2E"/>
-     <TextBlock Text="Web版と同じアカウントで、タスクとチームを利用できます。" Margin="0,14,0,26" Foreground="#5F7063"/>
-     <Label Content="接続先URL" Target="{Binding ElementName=ServerInput}" Padding="0,0,0,6"/>
-     <TextBox x:Name="ServerInput" Padding="12" FontSize="16" AutomationProperties.Name="接続先URL"/>
-     <TextBlock Text="例：https://taskboard.example.com" Margin="0,8,0,20" FontSize="12" Foreground="#68796C"/>
-     <Button x:Name="ConnectButton" Content="接続する" Background="#345C46" Foreground="White" Click="Connect_Click" IsDefault="True" Padding="16,12"/>
-     <Button Content="接続せずに試す" Click="Demo_Click" Padding="16,12"/>
-     <TextBlock Text="お試しモードではサンプルのタスクを操作できます。実際のアカウントやチームには反映されません。" Margin="4,14,4,0" Foreground="#68796C" FontSize="12"/>
-     <TextBlock x:Name="SetupError" Foreground="#A23131" Margin="4,14,4,0" AutomationProperties.LiveSetting="Polite"/>
+     <TextBlock x:Name="ConnectionHeading" Text="Task Boardを開いています" FontSize="26" FontWeight="Bold" Foreground="#263E2E"/>
+     <TextBlock x:Name="ConnectionMessage" Text="まもなく画面が表示されます。" TextWrapping="Wrap" Margin="0,14,0,26" Foreground="#5F7063" AutomationProperties.LiveSetting="Polite"/>
+     <ProgressBar x:Name="ConnectionProgress" IsIndeterminate="True" Height="4" Margin="0,0,0,12"/>
+     <Button x:Name="RetryButton" Content="再試行" Background="#345C46" Foreground="White" Click="Connect_Click" IsDefault="True" Padding="16,12" Visibility="Collapsed"/>
+     <Button x:Name="OfflineButton" Content="お試しモードを開く" Click="Demo_Click" Padding="16,12" Visibility="Collapsed"/>
      <Button x:Name="RuntimeButton" Content="WebView2を入手する" Visibility="Collapsed" Click="Runtime_Click"/>
     </StackPanel>
    </Border>
@@ -46,6 +42,6 @@
     </StackPanel>
    </Border>
   </Grid>
-  <TextBlock Grid.Row="2" x:Name="StatusText" Text="接続先を設定するか、お試しモードを開いてください。" Margin="18,4" FontSize="12" Foreground="#526757" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" AutomationProperties.LiveSetting="Polite"/>
+  <TextBlock Grid.Row="2" x:Name="StatusText" Text="Task Boardを開いています…" Margin="18,4" FontSize="12" Foreground="#526757" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" AutomationProperties.LiveSetting="Polite"/>
  </Grid>
 </Window>

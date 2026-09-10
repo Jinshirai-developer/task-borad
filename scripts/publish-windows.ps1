@@ -13,7 +13,7 @@ try {
     dotnet publish $project -c Release -r $Runtime --self-contained true -o $packageDirectory
     if ($LASTEXITCODE -ne 0) { throw 'Windowsクライアントのビルドに失敗しました。' }
     Copy-Item (Join-Path $repository 'desktop/README.txt') (Join-Path $packageDirectory 'README.txt')
-    $archive = Join-Path $destination "taskboard-windows-0.1.0-$Runtime.zip"
+    $archive = Join-Path $destination "taskboard-windows-0.1.1-$Runtime.zip"
     Compress-Archive -Path (Join-Path $packageDirectory '*') -DestinationPath $archive -Force
     (Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() | Set-Content "$archive.sha256" -Encoding ascii
     Write-Output "ZIP: $archive"
