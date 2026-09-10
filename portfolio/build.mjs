@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const project = path.dirname(fileURLToPath(import.meta.url));
 const input = fs.existsSync(path.join(project, 'frontend')) ? project : path.dirname(project);
 const release = JSON.parse(fs.readFileSync(path.join(project, 'release.json')));
-const releaseZip = process.env.TASKBOARD_WINDOWS_ZIP || path.join(input, '.local/windows-0.1.0', release.name);
+const releaseZip = process.env.TASKBOARD_WINDOWS_ZIP || path.join(input, '.local', `windows-${release.version || '0.1.0'}`, release.name);
 const dist = path.join(project, 'dist/server'), uploadRoot = path.join(project, 'uploads');
 fs.mkdirSync(dist, { recursive: true }); fs.mkdirSync(uploadRoot, { recursive: true });
 const textFiles = {}, objects = {}, uploadFiles = [];
@@ -50,7 +50,7 @@ for (let offset = 0, part = 0; offset < archive.length; offset += 16 * 1024 * 10
 }
 const manifestHash = hash(Buffer.from(JSON.stringify(objects)));
 const ready = addObject('_ready', Buffer.from(JSON.stringify({ manifestHash, release: release.sha256 })), 'application/json');
-const config = { base: release.base, release, readyKey: ready.key };
+const config = { base: release.base, release, readyKey: ready.key, allowReleaseUpload: process.env.TASKBOARD_RELEASE_UPLOAD === '1' };
 const source = fs.readFileSync(path.join(project, 'worker.mjs'), 'utf8');
 fs.writeFileSync(path.join(dist, 'index.js'), source + '\nexport default createWorker(' + JSON.stringify(config) + ',' + JSON.stringify(textFiles) + ',' + JSON.stringify(objects) + ');\n');
 fs.writeFileSync(path.join(uploadRoot, 'manifest.json'), JSON.stringify({ ...config, files: uploadFiles }, null, 2));

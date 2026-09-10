@@ -25,8 +25,8 @@ npm run build
 npm run dev
 ```
 
-`TASKBOARD_WINDOWS_ZIP` で検証済みZIPの絶対パスを指定できます。既定はリポジトリ内 `.local/windows-0.1.0/` です。ビルドはZIP全体のSHA-256を検証し、WorkerとSHA-256付きの配布オブジェクトを生成します。公開画面のHTML/CSS/JavaScriptはWorkerへまとめ、画像と16MiBずつのZIP断片はR2へ保存します。HTTP Rangeによる途中再開に対応します。
+`TASKBOARD_WINDOWS_ZIP` で検証済みZIPの絶対パスを指定できます。既定はリポジトリ内 `.local/windows-<release.jsonのversion>/` です。配布にはWindows CIのZIP展開・デモ起動・自動接続の成功記録が必要です。ビルドはZIP全体のSHA-256を検証し、WorkerとSHA-256付きの配布オブジェクトを生成します。公開画面のHTML/CSS/JavaScriptはWorkerへまとめ、画像と16MiBずつのZIP断片はR2へ保存します。HTTP Rangeによる途中再開に対応します。
 
-アップロードは登録済みSHA-256とサイズに一致するオブジェクトだけを受け付けます。Sitesの一時的な秘密値 `RELEASE_UPLOAD_TOKEN` と期限 `RELEASE_UPLOAD_EXPIRES` の両方が必要です。完了マーカーは全オブジェクトのアップロード・検証後に保存します。配布前に秘密値を削除して再デプロイし、アップロード経路を無効化します。
+アップロードは登録済みSHA-256とサイズに一致するオブジェクトだけを受け付けます。アップロード時のビルド指定 `TASKBOARD_RELEASE_UPLOAD=1` と、Sitesの一時的な秘密値 `RELEASE_UPLOAD_TOKEN`・期限 `RELEASE_UPLOAD_EXPIRES` が必要です。完了マーカーは全オブジェクトのアップロード・検証後に保存します。完了後はビルド指定なしで再ビルドした版を配信し、秘密値も削除します。通常版は古い秘密値がランタイムに残ってもアップロードを受け付けません。
 
 `dist` と `uploads` は生成物です。Siteの登録先は `.openai/hosting.json` を再利用し、作り直しません。

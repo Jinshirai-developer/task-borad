@@ -31,10 +31,10 @@
       <p class="demo-note" id="about-demo">体験版はサンプルデータで動作します。変更は再読み込みでリセットされ、実際の招待・共有・決済は行いません。</p>
     </section>
     <section class="download" aria-labelledby="download-title">
-      <div><p class="eyebrow">Windows版 · 0.1.0</p><h2 id="download-title">デスクトップでも、Task Board。</h2><p>ZIPをすべて展開して、<code>TaskBoard.Windows.exe</code>を起動。<br>「接続せずに試す」で同梱の体験版を利用できます。</p><p class="download-note">Windows x64向け · 約197MB · .NETランタイム同梱<br>実アカウントでの保存・チーム共有には、別途接続先サーバーが必要です。</p></div>
+      <div><p class="eyebrow">Windows版 · 0.1.1</p><h2 id="download-title">デスクトップでも、Task Board。</h2><p>ZIPをすべて展開して、<code>TaskBoard.Windows.exe</code>を起動。<br>登録・ログイン画面が自動で開きます。URLの入力は不要です。</p><p class="download-note">Windows x64向け · .NETランタイム同梱<br>Web版と同じアカウントを使えます。サーバーの稼働中に利用できます。<br>接続できないときも、同梱の体験版を利用できます。</p></div>
       <div class="download-action"><a class="button secondary" href="download/windows">Windows版をダウンロード <span aria-hidden="true">↓</span></a><a class="checksum" href="download/sha256">ファイルのSHA-256を確認</a></div>
     </section>
-    <details class="technical"><summary>使用技術と実装について</summary><div class="technical-body"><p><strong>Web・バックエンド</strong><br>HTML / CSS / JavaScript、ASP.NET Core 10、Entity Framework Core、PostgreSQL。認証、個人・チームの権限、更新競合の検出、タスク完了による報酬の整合性を実装しています。Web版のAPIとデータベースは開発者のMac上で動作し、HTTPSで中継しています。サーバーの稼働中に利用できます。</p><p><strong>Windows</strong><br>C# / WPF / WebView2。Web版と画面を共通化し、起動・接続先設定・外部ブラウザでのログインに対応しています。</p><p>登録せずに使う体験版はサンプルデータで動作し、変更を保存しません。Windows版は署名・専用インストーラー・自動更新に未対応です。</p></div></details>
+    <details class="technical"><summary>使用技術と実装について</summary><div class="technical-body"><p><strong>Web・バックエンド</strong><br>HTML / CSS / JavaScript、ASP.NET Core 10、Entity Framework Core、PostgreSQL。認証、個人・チームの権限、更新競合の検出、タスク完了による報酬の整合性を実装しています。Web版のAPIとデータベースは開発者のMac上で動作し、HTTPSで中継しています。サーバーの稼働中に利用できます。</p><p><strong>Windows</strong><br>C# / WPF / WebView2。Web版と画面を共通化し、起動時の自動接続・外部ブラウザでのログインに対応しています。</p><p>登録せずに使う体験版はサンプルデータで動作し、変更を保存しません。Windows版は署名・専用インストーラー・自動更新に未対応です。</p></div></details>
   </main>
   <footer><span class="brand">Task Board</span><span>ブラウザ体験版 / Windows版</span></footer>
 </body>

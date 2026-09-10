@@ -94,6 +94,7 @@ export function createWorker(config, textFiles, objects) {
         }
     }
     async function authorized(request, env) {
+        if (config.allowReleaseUpload !== true) return false;
         if (!env.RELEASE_UPLOAD_TOKEN || !env.RELEASE_UPLOAD_EXPIRES || Date.now() >= Number(env.RELEASE_UPLOAD_EXPIRES)) return false;
         const supplied = request.headers.get('Authorization') || '';
         if (supplied.length > 256) return false;

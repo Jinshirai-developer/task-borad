@@ -5,14 +5,14 @@ const base = '/p/review-link/';
 const parts = [{key:'part1',size:3},{key:'part2',size:4},{key:'part3',size:3}];
 const config = { base, readyKey:'ready', release:{ name:'windows.zip',size:10,sha256:'abc',parts } };
 const files = { 'part1':'012','part2':'3456','part3':'789', 'ready':'ready', 'picture':'PNG' };
-function fixture(ready = true) {
+function fixture(ready = true, allowReleaseUpload = false) {
     const writes = [];
     const env = { FILES: {
         async head(key) { if (key === 'ready' && !ready) return null; return Object.hasOwn(files,key) ? {size:files[key].length} : null; },
         async get(key, options) { if (!Object.hasOwn(files,key)) return null; const range=options?.range; let body=files[key]; if(range)body=body.slice(range.offset,range.offset+range.length); return {body:new Response(body).body}; },
         async put(...args) { writes.push(args); }
     } };
-    const worker = createWorker(config, {'index.html':{content:'Landing',type:'text/html'},'demo/index.html':{content:'Demo',type:'text/html'}}, {'board.png':{key:'picture',sha256:'a'.repeat(64),size:3,type:'image/png'},'_windows/0':{key:'part1',sha256:'b'.repeat(64),size:3,type:'application/octet-stream'}});
+    const worker = createWorker({...config, allowReleaseUpload}, {'index.html':{content:'Landing',type:'text/html'},'demo/index.html':{content:'Demo',type:'text/html'}}, {'board.png':{key:'picture',sha256:'a'.repeat(64),size:3,type:'image/png'},'_windows/0':{key:'part1',sha256:'b'.repeat(64),size:3,type:'application/octet-stream'}});
     const call=(path,options={}) => worker.fetch(new Request('https://site.test'+path,options),env);
     return {call,env,writes};
 }
@@ -43,7 +43,7 @@ test('download does not advertise an incomplete release as ready',async()=>{
     const {call}=fixture(false);const r=await call(base+'download/windows');assert.equal(r.status,503);assert.equal(r.headers.get('Retry-After'),'60');
 });
 test('upload requires a configured, unexpired secret and a predeclared object hash',async()=>{
-    const {call,env,writes}=fixture();const pathname='/_release-assets/'+'a'.repeat(64);
+    const {call,env,writes}=fixture(true,true);const pathname='/_release-assets/'+'a'.repeat(64);
     assert.equal((await call(pathname,{method:'PUT',body:'PNG'})).status,404);
     env.RELEASE_UPLOAD_TOKEN='release-test-secret';env.RELEASE_UPLOAD_EXPIRES=String(Date.now()+60000);
     assert.equal((await call(pathname,{method:'PUT',headers:{Authorization:'Bearer wrong'},body:'PNG'})).status,404);
@@ -52,6 +52,16 @@ test('upload requires a configured, unexpired secret and a predeclared object ha
     assert.equal((await call(pathname,{method:'PUT',headers:{...headers,'Content-Length':'9'},body:'PNG'})).status,400);
     assert.equal((await call(pathname,{method:'PUT',headers,body:'PNG'})).status,200);assert.equal(writes.length,1);assert.equal(writes[0][0],'picture');assert.equal(writes[0][2].sha256,'a'.repeat(64));
     env.RELEASE_UPLOAD_EXPIRES=String(Date.now()-1);assert.equal((await call(pathname,{method:'PUT',headers,body:'PNG'})).status,404);assert.equal(writes.length,1);
+});
+test('normal releases reject uploads even when an old valid secret remains',async()=>{
+    const {call,env,writes}=fixture();
+    env.RELEASE_UPLOAD_TOKEN='release-test-secret';env.RELEASE_UPLOAD_EXPIRES=String(Date.now()+60000);
+    const headers={Authorization:'Bearer release-test-secret','Content-Length':'3'};
+    const pathname='/_release-assets/'+'a'.repeat(64);
+    assert.equal((await call(pathname,{method:'HEAD',headers})).status,404);
+    assert.equal((await call(pathname,{method:'PUT',headers,body:'PNG'})).status,404);
+    assert.equal(writes.length,0);
+    assert.equal(await (await call(base+'download/windows')).text(),'0123456789');
 });
 test('Mac entry grants link access and anonymous root APIs remain hidden',async()=>{
     const {call,env}=fixture();
