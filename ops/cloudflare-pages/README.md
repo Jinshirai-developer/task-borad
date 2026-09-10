@@ -1,6 +1,6 @@
 # Cloudflare Pages URLへの移行
 
-Mac上のAPI・DBを維持したまま、登録画面とWindows配布への入口を `https://<project>.pages.dev` にまとめます。希望名は `taskboard`。名前の空き状況と正式なURLはCloudflareのプロジェクト作成結果で確定します。
+Mac上のAPI・DBを維持したまま、登録画面とWindows配布への入口を `https://taskboard-8j6.pages.dev` にまとめます。Pagesプロジェクト名は `taskboard`。Cloudflareが作成時に割り当てたURL・ブランチ等を `deployment.json` に記録しています。
 
 ## ビルドと確認
 
@@ -13,7 +13,7 @@ node ops/cloudflare-pages/build.mjs
 
 ## 本番の設定と切り替え順序
 
-1. Cloudflareにログインし、無料のPagesプロジェクトを作成。返された本番originを記録する。
+1. Cloudflareにログインし、既存のPagesプロジェクト `taskboard` を使用する。作成済みなので再作成しない。
 2. Google OAuthの承認済みリダイレクトURIに、新origin + `/signin-google` を追加する。既存のlocalhostとSitesのURIは残す。
 3. Pagesの本番環境に `PUBLIC_ORIGIN`（新origin）、`MAC_SERVER_ORIGIN`（現在のトンネルorigin）、秘密値 `MAC_SERVER_PROXY_KEY` を設定する。プレビュー環境には秘密値を設定しない。Workerもoriginを厳密に照合する。
 4. Macの `runtime.env` を権限600のままバックアップし、`Authentication__PublicBaseUrl` を新origin、`Authentication__PublicEntryPath` を `/` に変更する。アプリコンテナだけを再作成し、DB・キー・トンネルを維持する。

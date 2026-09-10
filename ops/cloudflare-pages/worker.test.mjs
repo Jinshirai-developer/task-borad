@@ -109,6 +109,14 @@ test('distribution rejects writes and unexpected external redirects', async () =
     assert.equal(calls.length, 0);
     assert.equal((await call('/about')).status, 502);
 });
+test('standalone demo entry script and introduction assets use distribution, without the Mac', async () => {
+    const { call, calls, env } = fixture();
+    delete env.MAC_SERVER_ORIGIN;
+    for (const path of ['/demo-entry.js', '/site.css', '/board.png', '/demo/index.html?demo=1']) {
+        assert.equal((await call(path)).status, 200, path);
+        assert.equal(calls.at(-1).url, config.distributionOrigin + config.distributionBase + path.slice(1));
+    }
+});
 test('Mac outages do not prevent the independent demo and download', async () => {
     const { call } = fixture(async url => {
         if (url.startsWith('https://mac.example.test')) throw new Error('offline');

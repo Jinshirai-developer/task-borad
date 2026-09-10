@@ -23,7 +23,7 @@ function appPath(path) {
         || /^\/assets\/[A-Za-z0-9/_.,-]+\.(png|webp|svg)$/.test(path);
 }
 function distributionPath(path) {
-    return ['/about', '/about/', '/site.css', '/board.png', '/download/windows', '/download/sha256'].includes(path)
+    return ['/about', '/about/', '/site.css', '/demo-entry.js', '/board.png', '/download/windows', '/download/sha256'].includes(path)
         || path === '/demo/'
         || /^\/demo\/[A-Za-z0-9/_.,-]+\.(html|css|js|png|webp|svg)$/.test(path);
 }
