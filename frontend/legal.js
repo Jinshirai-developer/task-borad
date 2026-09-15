@@ -22,7 +22,7 @@
             if (key === "contactEmail" && isContactEmail(value)) {
                 const link = document.createElement("a");
                 link.href = `mailto:${value}`;
-                link.textContent = value;
+                link.textContent = "メールで問い合わせ";
                 element.replaceChildren(link);
             }
         });

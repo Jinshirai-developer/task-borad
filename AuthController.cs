@@ -32,7 +32,8 @@ public class AuthController(
         googleLoginEnabled = google.Value.Enabled,
         termsVersion = LegalOptions.CurrentTermsVersion,
         privacyVersion = LegalOptions.CurrentPrivacyVersion,
-        legal.Value.OperatorName, legal.Value.ContactEmail,
+        operatorName = legal.Value.OperatorDisplayName,
+        legal.Value.ContactEmail,
         legal.Value.HostingProvider, legal.Value.EmailProvider,
         legal.Value.LogRetention, legal.Value.BackupRetention, legal.Value.PublicReleaseReady
     });

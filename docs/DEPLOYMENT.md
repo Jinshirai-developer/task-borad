@@ -18,14 +18,20 @@ v17のStripe連携はテスト専用・初期無効です。実際の請求を�
 | `Email__Host` / `Port` / `Security` | SMTP接続先。公開環境は `StartTls` または `SslOnConnect` |
 | `Email__Username` / `Password` | SMTP認証情報。利用先の要件に従いSecret管理 |
 | `Email__FromAddress` / `FromName` | 配信に利用する確認済み送信元 |
-| `Legal__OperatorName` / `ContactEmail` | 実際の運営者名と連絡先メール |
+| `Legal__OperatorName` | 実際の運営者名。内部設定として保持し、公開APIには返さない |
+| `Legal__OperatorDisplayName` | 公開するサービス・運営窓口の表示名（例: Task Board（個人運営）） |
+| `Legal__ContactEmail` | 実際に受信できる問い合わせ用メール。画面はリンク名で表示するが、APIとmailtoの宛先には含まれる |
 | `Legal__HostingProvider` / `EmailProvider` | 実際の利用先・必要に応じ保存/処理地域 |
 | `Legal__LogRetention` / `BackupRetention` | 実際の保存期間と削除・更新方針 |
 | `Registration__Enabled` / `MaxUsers` | 登録受付と総数上限（初期値100） |
 
-`Development` / `Testing` 以外では、HTTPS origin、鍵の保存先、暗号化SMTP、Legalの6項目等が不足すると起動を拒否します。メールリンクのoriginはリクエストの `Host` ではなく `Authentication__PublicBaseUrl` から生成します。
+`Development` / `Testing` 以外では、HTTPS origin、鍵の保存先、暗号化SMTP、Legalの必須項目等が不足すると起動を拒否します。メールリンクのoriginはリクエストの `Host` ではなく `Authentication__PublicBaseUrl` から生成します。
 
 `GET /api/auth/config` の `publicReleaseReady` は、運営情報の項目が埋まっているという機械的な状態です。法的承認、設定内容の真偽、実配送、公開試験の合格を保証しません。文書と実際の運用を公開前に照合してください。
+
+公開APIの `operatorName` は `Legal__OperatorDisplayName` を返します。表示名の未設定時に実名へ戻す処理はありません。規約では、個人運営であることと、運営者の氏名・住所を問い合わせに応じて遅滞なく案内する方法を記載しています。実際に案内できる問い合わせ窓口を運用してください。[個人情報保護委員会の説明](https://www.ppc.go.jp/personalinfo/legal/guidelines_tsusoku/)を参照し、表示方法と運用を一致させてください。
+
+メールアドレスのリンク表示は非公開化ではありません。API・HTMLのmailto宛先・実メールの差出人からアドレスを確認できます。アドレス自体を非公開にする場合は、有効な専用の問い合わせ・送信元とGoogle側のサポート連絡先も別途整える必要があります。
 
 ## Cookie・CSRF・鍵の運用
 
