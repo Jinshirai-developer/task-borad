@@ -2,6 +2,12 @@
 
 Web版とWindows版を管理するリポジトリです。Web版はASP.NET Coreとブラウザーで動作します。Windows版はC# / WPF / WebView2で既存の画面を表示し、共通のAPIとDBに接続します。Windows版の起動・ビルド方法は [desktop/README.md](desktop/README.md) を参照してください。
 
+## 開発履歴について
+
+開発用GitHubアカウントの移行に伴い、2026年9月10日に、それまでに実装したWeb版を初回コミットとしてこのリポジトリへ取り込みました。移行前の個別のコミット履歴は含まれておらず、このリポジトリの作成日・コミット数は、開発全体の期間・変更回数を表すものではありません。
+
+移行前の改善内容や検証結果は、[操作性の改善記録](docs/WORKFLOW_V24_WORK.md)と[全機能デバッグの記録](docs/FULL_FEATURE_DEBUG_2026-09-09.md)にまとめています。移行後の変更はコミット履歴に記録しており、[Windows版0.1.1の変更・検証記録](docs/WINDOWS_V011_WORK.md)も参照できます。
+
 ## Web版とWindows版の開発方針
 
 - `main`：Web版と共通APIの安定版。現在の実装をここに置きます。
